@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 10:23:34 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/04 22:51:53 by lluque           ###   ########.fr       */
+/*   Updated: 2024/02/05 00:28:03 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@
  * Pointer to next node of the list. Will point to itself if it is the only
  * node in the list.
 */
-
 typedef struct s_ps_stacks
 {
 	t_dlclst	*a;

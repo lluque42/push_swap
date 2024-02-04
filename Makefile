@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/24 14:23:32 by lluque            #+#    #+#              #
-#    Updated: 2024/02/04 23:43:00 by lluque           ###   ########.fr        #
+#    Updated: 2024/02/05 00:29:18 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,10 @@ SOURCES = main.c \
 		  ps_lang/swap.c \
 		  ps_lang/push.c \
 		  ps_lang/rotate.c \
-		  ps_lang/rrotate.c
+		  ps_lang/rrotate.c \
+		  dlclst_int_utils/del.c \
+		  dlclst_int_utils/compare.c \
+		  dlclst_int_utils/print.c
 
 # Auto generated list of object file names from SOURCES
 # (here the path is relative to repository's root)
