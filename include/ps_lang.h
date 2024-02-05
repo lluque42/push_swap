@@ -6,13 +6,13 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 10:23:34 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/05 00:28:03 by lluque           ###   ########.fr       */
+/*   Updated: 2024/02/05 17:09:12 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /**
+ * @file ps_lang.h
  * TODO
- * @file ft_dlclst.h
  * Doubly linked circular list implementation. Part of libft library.  
  * A dlclst has a head which points to the node that is to be interpreted as the
  * begining of the list or its first element. In the same way, the list alsohas
@@ -33,21 +33,16 @@
 # include "libft.h"
 
 /**
- * TODO
- * @struct s_dlclst
- * @brief Base for typedef <b>t_dlclst</b> for a doubly linked circular list
- * node.
- * @details This type is used as a node for a doubly linked (two-way) dynamic
- * circular list.
- * Any node could serve  as a list for itself (i.e. as the head of a list).
- * @var s_dlclst::content
- * Pointer to void to allow caller to use arbitrary type.
- * @var s_dlclst::prev
- * Pointer to previous node of the list. Will point to itself if it is the only
- * node in the list.
- * @var s_dlclst::next
- * Pointer to next node of the list. Will point to itself if it is the only
- * node in the list.
+ * @struct s_ps_stacks
+ * @brief Base for typedef <b>t_ps_stacks</b> for the main data structure for
+ * push_swap project.
+ * @details This type is used as the main data structure for push_swap project.
+ * It contains both stack a and b implemented with doubly linked circular list
+ * implementation from libft.
+ * @var s_ps_stacks::a
+ * Stack a to be initialized and sorted.
+ * @var s_ps_stacks::b
+ * Stack b to be used while sorting stack a elements.
 */
 typedef struct s_ps_stacks
 {
@@ -70,7 +65,7 @@ typedef struct s_ps_stacks
  * returned.
  * If malloc fails, must return NULL.
 */
-void	sa(t_ps_stacks *ps);
+void		sa(t_ps_stacks *ps);
 
 /**
  * @brief <b>sb</b> -- Swap b.
@@ -87,7 +82,7 @@ void	sa(t_ps_stacks *ps);
  * returned.
  * If malloc fails, must return NULL.
 */
-void	sb(t_ps_stacks *ps);
+void		sb(t_ps_stacks *ps);
 
 /**
  * @brief <b>ss</b> -- Swap a and b at the same time.
@@ -103,7 +98,7 @@ void	sb(t_ps_stacks *ps);
  * returned.
  * If malloc fails, must return NULL.
 */
-void	ss(t_ps_stacks *ps);
+void		ss(t_ps_stacks *ps);
 
 /**
  * @brief <b>pa</b> -- Pop b then push it to a.
@@ -120,7 +115,7 @@ void	ss(t_ps_stacks *ps);
  * returned.
  * If malloc fails, must return NULL.
 */
-void	pa(t_ps_stacks *ps);
+void		pa(t_ps_stacks *ps);
 
 /**
  * @brief <b>pb</b> -- Pop a then push it to b.
@@ -137,7 +132,7 @@ void	pa(t_ps_stacks *ps);
  * returned.
  * If malloc fails, must return NULL.
 */
-void	pb(t_ps_stacks *ps);
+void		pb(t_ps_stacks *ps);
 
 /**
  * @brief <b>ra</b> -- Rotate a.
@@ -154,7 +149,7 @@ void	pb(t_ps_stacks *ps);
  * returned.
  * If malloc fails, must return NULL.
 */
-void	ra(t_ps_stacks *ps);
+void		ra(t_ps_stacks *ps);
 
 /**
  * @brief <b>rb</b> -- Rotate b.
@@ -171,7 +166,7 @@ void	ra(t_ps_stacks *ps);
  * returned.
  * If malloc fails, must return NULL.
 */
-void	rb(t_ps_stacks *ps);
+void		rb(t_ps_stacks *ps);
 
 /**
  * @brief <b>rr</b> -- Rotate a and b at the same time.
@@ -187,7 +182,7 @@ void	rb(t_ps_stacks *ps);
  * returned.
  * If malloc fails, must return NULL.
 */
-void	rr(t_ps_stacks *ps);
+void		rr(t_ps_stacks *ps);
 
 /**
  * @brief <b>rra</b> -- Reverse rotate a.
@@ -204,7 +199,7 @@ void	rr(t_ps_stacks *ps);
  * returned.
  * If malloc fails, must return NULL.
 */
-void	rra(t_ps_stacks *ps);
+void		rra(t_ps_stacks *ps);
 
 /**
  * @brief <b>rrb</b> -- Reverse rotate b.
@@ -221,7 +216,7 @@ void	rra(t_ps_stacks *ps);
  * returned.
  * If malloc fails, must return NULL.
 */
-void	rrb(t_ps_stacks *ps);
+void		rrb(t_ps_stacks *ps);
 
 /**
  * @brief <b>rrr</b> -- Reverse rotate a and b at the same time.
@@ -237,6 +232,18 @@ void	rrb(t_ps_stacks *ps);
  * returned.
  * If malloc fails, must return NULL.
 */
-void	rrr(t_ps_stacks *ps);
+void		rrr(t_ps_stacks *ps);
+
+t_ps_stacks	*init_ps(void);
+
+void		free_ps(t_ps_stacks **ps);
+
+int			already_in_a(t_ps_stacks *ps, int element);
+
+int			pusha(t_ps_stacks *ps, int element);
+
+void		printa(t_ps_stacks *ps);
+
+void		printb(t_ps_stacks *ps);
 
 #endif
