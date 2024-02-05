@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 08:44:46 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/05 09:42:48 by lluque           ###   ########.fr       */
+/*   Updated: 2024/02/05 21:34:33 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	already_in_a(t_ps_stacks *ps, int element)
 	return (ft_dlclst_search(ps->a, compare, &element) >= 0);
 }
 
-int	pusha(t_ps_stacks *ps, int element)
+int	bottom_pusha(t_ps_stacks *ps, int element)
 {
 	t_dlclst	*node;
 	void		*content;

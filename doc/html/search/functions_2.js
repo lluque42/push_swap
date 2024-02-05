@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['is_5fsorted_0',['is_sorted',['../dlclst__int__utils_8h.html#a4717b8d6bb2da916b94eacdc1d5a0d3e',1,'dlclst_int_utils.h']]]
+  ['compare_0',['compare',['../dlclst__int__utils_8h.html#a3caf8bb9fb0df40e9f37f535d2d946a6',1,'dlclst_int_utils.h']]]
 ];

@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/24 14:23:32 by lluque            #+#    #+#              #
-#    Updated: 2024/02/05 14:58:27 by lluque           ###   ########.fr        #
+#    Updated: 2024/02/05 20:42:23 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,10 +51,12 @@ endif
 
 # List of header file names that, if modified, should force recompiling
 INCLUDES = $(INC_DIR)ps_lang.h \
-		   $(INC_DIR)dlclst_int_utils.h
+		   $(INC_DIR)dlclst_int_utils.h \
+		   $(INC_DIR)main_utils.h
 
 # List of source code file names with path relative to SRC_DIR
 SOURCES = ps_main.c \
+		  main_utils.c \
 		  ps_lang/swap.c \
 		  ps_lang/push.c \
 		  ps_lang/rotate.c \

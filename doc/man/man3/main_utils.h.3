@@ -1,0 +1,57 @@
+.TH "include/main_utils.h" 3 "Mon Feb 5 2024" "Version 2024-02-05" "Push Swap" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/main_utils.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'ps_lang\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBexit_on_error\fP (\fBt_ps_stacks\fP *ps)"
+.br
+.RI "\fBexit_on_error\fP -- Frees t_ps_stacks structure containing the stacks, prints 'Error' and exits with code 1\&. "
+.ti -1c
+.RI "void \fBparse_arguments\fP (\fBt_ps_stacks\fP *ps, int argc, char **argv)"
+.br
+.RI "\fBparse_arguments\fP -- Fills stack a with command line arguments\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Set of functions to be used with push swap programs main() functions\&. 
+.SH "Function Documentation"
+.PP 
+.SS "void exit_on_error (\fBt_ps_stacks\fP * ps)"
+
+.PP
+\fBexit_on_error\fP -- Frees t_ps_stacks structure containing the stacks, prints 'Error' and exits with code 1\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIps\fP - The pointer to t_ps_stacks data structure\&. 
+.RE
+.PP
+
+.SS "void parse_arguments (\fBt_ps_stacks\fP * ps, int argc, char ** argv)"
+
+.PP
+\fBparse_arguments\fP -- Fills stack a with command line arguments\&. Parses and validates command line arguments and pushes valid integers into stack a\&. If one argument is invalid the function \fBexit_on_error()\fP is called\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIps\fP - The pointer to t_ps_stacks data structure\&.
+.br
+\fIargc\fP - Main parameter argc\&.
+.br
+\fIargv\fP - Main parameter argv\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Push Swap from the source code\&.

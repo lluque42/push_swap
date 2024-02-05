@@ -40,7 +40,7 @@ include/dlclst_int_utils.h
 .br
 .RI "\fBprint\fP -- Prints integer value pointed to by void pointer\&. "
 .ti -1c
-.RI "int \fBis_sorted\fP (t_dlclst *lst, t_sortdir order)"
+.RI "int \fBis_sorted\fP (t_dlclst *lst, t_sortdir direction)"
 .br
 .RI "\fBis_sorted\fP -- Scan a dlclst of integers to check if sorted\&. "
 .in -1c
@@ -98,7 +98,7 @@ EXTERNAL FUNCTION USED: malloc()\&.
 .RE
 .PP
 
-.SS "int is_sorted (t_dlclst * lst, t_sortdir order)"
+.SS "int is_sorted (t_dlclst * lst, t_sortdir direction)"
 
 .PP
 \fBis_sorted\fP -- Scan a dlclst of integers to check if sorted\&. 
@@ -107,7 +107,7 @@ EXTERNAL FUNCTION USED: malloc()\&.
 .RS 4
 \fIlst\fP - Pointer to a list\&.
 .br
-\fIDirection\fP - Sorting direction\&.
+\fIdirection\fP - Sorting direction\&.
 .RE
 .PP
 \fBReturns\fP

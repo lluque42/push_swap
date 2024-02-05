@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 00:14:56 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/05 17:09:38 by lluque           ###   ########.fr       */
+/*   Updated: 2024/02/05 21:40:53 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,12 @@ void	print(void *content);
  *
  * @param [in] lst - Pointer to a list.
  *
- * @param [in] Direction - Sorting direction.
+ * @param [in] direction - Sorting direction.
  *
  * @return A value of 1 if list is sorted in the indicated direction, a value
  * of 0 otherwise.  
  * A value of -1 if lst is NULL.
 */
-int		is_sorted(t_dlclst *lst, t_sortdir order);
+int		is_sorted(t_dlclst *lst, t_sortdir direction);
 
 #endif
