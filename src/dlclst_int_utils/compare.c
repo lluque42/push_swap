@@ -6,11 +6,11 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 00:06:44 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/05 00:13:00 by lluque           ###   ########.fr       */
+/*   Updated: 2024/02/05 17:07:58 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		compare(void *a, void *b)
+int	compare(void *a, void *b)
 {
 	if (*(int *)a == *(int *)b)
 		return (1);
