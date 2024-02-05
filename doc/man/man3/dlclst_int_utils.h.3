@@ -1,0 +1,139 @@
+.TH "include/dlclst_int_utils.h" 3 "Mon Feb 5 2024" "Version 2024-02-05" "Push Swap" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/dlclst_int_utils.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'libft\&.h'\fP
+.br
+
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBe_sortdir\fP \fBt_sortdir\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBe_sortdir\fP { \fBASCENDING\fP, \fBDESCENDING\fP }"
+.br
+.RI "Base for typedef \fBt_sortdir\fP to use with list sorting related functions\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBcompare\fP (void *a, void *b)"
+.br
+.RI "\fBcompare\fP -- Compare two integers passed as void pointers\&. "
+.ti -1c
+.RI "void \fBdel\fP (void *content)"
+.br
+.RI "\fBdel\fP -- Frees memory of void pointer to int\&. "
+.ti -1c
+.RI "void \fBprint\fP (void *content)"
+.br
+.RI "\fBprint\fP -- Prints integer value pointed to by void pointer\&. "
+.ti -1c
+.RI "int \fBis_sorted\fP (t_dlclst *lst, t_sortdir order)"
+.br
+.RI "\fBis_sorted\fP -- Scan a dlclst of integers to check if sorted\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Set of function to be used with dlclst (Doubly linked circular list libft's implementation) when list content is of integer type\&. 
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBe_sortdir\fP"
+
+.PP
+Base for typedef \fBt_sortdir\fP to use with list sorting related functions\&. This type is used to indicate a sorting direction for functions related to lists sorting\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIASCENDING \fP\fP
+Represents ascending order\&. 
+.TP
+\fB\fIDESCENDING \fP\fP
+Represents descending order\&. 
+.SH "Function Documentation"
+.PP 
+.SS "int compare (void * a, void * b)"
+
+.PP
+\fBcompare\fP -- Compare two integers passed as void pointers\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP - Void pointer to an integer\&.
+.br
+\fIb\fP - Void pointer to an integer\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Non-zero value if pointed values are equal\&. 
+.RE
+.PP
+
+.SS "void del (void * content)"
+
+.PP
+\fBdel\fP -- Frees memory of void pointer to int\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcontent\fP - Void pointer to an integer to be freed\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+EXTERNAL FUNCTION USED: malloc()\&. 
+.RE
+.PP
+
+.SS "int is_sorted (t_dlclst * lst, t_sortdir order)"
+
+.PP
+\fBis_sorted\fP -- Scan a dlclst of integers to check if sorted\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlst\fP - Pointer to a list\&.
+.br
+\fIDirection\fP - Sorting direction\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A value of 1 if list is sorted in the indicated direction, a value of 0 otherwise\&. 
+.br
+ A value of -1 if lst is NULL\&. 
+.RE
+.PP
+
+.SS "void print (void * content)"
+
+.PP
+\fBprint\fP -- Prints integer value pointed to by void pointer\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcontent\fP - Void pointer to an integer\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+EXTERNAL FUNCTION USED: write()\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Push Swap from the source code\&.

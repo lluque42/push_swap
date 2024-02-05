@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/24 14:23:32 by lluque            #+#    #+#              #
-#    Updated: 2024/02/05 00:29:18 by lluque           ###   ########.fr        #
+#    Updated: 2024/02/05 14:58:27 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,17 +50,21 @@ else
 endif
 
 # List of header file names that, if modified, should force recompiling
-INCLUDES = $(INC_DIR)ps_lang.h
+INCLUDES = $(INC_DIR)ps_lang.h \
+		   $(INC_DIR)dlclst_int_utils.h
 
 # List of source code file names with path relative to SRC_DIR
-SOURCES = main.c \
+SOURCES = ps_main.c \
 		  ps_lang/swap.c \
 		  ps_lang/push.c \
 		  ps_lang/rotate.c \
 		  ps_lang/rrotate.c \
+		  ps_lang/utils.c \
+		  ps_lang/print.c \
 		  dlclst_int_utils/del.c \
 		  dlclst_int_utils/compare.c \
-		  dlclst_int_utils/print.c
+		  dlclst_int_utils/print.c \
+		  dlclst_int_utils/is_sorted.c
 
 # Auto generated list of object file names from SOURCES
 # (here the path is relative to repository's root)
@@ -81,7 +85,7 @@ DOC_DIR = ./doc/
 DOX_PROJECT_NAME = Push Swap
 
 # Project brief description (one line)
-DOX_PROJECT_BRIEF = Campus 42's push_swap project
+DOX_PROJECT_BRIEF = Push_swap project for Campus 42
 
 # Version of the documentation (date for now)
 DOX_PROJECT_NUMBER = $(shell date +%Y-%m-%d)

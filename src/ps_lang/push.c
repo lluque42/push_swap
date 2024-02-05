@@ -6,43 +6,27 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 10:44:16 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/04 22:52:43 by lluque           ###   ########.fr       */
+/*   Updated: 2024/02/05 14:02:56 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include "ps_lang.h"
 
-/**
- * @brief <b>pa</b> -- Pop b then push it to a.
- *
- * @details Take the first element at the top of b and put it at the top of a.  
- * Do nothing if b is empty
- *
- * @param [in, out] ps - The pointer to the push swap stacks struct.
- *
- * @warning EXTERNAL FUNCTION USED: TODO malloc().
- *
- * @remark Implementation notes:
- * TODO Argument content is NOT checked for NULL, a node with NULL content is
- * returned.
- * If malloc fails, must return NULL.
-*/
-void	pa(t_ps_stacks *ps);
+void	pa(t_ps_stacks *ps)
+{
+	t_dlclst	*new;
 
-/**
- * @brief <b>pb</b> -- Pop a then push it to b.
- *
- * @details Take the first element at the top of a and put it at the top of b.  
- * Do nothing if b is empty
- *
- * @param [in, out] ps - The pointer to the push swap stacks struct.
- *
- * @warning EXTERNAL FUNCTION USED: TODO malloc().
- *
- * @remark Implementation notes:
- * TODO Argument content is NOT checked for NULL, a node with NULL content is
- * returned.
- * If malloc fails, must return NULL.
-*/
-void	pb(t_ps_stacks *ps);
+	new = ft_dlclst_extractfront(&ps->b);
+	if (new != NULL)
+		ft_dlclst_insfront(&ps->a, new);
+}
 
+void	pb(t_ps_stacks *ps)
+{
+	t_dlclst	*new;
+
+	new = ft_dlclst_extractfront(&ps->a);
+	if (new != NULL)
+		ft_dlclst_insfront(&ps->b, new);
+}
