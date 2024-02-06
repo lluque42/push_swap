@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 20:27:22 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/05 21:33:19 by lluque           ###   ########.fr       */
+/*   Updated: 2024/02/05 22:46:01 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	exit_on_error(t_ps_stacks *ps)
 {
 	free_ps(&ps);
-	ft_putendl_fd("Error", 1);
+	ft_putendl_fd("Error", 2);
 	exit(1);
 }
 

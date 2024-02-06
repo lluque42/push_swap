@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 20:27:22 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/05 20:51:19 by lluque           ###   ########.fr       */
+/*   Updated: 2024/02/05 22:48:36 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 /**
  * @brief <b>exit_on_error</b> -- Frees t_ps_stacks structure containing the
- * stacks, prints "Error" and exits with code 1.
+ * stacks, prints "Error" on stderr and exits with code 1.
  *
  * @param [in] ps - The pointer to t_ps_stacks data structure.
 */

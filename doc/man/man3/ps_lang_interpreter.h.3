@@ -1,0 +1,75 @@
+.TH "include/ps_lang_interpreter.h" 3 "Tue Feb 6 2024" "Version 2024-02-06" "Push Swap" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/ps_lang_interpreter.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include 'ps_lang\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBexec_instruction\fP (\fBt_ps_stacks\fP *ps, char *instruction)"
+.br
+.RI "\fBexec_instruction\fP -- Executes a push-swap instruction on stacks\&. "
+.ti -1c
+.RI "int \fBps_lang_interpreter\fP (\fBt_ps_stacks\fP *ps, int fd)"
+.br
+.RI "\fBps_lang_interpreter\fP -- Read and executes push-swap instructions "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Set of function to interpret push-swap instruction language read from a file descriptor (one instruction per line)\&. The instructions will be executed on an already initialized t_ps_stacks structure containing both a and b stacks\&. 
+.SH "Function Documentation"
+.PP 
+.SS "int exec_instruction (\fBt_ps_stacks\fP * ps, char * instruction)"
+
+.PP
+\fBexec_instruction\fP -- Executes a push-swap instruction on stacks\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIps\fP - Pointer to a t_ps_stacks containing the pair of stacks with valid data\&.
+.br
+\fIinstruction\fP - A string with only one instruction name and an optional trailing newline char\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Non-zero value if a valid instruction was parsed and executed\&. 
+.br
+ Returns 0 if no valid instruction was found\&. 
+.RE
+.PP
+
+.SS "int ps_lang_interpreter (\fBt_ps_stacks\fP * ps, int fd)"
+
+.PP
+\fBps_lang_interpreter\fP -- Read and executes push-swap instructions Reads a line from a file descriptor looking for valid push-swap instructions\&. The instructions are executed in the order in which were read until an error is found or the end of the file is reached\&. 
+.br
+ The t_ps_stacks data structure passed must be already initialized with the desired data and is modified accordingly to the instructions\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIps\fP - Pointer to a t_ps_stacks containing the pair of stacks with valid data\&.
+.br
+\fIfd\fP - A valid file descriptor from where the single instruction lines will be read from\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Non-zero value if a valid instruction was parsed and executed\&. 
+.br
+ Returns 0 if no valid instruction was found\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Push Swap from the source code\&.

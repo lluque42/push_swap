@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/24 14:23:32 by lluque            #+#    #+#              #
-#    Updated: 2024/02/05 20:42:23 by lluque           ###   ########.fr        #
+#    Updated: 2024/02/05 23:13:09 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ LIBFT_INC = $(LIBFT_DIR)include/
 NAME = push_swap
 
 # Resulting bonus output name (to be placed in BIN_DIR)
-#BONUS_NAME = ???
+BONUS_NAME = checker
 
 # Resulting tester name (to be placed in BIN_DIR)
 TESTER_NAME = tester
@@ -68,10 +68,30 @@ SOURCES = ps_main.c \
 		  dlclst_int_utils/print.c \
 		  dlclst_int_utils/is_sorted.c
 
+# List of BONUS source code file names with path relative to SRC_DIR
+BONUS_SOURCES = ch_main.c \
+			  main_utils.c \
+		  ps_lang/swap.c \
+		  ps_lang/push.c \
+		  ps_lang/rotate.c \
+		  ps_lang/rrotate.c \
+		  ps_lang/utils.c \
+		  ps_lang/print.c \
+		  dlclst_int_utils/del.c \
+		  dlclst_int_utils/compare.c \
+		  dlclst_int_utils/print.c \
+		  dlclst_int_utils/is_sorted.c \
+				ps_lang_interpreter.c
+
 # Auto generated list of object file names from SOURCES
 # (here the path is relative to repository's root)
 #
 OBJECTS = $(SOURCES:%.c=$(OBJ_DIR)%.o)
+
+# Auto generated list of BONUS object file names from BONUS_SOURCES
+# (here the path is relative to repository's root)
+#
+BONUS_OBJECTS = $(BONUS_SOURCES:%.c=$(OBJ_DIR)%.o)
 
 # List of tester source code file names with path relative to TEST_DIR
 TEST_SRC = tester.c
@@ -116,6 +136,9 @@ DOX_GENERATE_MAN = YES
 # Default rule
 all: $(BIN_DIR)$(NAME)
 
+# Rule for NAME as phony
+$(NAME): $(BIN_DIR)$(NAME)
+
 # Rule to link the program
 $(BIN_DIR)$(NAME): $(OBJECTS) $(LIBFT_BIN) 
 	@echo ----------------------------------------------------------------------
@@ -123,6 +146,19 @@ $(BIN_DIR)$(NAME): $(OBJECTS) $(LIBFT_BIN)
 	@echo "          --- Linking the program to $(BIN_DIR)$(NAME) ---"
 	mkdir -p $(@D)
 	cc $(CC_FLAGS) $(OBJECTS) $(LIBFT_BIN) -o $(BIN_DIR)$(NAME) -I$(INC_DIR) -I$(LIBFT_INC)
+	@echo
+	@echo ----------------------------------------------------------------------
+
+# Rule for bonus as phony
+bonus: $(BIN_DIR)$(BONUS_NAME)
+
+# Rule to link the bonus
+$(BIN_DIR)$(BONUS_NAME): $(BONUS_OBJECTS) $(LIBFT_BIN) 
+	@echo ----------------------------------------------------------------------
+	@echo
+	@echo "          --- Linking the program to $(BIN_DIR)$(BONUS_NAME) ---"
+	mkdir -p $(@D)
+	cc $(CC_FLAGS) $(BONUS_OBJECTS) $(LIBFT_BIN) -o $(BIN_DIR)$(BONUS_NAME) -I$(INC_DIR) -I$(LIBFT_INC)
 	@echo
 	@echo ----------------------------------------------------------------------
 
@@ -186,6 +222,16 @@ $(OBJECTS): $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INCLUDES)
 ################### END OF PATTERN RULE TO COMPILE OBJECTS #####################
 ################################################################################
 
+# Pattern rule to individually compile each BONUS object:
+$(BONUS_OBJECTS): $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INCLUDES)
+	@echo ----------------------------------------------------------------------
+	@echo
+	@echo "              --- Compiling objects to $(OBJ_DIR)*.o ---"
+	mkdir -p $(@D)
+	cc $(CC_FLAGS) -c $< -o $@ -I$(INC_DIR) -I$(LIBFT_INC)
+	@echo
+	@echo ----------------------------------------------------------------------
+
 # Library libft compilation
 $(LIBFT_BIN):
 ifeq ($(DEBUG), no)
@@ -194,11 +240,6 @@ else
 	make --directory=$(LIBFT_DIR) DEBUG=yes
 endif
 
-# Cleaning rule: deletes object files and directory.
-# Possible additions to the recipe:
-# 	rm -rf $(BONUS_OBJ_DIR)
-# 	make clean --directory=$(SOME_LIBRARY_PATH)
-#
 clean:
 	@echo ----------------------------------------------------------------------
 	@echo
@@ -301,4 +342,4 @@ help:
 # Phonies: this list of words are never to be interpreted as files but
 # only as rule names
 #
-.PHONY: all clean fclean re tester help bonus doc docclean
+.PHONY: all clean fclean re tester help bonus $(NAME) doc docclean
