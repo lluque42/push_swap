@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/24 14:23:32 by lluque            #+#    #+#              #
-#    Updated: 2024/02/08 21:29:18 by lluque           ###   ########.fr        #
+#    Updated: 2024/02/09 14:57:52 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ TESTER_NAME = tester
 DEBUG = no
 
 # Optional debugging flags
-DEB_FLAGS = -g -fsanitize=address
+DEB_FLAGS = -g -fsanitize=address -D DEBUG=1
 
 # Compiler flags, conditional to DEBUG value
 ifeq ($(DEBUG), no)

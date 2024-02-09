@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 20:27:22 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/05 22:48:36 by lluque           ###   ########.fr       */
+/*   Updated: 2024/02/09 14:55:29 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,14 @@
 
 #ifndef MAIN_UTILS_H
 # define MAIN_UTILS_H
+# ifndef DEBUG
+/**
+ * @def DEBUG
+ * When compiling with "-D DEBUG=1" more output is generated for debugging
+ * purposes.
+ */
+#  define DEBUG 0
+# endif
 # include "ps_lang.h"
 
 /**

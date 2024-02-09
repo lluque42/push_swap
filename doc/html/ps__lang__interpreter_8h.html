@@ -98,57 +98,15 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a4075349ed0845f9e64364a34ec0daece"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ps__lang__interpreter_8h.html#a4075349ed0845f9e64364a34ec0daece">exec_instruction</a> (<a class="el" href="structs__ps__stacks.html">t_ps_stacks</a> *ps, char *instruction)</td></tr>
-<tr class="memdesc:a4075349ed0845f9e64364a34ec0daece"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>exec_instruction</b> &ndash; Executes a push-swap instruction on stacks.  <a href="ps__lang__interpreter_8h.html#a4075349ed0845f9e64364a34ec0daece">More...</a><br /></td></tr>
-<tr class="separator:a4075349ed0845f9e64364a34ec0daece"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43436715391057936aa96d59dc259082"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ps__lang__interpreter_8h.html#a43436715391057936aa96d59dc259082">ps_lang_interpreter</a> (<a class="el" href="structs__ps__stacks.html">t_ps_stacks</a> *ps, int fd)</td></tr>
-<tr class="memdesc:a43436715391057936aa96d59dc259082"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ps_lang_interpreter</b> &ndash; Read and executes push-swap instructions  <a href="ps__lang__interpreter_8h.html#a43436715391057936aa96d59dc259082">More...</a><br /></td></tr>
-<tr class="separator:a43436715391057936aa96d59dc259082"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3adf83dfaed78625937724a60ad2dc4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ps__lang__interpreter_8h.html#af3adf83dfaed78625937724a60ad2dc4">ps_lang_interpreter</a> (<a class="el" href="structs__ps__stacks.html">t_ps_stacks</a> *ps, int fd, int debug)</td></tr>
+<tr class="memdesc:af3adf83dfaed78625937724a60ad2dc4"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ps_lang_interpreter</b> &ndash; Read and executes push-swap instructions  <a href="ps__lang__interpreter_8h.html#af3adf83dfaed78625937724a60ad2dc4">More...</a><br /></td></tr>
+<tr class="separator:af3adf83dfaed78625937724a60ad2dc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Set of function to interpret push-swap instruction language read from a file descriptor (one instruction per line). The instructions will be executed on an already initialized t_ps_stacks structure containing both a and b stacks. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a4075349ed0845f9e64364a34ec0daece" name="a4075349ed0845f9e64364a34ec0daece"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4075349ed0845f9e64364a34ec0daece">&#9670;&nbsp;</a></span>exec_instruction()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int exec_instruction </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structs__ps__stacks.html">t_ps_stacks</a> *&#160;</td>
-          <td class="paramname"><em>ps</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>instruction</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><b>exec_instruction</b> &ndash; Executes a push-swap instruction on stacks. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">ps</td><td>- Pointer to a t_ps_stacks containing the pair of stacks with valid data.</td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">instruction</td><td>- A string with only one instruction name and an optional trailing newline char.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Non-zero value if a valid instruction was parsed and executed. <br  />
- Returns 0 if no valid instruction was found. </dd></dl>
-
-</div>
-</div>
-<a id="a43436715391057936aa96d59dc259082" name="a43436715391057936aa96d59dc259082"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a43436715391057936aa96d59dc259082">&#9670;&nbsp;</a></span>ps_lang_interpreter()</h2>
+<a id="af3adf83dfaed78625937724a60ad2dc4" name="af3adf83dfaed78625937724a60ad2dc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3adf83dfaed78625937724a60ad2dc4">&#9670;&nbsp;</a></span>ps_lang_interpreter()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -163,7 +121,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>fd</em>&#160;</td>
+          <td class="paramname"><em>fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>debug</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -180,6 +144,7 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">ps</td><td>- Pointer to a t_ps_stacks containing the pair of stacks with valid data.</td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">fd</td><td>- A valid file descriptor from where the single instruction lines will be read from.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">debug</td><td>- Non-zero value if extra output is to be printed for debugging purposes.</td></tr>
   </table>
   </dd>
 </dl>

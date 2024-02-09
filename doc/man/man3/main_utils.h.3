@@ -9,6 +9,13 @@ include/main_utils.h
 \fC#include 'ps_lang\&.h'\fP
 .br
 
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBDEBUG\fP   0"
+.br
+.in -1c
 .SS "Functions"
 
 .in +1c
@@ -24,6 +31,10 @@ include/main_utils.h
 .SH "Detailed Description"
 .PP 
 Set of functions to be used with push swap programs main() functions\&. 
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define DEBUG   0"
+When compiling with '-D DEBUG=1' more output is generated for debugging purposes\&. 
 .SH "Function Documentation"
 .PP 
 .SS "void exit_on_error (\fBt_ps_stacks\fP * ps)"

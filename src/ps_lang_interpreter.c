@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 21:51:37 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/08 19:47:32 by lluque           ###   ########.fr       */
+/*   Updated: 2024/02/09 14:50:08 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,19 @@ static int	match(char *line, char *valid_instruction)
 	return (0);
 }
 
-int	exec_instruction(t_ps_stacks *ps, char *instruction)
+/**
+ * @brief <b>exec_instruction</b> -- Executes a push-swap instruction on stacks.
+ *
+ * @param [in, out] ps - Pointer to a t_ps_stacks containing the pair of stacks
+ * with valid data.
+ *
+ * @param [in] instruction - A string with only one instruction name and an
+ * optional trailing newline char.
+ *
+ * @return Non-zero value if a valid instruction was parsed and executed.  
+ * Returns 0 if no valid instruction was found.
+*/
+static int	exec_instruction(t_ps_stacks *ps, char *instruction)
 {
 	if (match(instruction, "pa"))
 		return (pa(ps), 1);
@@ -60,7 +72,7 @@ int	exec_instruction(t_ps_stacks *ps, char *instruction)
 		return (0);
 }
 
-int	ps_lang_interpreter(t_ps_stacks *ps, int fd)
+int	ps_lang_interpreter(t_ps_stacks *ps, int fd, int debug)
 {
 	char	*instruction;
 
@@ -75,7 +87,8 @@ int	ps_lang_interpreter(t_ps_stacks *ps, int fd)
 			return (0);
 		}
 		free(instruction);
-		print_stacks(ps);													//////// poner como opcion verbose
+		if (debug)
+			print_stacks(ps);
 	}
 	free(instruction);
 	return (1);
