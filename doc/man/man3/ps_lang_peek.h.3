@@ -1,0 +1,131 @@
+.TH "include/ps_lang_peek.h" 3 "Fri Feb 9 2024" "Version 2024-02-09" "Push Swap" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/ps_lang_peek.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'ps_lang_types\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int * \fBbottom\fP (t_stack_name stack, \fBt_ps_stacks\fP *ps)"
+.br
+.RI "\fBbottom\fP -- Peeks value at the bottom of stack\&. "
+.ti -1c
+.RI "int * \fBnbottom\fP (t_stack_name stack, \fBt_ps_stacks\fP *ps)"
+.br
+.RI "\fBnbottom\fP -- Peeks value at the next to bottom of stack\&. "
+.ti -1c
+.RI "int * \fBtop\fP (t_stack_name stack, \fBt_ps_stacks\fP *ps)"
+.br
+.RI "\fBtop\fP -- Peeks value at the top of stack\&. "
+.ti -1c
+.RI "int * \fBptop\fP (t_stack_name stack, \fBt_ps_stacks\fP *ps)"
+.br
+.RI "\fBptop\fP -- Peeks value at the previous to top of stack\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Peeking functions for retrieving values from the top and bottom of the stacks\&. These functions return pointers to integer to allow for signaling the emtpyness or lack of required elements\&. 
+.SH "Function Documentation"
+.PP 
+.SS "int * bottom (t_stack_name stack, \fBt_ps_stacks\fP * ps)"
+
+.PP
+\fBbottom\fP -- Peeks value at the bottom of stack\&. Returns pointer to int value of bottom element in stack\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstack\fP - The identier of the stack inside ps structure\&. 
+.br
+\fIps\fP - The address of the pointer to the push swap stacks struct\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+If stack is not empty returns a pointer to int value of bottom element\&. Returns NULL if stack is empty\&. 
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+TODO coletilla de NO NULL check\&. 
+.RE
+.PP
+
+.SS "int * nbottom (t_stack_name stack, \fBt_ps_stacks\fP * ps)"
+
+.PP
+\fBnbottom\fP -- Peeks value at the next to bottom of stack\&. Returns pointer to int value of next to bottom element in stack\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstack\fP - The identier of the stack inside ps structure\&. 
+.br
+\fIps\fP - The address of the pointer to the push swap stacks struct\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+If stack size is greater than 1 returns a pointer to int value of next to bottom element in stack\&. Returns NULL if size of stack 0 or 1\&. 
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+TODO coletilla de NO NULL check\&. 
+.RE
+.PP
+
+.SS "int * ptop (t_stack_name stack, \fBt_ps_stacks\fP * ps)"
+
+.PP
+\fBptop\fP -- Peeks value at the previous to top of stack\&. Returns pointer to int value of previous to top element in stack\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstack\fP - The identier of the stack inside ps structure\&. 
+.br
+\fIps\fP - The address of the pointer to the push swap stacks struct\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+If stack size is greater than 1 returns a pointer to int value of previous to top element in stack\&. Returns NULL if size of stack 0 or 1\&. 
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+TODO coletilla de NO NULL check\&. 
+.RE
+.PP
+
+.SS "int * top (t_stack_name stack, \fBt_ps_stacks\fP * ps)"
+
+.PP
+\fBtop\fP -- Peeks value at the top of stack\&. Returns pointer to int value of top element in stack\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstack\fP - The identier of the stack inside ps structure\&. 
+.br
+\fIps\fP - The address of the pointer to the push swap stacks struct\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+If stack is not empty returns a pointer to int value of top element\&. Returns NULL if stack is empty\&. 
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+TODO coletilla de NO NULL check\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Push Swap from the source code\&.

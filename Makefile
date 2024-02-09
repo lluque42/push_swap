@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/24 14:23:32 by lluque            #+#    #+#              #
-#    Updated: 2024/02/05 23:13:09 by lluque           ###   ########.fr        #
+#    Updated: 2024/02/08 21:29:18 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,9 @@ endif
 # List of header file names that, if modified, should force recompiling
 INCLUDES = $(INC_DIR)ps_lang.h \
 		   $(INC_DIR)dlclst_int_utils.h \
-		   $(INC_DIR)main_utils.h
+		   $(INC_DIR)main_utils.h \
+		   $(INC_DIR)libft_additions.h \
+		   $(INC_DIR)ps_lang_interpreter.h
 
 # List of source code file names with path relative to SRC_DIR
 SOURCES = ps_main.c \
@@ -66,22 +68,29 @@ SOURCES = ps_main.c \
 		  dlclst_int_utils/del.c \
 		  dlclst_int_utils/compare.c \
 		  dlclst_int_utils/print.c \
-		  dlclst_int_utils/is_sorted.c
+		  dlclst_int_utils/is_sorted.c \
+		  libft_additions/ft_abs.c \
+		  libft_additions/ft_dlclst_peek_offset.c \
+		  libft_additions/ft_dlclst_peek_pos.c
 
 # List of BONUS source code file names with path relative to SRC_DIR
 BONUS_SOURCES = ch_main.c \
 			  main_utils.c \
-		  ps_lang/swap.c \
-		  ps_lang/push.c \
-		  ps_lang/rotate.c \
-		  ps_lang/rrotate.c \
-		  ps_lang/utils.c \
-		  ps_lang/print.c \
-		  dlclst_int_utils/del.c \
-		  dlclst_int_utils/compare.c \
-		  dlclst_int_utils/print.c \
-		  dlclst_int_utils/is_sorted.c \
-				ps_lang_interpreter.c
+			  ps_lang/swap.c \
+			  ps_lang/push.c \
+			  ps_lang/rotate.c \
+			  ps_lang/rrotate.c \
+			  ps_lang/utils.c \
+			  ps_lang/print.c \
+			  ps_lang/peek.c \
+			  dlclst_int_utils/del.c \
+			  dlclst_int_utils/compare.c \
+			  dlclst_int_utils/print.c \
+			  dlclst_int_utils/is_sorted.c \
+			  ps_lang_interpreter.c \
+			  libft_additions/ft_abs.c \
+			  libft_additions/ft_dlclst_peek_offset.c \
+			  libft_additions/ft_dlclst_peek_pos.c
 
 # Auto generated list of object file names from SOURCES
 # (here the path is relative to repository's root)

@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Push Swap<span id="projectnumber">&#160;2024-02-06</span>
+   <div id="projectname">Push Swap<span id="projectnumber">&#160;2024-02-09</span>
    </div>
    <div id="projectbrief">Push_swap project for Campus 42</div>
   </td>
@@ -78,24 +78,23 @@ $(function() {
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">/*   By: lluque &lt;lluque@student.42malaga.com&gt;       +#+  +:+       +#+        */</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">/*                                                +#+#+#+#+#+   +#+           */</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">/*   Created: 2024/02/05 21:51:37 by lluque            #+#    #+#             */</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">/*   Updated: 2024/02/06 01:45:01 by lluque           ###   ########.fr       */</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">/*   Updated: 2024/02/09 14:01:06 by lluque           ###   ########.fr       */</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">/*                                                                            */</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">/* ************************************************************************** */</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#ifndef PS_LANG_INTERPRETER_H</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor"># define PS_LANG_INTERPRETER_H</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor"># include &lt;stdlib.h&gt;</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor"># include &quot;<a class="code" href="ps__lang_8h.html">ps_lang.h</a>&quot;</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="ps__lang__interpreter_8h.html#a4075349ed0845f9e64364a34ec0daece">   37</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="ps__lang__interpreter_8h.html#a4075349ed0845f9e64364a34ec0daece">exec_instruction</a>(<a class="code hl_struct" href="structs__ps__stacks.html">t_ps_stacks</a> *ps, <span class="keywordtype">char</span> *instruction);</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="ps__lang__interpreter_8h.html#a43436715391057936aa96d59dc259082">   57</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="ps__lang__interpreter_8h.html#a43436715391057936aa96d59dc259082">ps_lang_interpreter</a>(<a class="code hl_struct" href="structs__ps__stacks.html">t_ps_stacks</a> *ps, <span class="keywordtype">int</span> fd);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aps__lang_8h_html"><div class="ttname"><a href="ps__lang_8h.html">ps_lang.h</a></div></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor"># include &quot;<a class="code" href="ps__lang__types_8h.html">ps_lang_types.h</a>&quot;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="ps__lang__interpreter_8h.html#a4075349ed0845f9e64364a34ec0daece">   36</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="ps__lang__interpreter_8h.html#a4075349ed0845f9e64364a34ec0daece">exec_instruction</a>(<a class="code hl_struct" href="structs__ps__stacks.html">t_ps_stacks</a> *ps, <span class="keywordtype">char</span> *instruction);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="ps__lang__interpreter_8h.html#a43436715391057936aa96d59dc259082">   56</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="ps__lang__interpreter_8h.html#a43436715391057936aa96d59dc259082">ps_lang_interpreter</a>(<a class="code hl_struct" href="structs__ps__stacks.html">t_ps_stacks</a> *ps, <span class="keywordtype">int</span> fd);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aps__lang__interpreter_8h_html_a4075349ed0845f9e64364a34ec0daece"><div class="ttname"><a href="ps__lang__interpreter_8h.html#a4075349ed0845f9e64364a34ec0daece">exec_instruction</a></div><div class="ttdeci">int exec_instruction(t_ps_stacks *ps, char *instruction)</div><div class="ttdoc">exec_instruction – Executes a push-swap instruction on stacks.</div></div>
 <div class="ttc" id="aps__lang__interpreter_8h_html_a43436715391057936aa96d59dc259082"><div class="ttname"><a href="ps__lang__interpreter_8h.html#a43436715391057936aa96d59dc259082">ps_lang_interpreter</a></div><div class="ttdeci">int ps_lang_interpreter(t_ps_stacks *ps, int fd)</div><div class="ttdoc">ps_lang_interpreter – Read and executes push-swap instructions</div></div>
-<div class="ttc" id="astructs__ps__stacks_html"><div class="ttname"><a href="structs__ps__stacks.html">s_ps_stacks</a></div><div class="ttdoc">Base for typedef t_ps_stacks for the main data structure for push_swap project.</div><div class="ttdef"><b>Definition:</b> ps_lang.h:48</div></div>
+<div class="ttc" id="aps__lang__types_8h_html"><div class="ttname"><a href="ps__lang__types_8h.html">ps_lang_types.h</a></div></div>
+<div class="ttc" id="astructs__ps__stacks_html"><div class="ttname"><a href="structs__ps__stacks.html">s_ps_stacks</a></div><div class="ttdoc">Base for typedef t_ps_stacks for the main data structure for push_swap project.</div><div class="ttdef"><b>Definition:</b> ps_lang_types.h:36</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

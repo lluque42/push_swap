@@ -1,4 +1,10 @@
 <map id="include/ps_lang.h" name="include/ps_lang.h">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,140,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="43,80,102,107"/>
+<area shape="rect" id="node1" title=" " alt="" coords="233,5,368,32"/>
+<area shape="rect" id="node2" href="$ps__lang__types_8h.html" title=" " alt="" coords="237,155,364,181"/>
+<area shape="rect" id="node4" href="$ps__lang__init_8h.html" title=" " alt="" coords="30,80,142,107"/>
+<area shape="rect" id="node5" href="$ps__lang__peek_8h.html" title=" " alt="" coords="166,80,288,107"/>
+<area shape="rect" id="node6" href="$ps__lang__print_8h.html" title=" " alt="" coords="313,80,434,107"/>
+<area shape="rect" id="node7" href="$ps__lang__instructions_8h.html" title=" " alt="" coords="458,80,625,107"/>
+<area shape="rect" id="node8" href="$ps__lang__interpreter_8h.html" title=" " alt="" coords="649,80,808,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="271,229,330,256"/>
 </map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main_5futils_2eh_0',['main_utils.h',['../main__utils_8h.html',1,'']]]
+  ['libft_5fadditions_2eh_0',['libft_additions.h',['../libft__additions_8h.html',1,'']]]
 ];

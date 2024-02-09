@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 21:51:37 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/06 01:45:01 by lluque           ###   ########.fr       */
+/*   Updated: 2024/02/09 14:01:06 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@
 
 #ifndef PS_LANG_INTERPRETER_H
 # define PS_LANG_INTERPRETER_H
-# include <stdlib.h>
-# include "ps_lang.h"
+# include "ps_lang_types.h"
 
 /**
  * @brief <b>exec_instruction</b> -- Executes a push-swap instruction on stacks.

@@ -1,0 +1,58 @@
+.TH "include/ps_lang_types.h" 3 "Fri Feb 9 2024" "Version 2024-02-09" "Push Swap" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/ps_lang_types.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'libft\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBs_ps_stacks\fP"
+.br
+.RI "Base for typedef \fBt_ps_stacks\fP for the main data structure for push_swap project\&. "
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBs_ps_stacks\fP \fBt_ps_stacks\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBe_stack_name\fP \fBt_stack_name\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBe_stack_name\fP { \fBA\fP, \fBB\fP }"
+.br
+.RI "Base for typedef \fBt_stack_name\fP identifies stack a or b\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Types definitions for the 'push swap language' layer\&. 
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBe_stack_name\fP"
+
+.PP
+Base for typedef \fBt_stack_name\fP identifies stack a or b\&. This type is used in functions to identify a stack inside the t_ps_stacks type\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIA \fP\fP
+Identifies stack 'a'\&. 
+.TP
+\fB\fIB \fP\fP
+Identifies stack 'b'\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Push Swap from the source code\&.

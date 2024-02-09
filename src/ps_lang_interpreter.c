@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 21:51:37 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/06 00:50:41 by lluque           ###   ########.fr       */
+/*   Updated: 2024/02/08 19:47:32 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ int	ps_lang_interpreter(t_ps_stacks *ps, int fd)
 			return (0);
 		}
 		free(instruction);
+		print_stacks(ps);													//////// poner como opcion verbose
 	}
 	free(instruction);
 	return (1);
