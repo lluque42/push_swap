@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 21:51:37 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/09 14:50:08 by lluque           ###   ########.fr       */
+/*   Updated: 2024/02/11 12:45:01 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ static int	match(char *line, char *valid_instruction)
 	size_t	len;
 
 	len = ft_strlen(line);
+	if (len == 0)
+		return (0);
 	if (line[len - 1] == '\n')
 	{
 		line[len - 1] = '\0';
