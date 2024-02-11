@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 13:18:26 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/08 22:26:56 by lluque           ###   ########.fr       */
+/*   Updated: 2024/02/11 14:31:57 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "dlclst_int_utils.h"
 #include "ps_lang.h"
 
-int	*bottom(t_stack_name stack, t_ps_stacks *ps)
+int	*bot(t_stack_name stack, t_ps_stacks *ps)
 {
 	if (stack == A)
 		return ((int *)ft_dlclst_peek_offset(ps->a, -1));
@@ -23,7 +23,7 @@ int	*bottom(t_stack_name stack, t_ps_stacks *ps)
 		return ((int *)ft_dlclst_peek_offset(ps->b, -1));
 }
 
-int	*nbottom(t_stack_name stack, t_ps_stacks *ps)
+int	*bot_1(t_stack_name stack, t_ps_stacks *ps)
 {
 	if (stack == A)
 		return ((int *)ft_dlclst_peek_offset(ps->a, -2));
@@ -39,7 +39,7 @@ int	*top(t_stack_name stack, t_ps_stacks *ps)
 		return ((int *)ps->b->content);
 }
 
-int	*ptop(t_stack_name stack, t_ps_stacks *ps)
+int	*top_1(t_stack_name stack, t_ps_stacks *ps)
 {
 	if (stack == A)
 		return ((int *)ft_dlclst_peek_offset(ps->a, 1));
