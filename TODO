@@ -2,21 +2,31 @@
 ******************************** TODO ******************************************
 ********************************************************************************
 
-I noticed the arguments to ./push_swap from the command line could be either one
++I noticed the arguments to ./push_swap from the command line could be either one
 (requiring ft_splitting them, because they come from an enviroment variable) or
 several (because they come from a direct user keyboard input when running the
 program). FIX THIS!	
-	Confirm, now I can't replicate what I (think I) saw at Campus with Serena?
+	+ Confirm, now I can't replicate what I (think I) saw at Campus with Serena?
 	and Matías.
+
+********************************************************************************
+
++ Every error message to stderr.
 
 ********************************************************************************
 ********************************************************************************
 ********************************************************************************
+
+
+
+
+
 
 ********************************************************************************
 ******************************** DONE ******************************************
 ********************************************************************************
 
++ Remove the redundant printing to stdout when calling ss, rr, rrr.
 
 ********************************************************************************
 ********************************************************************************

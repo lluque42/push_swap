@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 12:49:39 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/27 15:17:04 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/27 23:53:59 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ps_sort(t_ps_stacks *ps)
 	// Hasta que a quede ordenado y b vacío
 	while (!is_sorted(ps->a, ASCENDING) || ft_dlclst_size(ps->b) != 0)
 	{
-		if (DEBUG_LVL)
+		if (MAKE_DEBUG_LVL)
 		{
 			print_stacks(ps);
 			ft_printf("Press enter to continue\n");
@@ -50,25 +50,25 @@ void	ps_sort(t_ps_stacks *ps)
 				ft_printf("No hay top(A)!!!!!!!!!!!!!!!!\n");
 				continue ;
 			}
-			ft_printf("DEBUG_LVL 1\n");
+			ft_printf("MAKE_DEBUG_LVL 1\n");
 			if (*top(A, ps) < threshold)
 			{
 				// Si top de A está por debajo del threshold se pasa a B
 				pb(ps);
 				// En este caso no es necesario avanzar en A
-				ft_printf("DEBUG_LVL 2\n");
+				ft_printf("MAKE_DEBUG_LVL 2\n");
 				continue ;
 			}
-			ft_printf("DEBUG_LVL 3\n");
+			ft_printf("MAKE_DEBUG_LVL 3\n");
 			// Si se cae aquí, no se pasó nada a B y por tanto hay que ver
 			// si hay que swapear y luego avanzar.
 			// Hay que ver si swap de A
 			if (top(A, ps) == NULL || top_1(A, ps) == NULL)
 				continue ;
-			ft_printf("DEBUG_LVL 4\n");
+			ft_printf("MAKE_DEBUG_LVL 4\n");
 			if (*top(A, ps) > *top_1(A, ps))
 			{
-				ft_printf("DEBUG_LVL 5\n");
+				ft_printf("MAKE_DEBUG_LVL 5\n");
 				// En este punto, A necesita swap, se ve si B también
 				if (top(B, ps) != NULL && top_1(B, ps) != NULL)
 				{

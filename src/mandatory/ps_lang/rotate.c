@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 10:46:14 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/27 10:45:12 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/28 00:08:39 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,35 +16,37 @@ void	ra(t_ps_stacks *ps)
 {
 	ft_dlclst_rotatenext(&ps->a, 1);
 	ft_printf("ra\n");
-	if (DEBUG_LVL)
-	{
+	if (MAKE_DEBUG_LVL)
 		print_stacks(ps);
-		ft_printf("Press enter to continue\n");
-		ft_gnl(0);
-	}
 }
 
 void	rb(t_ps_stacks *ps)
 {
 	ft_dlclst_rotatenext(&ps->b, 1);
 	ft_printf("rb\n");
-	if (DEBUG_LVL)
-	{
+	if (MAKE_DEBUG_LVL)
 		print_stacks(ps);
-		ft_printf("Press enter to continue\n");
-		ft_gnl(0);
-	}
+}
+
+static void	ra_noprint(t_ps_stacks *ps)
+{
+	ft_dlclst_rotatenext(&ps->a, 1);
+	if (MAKE_DEBUG_LVL)
+		print_stacks(ps);
+}
+
+static void	rb_noprint(t_ps_stacks *ps)
+{
+	ft_dlclst_rotatenext(&ps->b, 1);
+	if (MAKE_DEBUG_LVL)
+		print_stacks(ps);
 }
 
 void	rr(t_ps_stacks *ps)
 {
-	ra(ps);
-	rb(ps);
+	ra_noprint(ps);
+	rb_noprint(ps);
 	ft_printf("rr\n");
-	if (DEBUG_LVL)
-	{
+	if (MAKE_DEBUG_LVL)
 		print_stacks(ps);
-		ft_printf("Press enter to continue\n");
-		ft_gnl(0);
-	}
 }

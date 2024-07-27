@@ -6,29 +6,12 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 09:46:28 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/27 10:37:55 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/28 00:05:52 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*
-void	printa(t_ps_stacks *ps)
-{
-	if (ps->a == NULL)
-		ft_putendl_fd("(empty)", 1);
-	else
-		ft_dlclst_iter(ps->a, print);
-}
-
-void	printb(t_ps_stacks *ps)
-{
-	if (ps->b == NULL)
-		ft_putendl_fd("(empty)", 1);
-	else
-		ft_dlclst_iter(ps->b, print);
-}
-*/
 //prints only the top n elements of stack a (a holds more elements than b)
 static void	printa_firstn(t_ps_stacks *ps, unsigned int n)
 {
@@ -39,7 +22,7 @@ static void	printa_firstn(t_ps_stacks *ps, unsigned int n)
 	a = ps->a;
 	while (i < n)
 	{
-		ft_printf(" %11i   \n", *(int *)ft_dlclst_peek_pos(a, i));
+		ft_printf("\t %11i   \n", *(int *)ft_dlclst_peek_pos(a, i));
 		i++;
 	}
 }
@@ -55,7 +38,7 @@ static void	printb_firstn(t_ps_stacks *ps, unsigned int n)
 	b = ps->b;
 	while (i < n)
 	{
-		ft_printf(" %11s   %-11d\n", "", *(int *)ft_dlclst_peek_pos(b, i));
+		ft_printf("\t %11s   %-11d\n", "", *(int *)ft_dlclst_peek_pos(b, i));
 		i++;
 	}
 }
@@ -75,13 +58,13 @@ static void	printrest(t_ps_stacks *ps, int a_is_longest, int diff, int max_len)
 	{
 		if (a_is_longest)
 		{
-			ft_printf(" %11i   ", *(int *)ft_dlclst_peek_pos(a, i));
-			ft_printf("%-11i\n", *(int *)ft_dlclst_peek_pos(b, i - diff));
+			ft_printf("\t %11i   ", *(int *)ft_dlclst_peek_pos(a, i));
+			ft_printf("\t%-11i\n", *(int *)ft_dlclst_peek_pos(b, i - diff));
 		}
 		else
 		{
-			ft_printf(" %11i   ", *(int *)ft_dlclst_peek_pos(a, i - diff));
-			ft_printf("%-11i\n", *(int *)ft_dlclst_peek_pos(b, i));
+			ft_printf("\t %11i   ", *(int *)ft_dlclst_peek_pos(a, i - diff));
+			ft_printf("\t%-11i\n", *(int *)ft_dlclst_peek_pos(b, i));
 		}
 		i++;
 	}
@@ -101,11 +84,11 @@ void	print_stacks(t_ps_stacks *ps)
 		a_is_longest = 0;
 		max_length = ft_dlclst_size(ps->b);
 	}
-	ft_printf("---STACK A--- ---STACK B---\n");
+	ft_printf("\t---STACK A--- ---STACK B---\n");
 	if (a_is_longest)
 		printa_firstn(ps, diff);
 	else
 		printb_firstn(ps, diff);
 	printrest(ps, a_is_longest, diff, max_length);
-	ft_printf("---------------------------\n");
+	ft_printf("\t---------------------------\n");
 }

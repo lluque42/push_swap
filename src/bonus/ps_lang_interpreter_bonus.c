@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 21:51:37 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/27 11:35:39 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/28 00:20:54 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ int	ps_lang_interpreter(t_ps_stacks *ps, int fd, int debug)
 {
 	char	*instruction;
 
+	if (debug)
+		print_stacks(ps);
 	while (1)
 	{
 		instruction = ft_gnl(fd);
@@ -89,8 +91,6 @@ int	ps_lang_interpreter(t_ps_stacks *ps, int fd, int debug)
 			return (0);
 		}
 		free(instruction);
-		if (debug)
-			print_stacks(ps);
 	}
 	free(instruction);
 	return (1);
