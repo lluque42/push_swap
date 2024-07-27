@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['ra_0',['ra',['../ps__lang__instructions_8h.html#afe65326d8932d0c80630c0f8ddb52e96',1,'ps_lang_instructions.h']]],
-  ['rb_1',['rb',['../ps__lang__instructions_8h.html#a5f34f231afdee32b940ce8e81f056010',1,'ps_lang_instructions.h']]],
-  ['rr_2',['rr',['../ps__lang__instructions_8h.html#adff333c60d5fd15fc029dd7f68d62ef6',1,'ps_lang_instructions.h']]],
-  ['rra_3',['rra',['../ps__lang__instructions_8h.html#aa412e861fcd27fbef77966742690c908',1,'ps_lang_instructions.h']]],
-  ['rrb_4',['rrb',['../ps__lang__instructions_8h.html#abe160dcf9fba84d7d9a086768bd4e327',1,'ps_lang_instructions.h']]],
-  ['rrr_5',['rrr',['../ps__lang__instructions_8h.html#a1034f3139febeab7325d5e420ec3cccf',1,'ps_lang_instructions.h']]]
+  ['sa_0',['sa',['../ps__lang__instructions_8h.html#a50b4be8011e99885e2d7803e46532986',1,'ps_lang_instructions.h']]],
+  ['sb_1',['sb',['../ps__lang__instructions_8h.html#a86b5077e5a69e9889e2ef58981cb19e3',1,'ps_lang_instructions.h']]],
+  ['ss_2',['ss',['../ps__lang__instructions_8h.html#a11c57edf21a78052370472d05a76471f',1,'ps_lang_instructions.h']]]
 ];

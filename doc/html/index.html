@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Push Swap<span id="projectnumber">&#160;2024-02-09</span>
+   <div id="projectname">Push Swap<span id="projectnumber">&#160;2024-07-27</span>
    </div>
    <div id="projectbrief">Push_swap project for Campus 42</div>
   </td>
@@ -74,9 +74,9 @@ Introduction</h1>
 <p >&zwj;You have 2 stacks named a and b. </p>
 </blockquote>
 <p>&gt;* At the beginning: </p><blockquote class="doxtable">
-<p >&zwj; * The stack a contains a random amount of negative and/or positive numbers </p>
+<p >&zwj; * The stack a contains a random amount of negative and/or positive </p>
 </blockquote>
-<p>which cannot be duplicated. </p><blockquote class="doxtable">
+<p>numbers which cannot be duplicated. </p><blockquote class="doxtable">
 <p >&zwj; * The stack b is empty. </p>
 </blockquote>
 <p>&gt;* The goal is to sort in ascending order numbers into stack a. To do so you have the following operations at your disposal: </p><blockquote class="doxtable">
@@ -86,12 +86,12 @@ Introduction</h1>
 <p >&zwj; * <b>sb (swap b)</b>: Swap the first 2 elements at the top of stack b. </p>
 </blockquote>
 <p>Do nothing if there is only one or no elements. ss : sa and sb at the same time. </p><blockquote class="doxtable">
-<p >&zwj; * <b>pa (push a)</b>: Take the first element at the top of b and put it at the top of a. </p>
+<p >&zwj; * <b>pa (push a)</b>: Take the first element at the top of b and put it </p>
 </blockquote>
-<p>Do nothing if b is empty. </p><blockquote class="doxtable">
-<p >&zwj; * <b>pb (push b)</b>: Take the first element at the top of a and put it at the top of b. </p>
+<p>at the top of a. Do nothing if b is empty. </p><blockquote class="doxtable">
+<p >&zwj; * <b>pb (push b)</b>: Take the first element at the top of a and put it </p>
 </blockquote>
-<p>Do nothing if a is empty. </p><blockquote class="doxtable">
+<p>at the top of b. Do nothing if a is empty. </p><blockquote class="doxtable">
 <p >&zwj; * <b>ra (rotate a)</b>: Shift up all elements of stack a by 1. </p>
 </blockquote>
 <p>The first element becomes the last one. </p><blockquote class="doxtable">
@@ -126,7 +126,7 @@ Directory tree</h1>
 ├── include/                (directory for public header files (.h))  
 │   ├── ...  
 │   └── ...  
-├── src/                    (directory for source code and private header files)  
+├── src/                    (dir for source code and private header files)  
 │   ├── ...  
 │   │   ├── ...                 
 │   │   └── ...  
@@ -139,14 +139,14 @@ Directory tree</h1>
 ├── bin/                    (directory for project's binaries and tester)  
 │   ├── ...  
 │   └── ...                 (may be structured in several directories)  
-├── obj/                    (directory for source code and private header files)  
+├── obj/                    (dir for source code and private header files)  
 │   ├── ...  
 │   │   ├── ...  
 │   │   └── ...  
 │   └── ...                 (structured as in ./src)  
 │       ├── ...  
 │       └── ...  
-└── test/                   (test program src code, compiles to .bin/tester)  
+└── test/                   (test program src code)  
     ├── ...  
     ├── tester.c  
     └── ...  

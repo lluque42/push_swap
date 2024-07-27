@@ -1,10 +1,11 @@
-<map id="include/ps_lang_types.h" name="include/ps_lang_types.h">
-<area shape="rect" id="node1" title=" " alt="" coords="348,5,527,32"/>
-<area shape="rect" id="node2" href="$ps__lang_8h.html" title=" " alt="" coords="370,155,505,181"/>
-<area shape="rect" id="node4" href="$ps__lang__init_8h.html" title=" " alt="" coords="23,80,186,107"/>
-<area shape="rect" id="node5" href="$ps__lang__instructions_8h.html" title=" " alt="" coords="210,80,428,107"/>
-<area shape="rect" id="node6" href="$ps__lang__interpreter_8h.html" title=" " alt="" coords="452,80,663,107"/>
-<area shape="rect" id="node7" href="$ps__lang__peek_8h.html" title=" " alt="" coords="688,80,862,107"/>
-<area shape="rect" id="node8" href="$ps__lang__print_8h.html" title=" " alt="" coords="886,80,1058,107"/>
-<area shape="rect" id="node3" href="$main__utils_8h.html" title=" " alt="" coords="361,229,514,256"/>
+<map id="include/mandatory/ps_lang_types.h" name="include/mandatory/ps_lang_types.h">
+<area shape="rect" id="node1" title=" " alt="" coords="379,5,541,47"/>
+<area shape="rect" id="node2" href="$ps__lang_8h.html" title=" " alt="" coords="379,95,541,136"/>
+<area shape="rect" id="node3" href="$push__swap_8h.html" title=" " alt="" coords="557,184,736,225"/>
+<area shape="rect" id="node4" href="$ps__lang__init_8h.html" title=" " alt="" coords="5,273,168,315"/>
+<area shape="rect" id="node5" href="$ps__lang__instructions_8h.html" title=" " alt="" coords="192,273,355,315"/>
+<area shape="rect" id="node6" href="$ps__lang__peek_8h.html" title=" " alt="" coords="379,273,541,315"/>
+<area shape="rect" id="node7" href="$ps__lang__print_8h.html" title=" " alt="" coords="565,273,728,315"/>
+<area shape="rect" id="node8" href="$ps__main__utils_8h.html" title=" " alt="" coords="752,273,915,315"/>
+<area shape="rect" id="node9" href="$ps__sort_8h.html" title=" " alt="" coords="939,273,1101,315"/>
 </map>

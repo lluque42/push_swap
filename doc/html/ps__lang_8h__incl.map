@@ -1,10 +1,14 @@
-<map id="include/ps_lang.h" name="include/ps_lang.h">
-<area shape="rect" id="node1" title=" " alt="" coords="233,5,368,32"/>
-<area shape="rect" id="node2" href="$ps__lang__types_8h.html" title=" " alt="" coords="237,155,364,181"/>
-<area shape="rect" id="node4" href="$ps__lang__init_8h.html" title=" " alt="" coords="30,80,142,107"/>
-<area shape="rect" id="node5" href="$ps__lang__peek_8h.html" title=" " alt="" coords="166,80,288,107"/>
-<area shape="rect" id="node6" href="$ps__lang__print_8h.html" title=" " alt="" coords="313,80,434,107"/>
-<area shape="rect" id="node7" href="$ps__lang__instructions_8h.html" title=" " alt="" coords="458,80,625,107"/>
-<area shape="rect" id="node8" href="$ps__lang__interpreter_8h.html" title=" " alt="" coords="649,80,808,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="271,229,330,256"/>
+<map id="include/mandatory/ps_lang.h" name="include/mandatory/ps_lang.h">
+<area shape="rect" id="node1" title=" " alt="" coords="343,5,506,47"/>
+<area shape="rect" id="node2" href="$ps__lang__types_8h.html" title=" " alt="" coords="5,169,132,196"/>
+<area shape="rect" id="node4" href="$ps__lang__init_8h.html" title=" " alt="" coords="154,95,266,121"/>
+<area shape="rect" id="node10" href="$ps__lang__peek_8h.html" title=" " alt="" coords="290,95,413,121"/>
+<area shape="rect" id="node11" href="$ps__lang__print_8h.html" title=" " alt="" coords="437,95,559,121"/>
+<area shape="rect" id="node12" href="$ps__lang__instructions_8h.html" title=" " alt="" coords="583,95,749,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="143,319,202,345"/>
+<area shape="rect" id="node5" href="$push__swap_8h.html" title=" " alt="" coords="453,169,559,196"/>
+<area shape="rect" id="node6" href="$ps__dlclst__int__utils_8h.html" title=" " alt="" coords="97,244,248,271"/>
+<area shape="rect" id="node7" href="$ps__libft__additions_8h.html" title=" " alt="" coords="272,244,420,271"/>
+<area shape="rect" id="node8" href="$ps__main__utils_8h.html" title=" " alt="" coords="444,244,568,271"/>
+<area shape="rect" id="node9" href="$ps__sort_8h.html" title=" " alt="" coords="592,244,673,271"/>
 </map>
