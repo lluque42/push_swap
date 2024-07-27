@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 10:46:49 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/27 11:59:51 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/27 16:06:03 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	rra(t_ps_stacks *ps)
 {
 	ft_dlclst_rotateprev(&ps->a, 1);
-	ft_printf("rra\n");
 	if (DEBUG_LVL)
 	{
 		print_stacks(ps);
@@ -27,7 +26,6 @@ void	rra(t_ps_stacks *ps)
 void	rrb(t_ps_stacks *ps)
 {
 	ft_dlclst_rotateprev(&ps->b, 1);
-	ft_printf("rrb\n");
 	if (DEBUG_LVL)
 	{
 		print_stacks(ps);
@@ -40,7 +38,6 @@ void	rrr(t_ps_stacks *ps)
 {
 	rra(ps);
 	rrb(ps);
-	ft_printf("rrr\n");
 	if (DEBUG_LVL)
 	{
 		print_stacks(ps);

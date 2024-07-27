@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 10:45:35 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/27 11:59:44 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/27 16:06:15 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	sa(t_ps_stacks *ps)
 {
 	ft_dlclst_swapfront(&ps->a);
-	ft_printf("sa\n");
 	if (DEBUG_LVL)
 	{
 		print_stacks(ps);
@@ -27,7 +26,6 @@ void	sa(t_ps_stacks *ps)
 void	sb(t_ps_stacks *ps)
 {
 	ft_dlclst_swapfront(&ps->b);
-	ft_printf("sb\n");
 	if (DEBUG_LVL)
 	{
 		print_stacks(ps);
@@ -40,7 +38,6 @@ void	ss(t_ps_stacks *ps)
 {
 	sa(ps);
 	sb(ps);
-	ft_printf("ss\n");
 	if (DEBUG_LVL)
 	{
 		print_stacks(ps);
