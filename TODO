@@ -1,4 +1,19 @@
 ********************************************************************************
+************************ NEXT COMMIT DESCRIPTION *******************************
+********************************************************************************
+
+A member left_to_pre_sort member was added to main t_ps_stacks struct.
+
+
+A new collection for a more complex list node data type was written.
+
+********************************************************************************
+********************************************************************************
+********************************************************************************
+
+
+
+********************************************************************************
 ******************************** TODO ******************************************
 ********************************************************************************
 
@@ -8,10 +23,15 @@ several (because they come from a direct user keyboard input when running the
 program). FIX THIS!	
 	+ Confirm, now I can't replicate what I (think I) saw at Campus with Serena?
 	and Matías.
+		+ Zerisenay's code is so weird in handling the argvs that may be it
+		actually needs to be foreseen. First he joins and then he splits (?)
 
 ********************************************************************************
 
 + Every error message to stderr.
++ Test if any argv is ""
++ Test for 0 value (atoi returns 0 in other cases additionally to "0").
++ Test for out of range integers
 
 ********************************************************************************
 ********************************************************************************

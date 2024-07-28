@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Push Swap<span id="projectnumber">&#160;2024-07-27</span>
+   <div id="projectname">Push Swap<span id="projectnumber">&#160;2024-07-28</span>
    </div>
    <div id="projectbrief">Push_swap project for Campus 42</div>
   </td>
@@ -80,6 +80,8 @@ Data Fields</h2></td></tr>
 <tr class="separator:a52289f4ab9e15a9dd4e0026327d6c3ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa10919659311e6e6d6d5f7ffdad885d5"><td class="memItemLeft" align="right" valign="top">t_dlclst *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__ps__stacks.html#aa10919659311e6e6d6d5f7ffdad885d5">b</a></td></tr>
 <tr class="separator:aa10919659311e6e6d6d5f7ffdad885d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adff9905d459bb373e7f9982dae391f95"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__ps__stacks.html#adff9905d459bb373e7f9982dae391f95">left_to_pre_sort</a></td></tr>
+<tr class="separator:adff9905d459bb373e7f9982dae391f95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Base for typedef <b>t_ps_stacks</b> for the main data structure for push_swap project. </p>
@@ -112,6 +114,21 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p >Stack b to be used while sorting stack a elements. </p>
+
+</div>
+</div>
+<a id="adff9905d459bb373e7f9982dae391f95" name="adff9905d459bb373e7f9982dae391f95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adff9905d459bb373e7f9982dae391f95">&#9670;&nbsp;</a></span>left_to_pre_sort</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">s_ps_stacks::left_to_pre_sort</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The number of elements that still need to be pre-sorted. Used just after the initialization (stack a full, stack b empty). Decreases each time <a class="el" href="ps__lang__instructions_8h.html#ae0904d21a0d7b9954ad553bcd09a795e" title="pb – Pop a then push it to b.">pb()</a>. </p>
 
 </div>
 </div>

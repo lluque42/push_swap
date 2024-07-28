@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/15 11:23:07 by lluque            #+#    #+#              #
-#    Updated: 2024/07/27 15:16:38 by lluque           ###   ########.fr        #
+#    Updated: 2024/07/28 15:40:55 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -150,7 +150,7 @@ CC_FLAGS = -Wall -Werror -Wextra
 # List of mandatory version header file names
 # NOTE: Only to be used to force recompiling if modified
 INCLUDES = $(INC_DIR)ps_lang.h \
-		   $(INC_DIR)ps_dlclst_int_utils.h \
+		   $(INC_DIR)ps_dlclst_element_utils.h \
 		   $(INC_DIR)ps_main_utils.h \
 		   $(INC_DIR)ps_libft_additions.h \
 		   $(INC_DIR)ps_lang_init.h \
@@ -172,10 +172,10 @@ SOURCES = ps_main.c \
 		  ps_lang/utils.c \
 		  ps_lang/print.c \
 		  ps_lang/peek.c \
-		  dlclst_int_utils/del.c \
-		  dlclst_int_utils/compare.c \
-		  dlclst_int_utils/print.c \
-		  dlclst_int_utils/is_sorted.c \
+		  dlclst_element_utils/del.c \
+		  dlclst_element_utils/compare.c \
+		  dlclst_element_utils/print.c \
+		  dlclst_element_utils/is_sorted.c \
 		  libft_additions/ft_abs.c \
 		  libft_additions/ft_dlclst_peek_offset.c \
 		  libft_additions/ft_dlclst_peek_pos.c \

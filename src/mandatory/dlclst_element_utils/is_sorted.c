@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 14:42:16 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/27 10:46:22 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/28 15:53:45 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,24 @@ int	is_sorted(t_dlclst *lst, t_sortdir direction)
 	int			size;
 	int			i;
 
-	i = 0;
 	size = ft_dlclst_size(lst);
 	if (size == 0)
 		return (-1);
 	node = lst;
+	content = INT_MAX;
 	if (direction == ASCENDING)
 		content = INT_MIN;
-	else
-		content = INT_MAX;
-	while (i < size)
+	i = -1;
+	while (++i < size)
 	{
-		if (direction == ASCENDING && *(int *)node->content < content)
+		if (direction == ASCENDING
+			&& ((t_element *)node->content)->value < content)
 			return (0);
-		if (direction == DESCENDING && *(int *)node->content > content)
+		if (direction == DESCENDING
+			&& ((t_element *)node->content)->value > content)
 			return (0);
-		content = *(int *)node->content;
+		content = ((t_element *)node->content)->value;
 		node = node->next;
-		i++;
 	}
 	return (1);
 }

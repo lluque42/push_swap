@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 10:08:18 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/27 23:51:47 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/28 15:41:46 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # endif
 
 # include "ps_lang.h"
-# include "ps_dlclst_int_utils.h"
+# include "ps_dlclst_element_utils.h"
 # include "ps_libft_additions.h"
 # include "ps_main_utils.h"
 # include "ps_sort.h"
