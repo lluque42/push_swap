@@ -127,6 +127,10 @@ A but three. Before pushing to B, the pos_when_ordered of each element in A,
 as well as the mean of the pos_when_ordered of the elements still in stack
 A, determines if either the top A element, the next-to-top A element, the
 bottom A element, and the next_to_bottom A element (???????????) will be
-push to B. Pre-sorting ends when only three elements remain in stack A.
+push to B. Pre-sorting ends after sortin the only three remaining elements
+in stack A which will serve as the reference for the next stage where the
+elements in stack B are pushed to A according to the costs analysis.
+
+
 
 

@@ -2,28 +2,27 @@
 ************************ NEXT COMMIT DESCRIPTION *******************************
 ********************************************************************************
 
-The print() function for printing the stacks for debugging was improved
-to print the elements sorting metadata.
+The most important development was the implementation of the
+pre-sorting stage (pre_sort()) which lefts stack A with three
+sorted elements and stack B with the pre-sorted (statistically
+speaking) remaining elements.
 
-A member left_to_pre_sort member was added to main t_ps_stacks struct.
+Debugging messages improved.
 
-A new functions collection for a more complex list node data type was
-written. This collection replaces the obsolete ps_dlclst_int_utils. In
-addition to re-writing the previous functions, the following were added
-to get element members and to obtain an integer array from the element
-list:
-get_cost_a()
-get_cost_b()
-get_pos_when_sorted()
-get_value()
-list_to_array()
+current_avg_pos_when_sorted member added to t_ps_stacks struct type.
+the functions of dlclst_element_utils that receiver a dlclst* as an
+argument were modified to receive a t_element as void* instead.
 
-In the sort collection, the following functions were added:
-classic_sorting(): to sort the integer array
-set_pos_when_sorted(): to use the sorted integer array to initialize
-the pos_when_sorted members of the elements in the list.
+The ps_lang/print.c file was renamed to print_stacks.c to follow my
+standards.
 
+The functions in ps_lang_peek.c where updated according the int* type
+list content to the t_type* type.
 
+Most of the dlclst_element_utils functions where modified to take as
+an argument the void* content instead of its related t_dlclst* node.
+
+Documentation was improved and updated.
 
 ********************************************************************************
 ********************************************************************************

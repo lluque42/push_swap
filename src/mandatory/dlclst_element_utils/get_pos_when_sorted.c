@@ -6,14 +6,14 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 22:03:25 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/28 23:20:46 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/29 12:47:20 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
 
-int	get_pos_when_sorted(t_dlclst *node)
+int	get_pos_when_sorted(void *element)
 {
-	return (((t_element *)node->content)->pos_when_sorted);
+	return (((t_element *)element)->pos_when_sorted);
 }

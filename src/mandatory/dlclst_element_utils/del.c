@@ -6,13 +6,13 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 00:05:53 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/05 00:32:20 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/29 12:50:24 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-void	del(void *content)
+void	del(void *element)
 {
-	free(content);
+	free(element);
 }

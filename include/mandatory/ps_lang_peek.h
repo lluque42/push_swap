@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 10:23:34 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/27 11:40:28 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/29 13:14:05 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define PS_LANG_PEEK_H
 
 # include "push_swap.h"
-
+# include "ps_dlclst_element_utils.h"
 /**
  * @brief <b>bot</b> -- Peeks value at the bottom of stack.
  * @details Returns pointer to int value of bottom element in stack.
@@ -33,7 +33,7 @@
  * Returns NULL if stack is empty.
  * @warning TODO coletilla de NO NULL check.
  */
-int	*bot(t_stack_name stack, t_ps_stacks *ps);
+t_element	*bot(t_stack_name stack, t_ps_stacks *ps);
 
 /**
  * @brief <b>bot_1</b> -- Peeks value at the next to bottom of stack.
@@ -45,7 +45,7 @@ int	*bot(t_stack_name stack, t_ps_stacks *ps);
  * Returns NULL if size of stack 0 or 1.
  * @warning TODO coletilla de NO NULL check.
  */
-int	*bot_1(t_stack_name stack, t_ps_stacks *ps);
+t_element	*bot_1(t_stack_name stack, t_ps_stacks *ps);
 
 /**
  * @brief <b>top</b> -- Peeks value at the top of stack.
@@ -57,7 +57,7 @@ int	*bot_1(t_stack_name stack, t_ps_stacks *ps);
  * Returns NULL if stack is empty.
  * @warning TODO coletilla de NO NULL check.
  */
-int	*top(t_stack_name stack, t_ps_stacks *ps);
+t_element	*top(t_stack_name stack, t_ps_stacks *ps);
 
 /**
  * @brief <b>top_1</b> -- Peeks value at the previous to top of stack.
@@ -69,6 +69,6 @@ int	*top(t_stack_name stack, t_ps_stacks *ps);
  * Returns NULL if size of stack 0 or 1.
  * @warning TODO coletilla de NO NULL check.
  */
-int	*top_1(t_stack_name stack, t_ps_stacks *ps);
+t_element	*top_1(t_stack_name stack, t_ps_stacks *ps);
 
 #endif

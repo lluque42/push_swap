@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 20:34:20 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/28 21:40:39 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/29 14:05:17 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int	list_to_array(t_ps_stacks *ps, int **array)
 	t_dlclst	*current_node;
 
 	len = ft_dlclst_size(ps->a);
-	ft_printf("[list_to_array] len == %d\n", len);
+	if (MAKE_DEBUG_LVL)
+		ft_printf("[list_to_array] len == %d\n", len);
 	*array = malloc(len * sizeof (int));
 	if (*array == NULL)
 		return (-1);

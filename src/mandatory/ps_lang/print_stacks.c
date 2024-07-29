@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 09:46:28 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/29 09:20:32 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/29 13:01:45 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ static void	printa_firstn(t_dlclst **a, unsigned int n)
 	while (i < n)
 	{
 		ft_printf("\t %11i %11i %11i %11i %11i    |\n",
-			get_value(*a), get_pos_when_sorted(*a),
-			get_current_pos_in_stack(*a), get_cost_a(*a), get_cost_b(*a));
+			get_value((*a)->content), get_pos_when_sorted((*a)->content),
+			get_current_pos_in_stack((*a)->content), get_cost_a((*a)->content),
+			get_cost_b((*a)->content));
 		*a = (*a)->next;
 		i++;
 	}
@@ -40,8 +41,9 @@ static void	printb_firstn(t_dlclst **b, unsigned int n)
 		ft_printf("\t                           ");
 		ft_printf("                                     |");
 		ft_printf(" %11i %11i %11i %11i %11i   \n",
-			get_value(*b), get_pos_when_sorted(*b),
-			get_current_pos_in_stack(*b), get_cost_a(*b), get_cost_b(*b));
+			get_value((*b)->content), get_pos_when_sorted((*b)->content),
+			get_current_pos_in_stack((*b)->content), get_cost_a((*b)->content),
+			get_cost_b((*b)->content));
 		*b = (*b)->next;
 		i++;
 	}
@@ -57,11 +59,13 @@ static void	printrest(t_dlclst **a, t_dlclst **b, int n)
 	while (i < n)
 	{
 		ft_printf("\t %11i %11i %11i %11i %11i    |",
-			get_value(*a), get_pos_when_sorted(*a),
-			get_current_pos_in_stack(*a), get_cost_a(*a), get_cost_b(*a));
-		ft_printf(" %11i %11i %11i %11i %11i  \n",
-			get_value(*b), get_pos_when_sorted(*b),
-			get_current_pos_in_stack(*b), get_cost_a(*b), get_cost_b(*b));
+			get_value((*a)->content), get_pos_when_sorted((*a)->content),
+			get_current_pos_in_stack((*a)->content), get_cost_a((*a)->content),
+			get_cost_b((*a)->content));
+		ft_printf(" %11i %11i %11i %11i %11i  \n", get_value((*b)->content),
+			get_pos_when_sorted((*b)->content),
+			get_current_pos_in_stack((*b)->content), get_cost_a((*b)->content),
+			get_cost_b((*b)->content));
 		*a = (*a)->next;
 		*b = (*b)->next;
 		i++;

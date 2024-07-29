@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 00:14:56 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/29 09:21:52 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/29 12:53:43 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,31 +76,31 @@ typedef enum e_sortdir
 /**
  * @brief <b>compare</b> -- Compare two elements passed as void pointers.
  *
- * @param [in] a - Void pointer to a t_element.
+ * @param [in] element_a - Void pointer to a t_element.
  *
- * @param [in] b - Void pointer to an t_element.
+ * @param [in] element_b - Void pointer to an t_element.
  *
  * @return Non-zero value if elements are equal.
 */
-int		compare(void *a, void *b);
+int		compare(void *element_a, void *element_b);
 
 /**
  * @brief <b>del</b> -- Frees memory of void pointer to element.
  *
- * @param [in] content - Void pointer to a t_element to be freed.
+ * @param [in] element - Void pointer to a t_element to be freed.
  *
  * @warning EXTERNAL FUNCTION USED: malloc().
 */
-void	del(void *content);
+void	del(void *element);
 
 /**
  * @brief <b>print</b> -- Prints element value pointed to by void pointer.
  *
- * @param [in] content - Void pointer to t_element.
+ * @param [in] element - Void pointer to t_element.
  *
  * @warning EXTERNAL FUNCTION USED: write().
 */
-void	print(void *content);
+void	print(void *element);
 
 /**
  * @brief <b>is_sorted</b> -- Scan a dlclst of elements to check if sorted.
@@ -133,55 +133,55 @@ int		list_to_array(t_ps_stacks *ps, int **array);
  * @brief <b>get_value</b> -- Returns integer value associated to the element
  * in a dlclst node.
  *
- * @param [in] node - Pointer to tha node holding the t_element.
+ * @param [in] element - Void pointer to t_element.
  *
  * @return The integer value as storaged in the required member of the t_element
  * in node content member
 */
-int		get_value(t_dlclst *node);
+int		get_value(void *element);
 
 /**
  * @brief <b>get_pos_when_sorted</b> -- Returns pos_when_sorted member of the
  * element in a dlclst node.
  *
- * @param [in] node - Pointer to tha node holding the t_element.
+ * @param [in] element - Void pointer to t_element.
  *
  * @return The integer value as storaged in the required member of the t_element
  * in node content member
 */
-int		get_pos_when_sorted(t_dlclst *node);
+int		get_pos_when_sorted(void *element);
 
 /**
  * @brief <b>get_current_pos_in_stack</b> -- Returns current_pos_in_stack member
  * of the element in a dlclst node.
  *
- * @param [in] node - Pointer to tha node holding the t_element.
+ * @param [in] element - Void pointer to t_element.
  *
  * @return The integer value as storaged in the required member of the t_element
  * in node content member
 */
-int		get_current_pos_in_stack(t_dlclst *node);
+int		get_current_pos_in_stack(void *element);
 
 /**
  * @brief <b>get_cost_a</b> -- Returns cost_a member of the element in
  * a dlclst node.
  *
- * @param [in] node - Pointer to tha node holding the t_element.
+ * @param [in] element - Void pointer to t_element.
  *
  * @return The integer value as storaged in the required member of the t_element
  * in node content member
 */
-int		get_cost_a(t_dlclst *node);
+int		get_cost_a(void *element);
 
 /**
  * @brief <b>get_cost_b</b> -- Returns cost_b member of the element in
  * a dlclst node.
  *
- * @param [in] node - Pointer to tha node holding the t_element.
+ * @param [in] element - Void pointer to t_element.
  *
  * @return The integer value as storaged in the required member of the t_element
  * in node content member
 */
-int		get_cost_b(t_dlclst *node);
+int		get_cost_b(void *element);
 
 #endif

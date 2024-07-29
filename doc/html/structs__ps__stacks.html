@@ -82,6 +82,8 @@ Data Fields</h2></td></tr>
 <tr class="separator:aa10919659311e6e6d6d5f7ffdad885d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adff9905d459bb373e7f9982dae391f95"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__ps__stacks.html#adff9905d459bb373e7f9982dae391f95">left_to_pre_sort</a></td></tr>
 <tr class="separator:adff9905d459bb373e7f9982dae391f95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb5bc771d91fbde4c3ae8cd0d1c56422"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__ps__stacks.html#afb5bc771d91fbde4c3ae8cd0d1c56422">avg_pos_when_sorted</a></td></tr>
+<tr class="separator:afb5bc771d91fbde4c3ae8cd0d1c56422"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Base for typedef <b>t_ps_stacks</b> for the main data structure for push_swap project. </p>
@@ -99,6 +101,21 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p >Stack a to be initialized and sorted. </p>
+
+</div>
+</div>
+<a id="afb5bc771d91fbde4c3ae8cd0d1c56422" name="afb5bc771d91fbde4c3ae8cd0d1c56422"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb5bc771d91fbde4c3ae8cd0d1c56422">&#9670;&nbsp;</a></span>avg_pos_when_sorted</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">s_ps_stacks::avg_pos_when_sorted</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Set and updated by <a class="el" href="ps__sort_8h.html#a4e87d44956daa65ae21c5bbceea70c8c" title="pre_sort – Smartly pushes to stack B every element of stack A but three which are left already sorted...">pre_sort()</a> auxiliary function pb_block() every time it processes a block. It refers to the current average pos_when_sorted of the elements still in stack A. </p>
 
 </div>
 </div>

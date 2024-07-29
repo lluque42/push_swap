@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/15 11:23:07 by lluque            #+#    #+#              #
-#    Updated: 2024/07/29 09:24:12 by lluque           ###   ########.fr        #
+#    Updated: 2024/07/29 13:17:33 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -170,7 +170,7 @@ SOURCES = ps_main.c \
 		  ps_lang/rotate.c \
 		  ps_lang/rrotate.c \
 		  ps_lang/utils.c \
-		  ps_lang/print.c \
+		  ps_lang/print_stacks.c \
 		  ps_lang/peek.c \
 		  dlclst_element_utils/del.c \
 		  dlclst_element_utils/compare.c \
@@ -185,9 +185,10 @@ SOURCES = ps_main.c \
 		  libft_additions/ft_abs.c \
 		  libft_additions/ft_dlclst_peek_offset.c \
 		  libft_additions/ft_dlclst_peek_pos.c \
+		  sort/ps_sort.c \
 		  sort/classic_sorting.c \
 		  sort/set_pos_when_sorted.c \
-		  sort/ps_sort.c
+		  sort/pre_sort.c
 
 # List of bonus version header file names
 # NOTE: Only to be used to force recompiling if modified

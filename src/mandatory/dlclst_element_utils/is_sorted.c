@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 14:42:16 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/28 23:18:55 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/29 12:48:41 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ int	is_sorted(t_dlclst *lst, t_sortdir direction)
 	i = -1;
 	while (++i < size)
 	{
-		if (direction == ASCENDING && get_value(node) < content)
+		if (direction == ASCENDING && get_value(node->content) < content)
 			return (0);
-		if (direction == DESCENDING && get_value(node) > content)
+		if (direction == DESCENDING && get_value(node->content) > content)
 			return (0);
-		content = get_value(node);
+		content = get_value(node->content);
 		node = node->next;
 	}
 	return (1);
