@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 00:14:56 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/28 15:36:48 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/29 09:21:52 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,5 +114,74 @@ void	print(void *content);
  * A value of -1 if lst is NULL.
 */
 int		is_sorted(t_dlclst *lst, t_sortdir direction);
+
+/**
+ * @brief <b>list_to_array</b> -- Returns in int array[] form, the values of
+ * every element in stack A.
+ *
+ * @param [in] ps - The t_ps_stacks with both A and B stacks
+ *
+ * @param [in,out] array - The resulting array, caller is responsible to freeing
+ * its memory.
+ *
+ * @return If successful, the array of integers length.
+ * A value of -1 if error.
+*/
+int		list_to_array(t_ps_stacks *ps, int **array);
+
+/**
+ * @brief <b>get_value</b> -- Returns integer value associated to the element
+ * in a dlclst node.
+ *
+ * @param [in] node - Pointer to tha node holding the t_element.
+ *
+ * @return The integer value as storaged in the required member of the t_element
+ * in node content member
+*/
+int		get_value(t_dlclst *node);
+
+/**
+ * @brief <b>get_pos_when_sorted</b> -- Returns pos_when_sorted member of the
+ * element in a dlclst node.
+ *
+ * @param [in] node - Pointer to tha node holding the t_element.
+ *
+ * @return The integer value as storaged in the required member of the t_element
+ * in node content member
+*/
+int		get_pos_when_sorted(t_dlclst *node);
+
+/**
+ * @brief <b>get_current_pos_in_stack</b> -- Returns current_pos_in_stack member
+ * of the element in a dlclst node.
+ *
+ * @param [in] node - Pointer to tha node holding the t_element.
+ *
+ * @return The integer value as storaged in the required member of the t_element
+ * in node content member
+*/
+int		get_current_pos_in_stack(t_dlclst *node);
+
+/**
+ * @brief <b>get_cost_a</b> -- Returns cost_a member of the element in
+ * a dlclst node.
+ *
+ * @param [in] node - Pointer to tha node holding the t_element.
+ *
+ * @return The integer value as storaged in the required member of the t_element
+ * in node content member
+*/
+int		get_cost_a(t_dlclst *node);
+
+/**
+ * @brief <b>get_cost_b</b> -- Returns cost_b member of the element in
+ * a dlclst node.
+ *
+ * @param [in] node - Pointer to tha node holding the t_element.
+ *
+ * @return The integer value as storaged in the required member of the t_element
+ * in node content member
+*/
+int		get_cost_b(t_dlclst *node);
 
 #endif

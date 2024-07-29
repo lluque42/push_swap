@@ -1,30 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_main.c                                          :+:      :+:    :+:   */
+/*   classic_sorting.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/03 21:31:09 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/28 21:29:35 by lluque           ###   ########.fr       */
+/*   Created: 2024/07/28 20:51:35 by lluque            #+#    #+#             */
+/*   Updated: 2024/07/28 22:23:18 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	classic_sorting(int *array_ptr, int array_len)
 {
-	t_ps_stacks	*ps;
+	int	i;
+	int	temp;
+	int	*array;
 
-	ps = init_ps();
-	parse_arguments(ps, argc, argv);
+	array = array_ptr;
+	i = 0;
+	while (i < array_len - 1)
+	{
+		if (array[i] > array[i + 1])
+		{
+			temp = array[i];
+			array[i] = array[i + 1];
+			array[i + 1] = temp;
+			i = 0;
+		}
+		else
+			i++;
+	}
+	i = -1;
 	if (MAKE_DEBUG_LVL)
-		print_stacks(ps);
-	if (!ps_sort(ps))
-		ft_putendl_fd("push_swap: error while sorting", STDERR_FILENO);
-	if (MAKE_DEBUG_LVL)
-		print_stacks(ps);
-	free_ps(&ps);
-	return (0);
+	{
+		while (++i < array_len)
+			ft_printf("[classic_sorting] %d\n", array[i]);
+	}
 }

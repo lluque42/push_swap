@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 10:23:34 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/27 14:27:50 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/28 14:57:35 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,15 @@
  * Stack a to be initialized and sorted.
  * @var s_ps_stacks::b
  * Stack b to be used while sorting stack a elements.
+ * @var s_ps_stacks::left_to_pre_sort
+ * The number of elements that still need to be pre-sorted. Used just after
+ * the initialization (stack a full, stack b empty). Decreases each time pb().
 */
 typedef struct s_ps_stacks
 {
 	t_dlclst	*a;
 	t_dlclst	*b;
+	int			left_to_pre_sort;
 }	t_ps_stacks;
 /**
  * @typedef t_ps_stacks

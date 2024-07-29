@@ -2,10 +2,28 @@
 ************************ NEXT COMMIT DESCRIPTION *******************************
 ********************************************************************************
 
+The print() function for printing the stacks for debugging was improved
+to print the elements sorting metadata.
+
 A member left_to_pre_sort member was added to main t_ps_stacks struct.
 
+A new functions collection for a more complex list node data type was
+written. This collection replaces the obsolete ps_dlclst_int_utils. In
+addition to re-writing the previous functions, the following were added
+to get element members and to obtain an integer array from the element
+list:
+get_cost_a()
+get_cost_b()
+get_pos_when_sorted()
+get_value()
+list_to_array()
 
-A new collection for a more complex list node data type was written.
+In the sort collection, the following functions were added:
+classic_sorting(): to sort the integer array
+set_pos_when_sorted(): to use the sorted integer array to initialize
+the pos_when_sorted members of the elements in the list.
+
+
 
 ********************************************************************************
 ********************************************************************************

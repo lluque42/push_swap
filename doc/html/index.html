@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Push Swap<span id="projectnumber">&#160;2024-07-28</span>
+   <div id="projectname">Push Swap<span id="projectnumber">&#160;2024-07-29</span>
    </div>
    <div id="projectbrief">Push_swap project for Campus 42</div>
   </td>
@@ -71,42 +71,26 @@ $(function() {
 <h1><a class="anchor" id="autotoc_md1"></a>
 Introduction</h1>
 <p >From project's subject: </p><blockquote class="doxtable">
-<p >&zwj;You have 2 stacks named a and b. </p>
-</blockquote>
-<p>&gt;* At the beginning: </p><blockquote class="doxtable">
-<p >&zwj; * The stack a contains a random amount of negative and/or positive </p>
-</blockquote>
-<p>numbers which cannot be duplicated. </p><blockquote class="doxtable">
-<p >&zwj; * The stack b is empty. </p>
-</blockquote>
-<p>&gt;* The goal is to sort in ascending order numbers into stack a. To do so you have the following operations at your disposal: </p><blockquote class="doxtable">
-<p >&zwj; * <b>sa (swap a)</b>: Swap the first 2 elements at the top of stack a. </p>
-</blockquote>
-<p>Do nothing if there is only one or no elements. </p><blockquote class="doxtable">
-<p >&zwj; * <b>sb (swap b)</b>: Swap the first 2 elements at the top of stack b. </p>
-</blockquote>
-<p>Do nothing if there is only one or no elements. ss : sa and sb at the same time. </p><blockquote class="doxtable">
-<p >&zwj; * <b>pa (push a)</b>: Take the first element at the top of b and put it </p>
-</blockquote>
-<p>at the top of a. Do nothing if b is empty. </p><blockquote class="doxtable">
-<p >&zwj; * <b>pb (push b)</b>: Take the first element at the top of a and put it </p>
-</blockquote>
-<p>at the top of b. Do nothing if a is empty. </p><blockquote class="doxtable">
-<p >&zwj; * <b>ra (rotate a)</b>: Shift up all elements of stack a by 1. </p>
-</blockquote>
-<p>The first element becomes the last one. </p><blockquote class="doxtable">
-<p >&zwj; * <b>rb (rotate b)</b>: Shift up all elements of stack b by 1. </p>
-</blockquote>
-<p>The first element becomes the last one. </p><blockquote class="doxtable">
-<p >&zwj; * <b>rr</b>: ra and rb at the same time.</p><ul>
-<li><b>rra (reverse rotate a)</b>: Shift down all elements of stack a by 1. </li>
+<p >&zwj;You have 2 stacks named a and b.</p><ul>
+<li>At the beginning:<ul>
+<li>The stack a contains a random amount of negative and/or positive numbers which cannot be duplicated.</li>
+<li>The stack b is empty.</li>
 </ul>
-</blockquote>
-<p>The last element becomes the first one. </p><blockquote class="doxtable">
-<p >&zwj; * <b>rrb (reverse rotate b)</b>: Shift down all elements of stack b by 1. </p>
-</blockquote>
-<p>The last element becomes the first one. </p><blockquote class="doxtable">
-<p >&zwj; * <b>rrr</b>: rra and rrb at the same time.. </p>
+</li>
+<li>The goal is to sort in ascending order numbers into stack a. To do so you have the following operations at your disposal:<ul>
+<li><b>sa (swap a)</b>: Swap the first 2 elements at the top of stack a. Do nothing if there is only one or no elements.</li>
+<li><b>sb (swap b)</b>: Swap the first 2 elements at the top of stack b. Do nothing if there is only one or no elements. ss : sa and sb at the same time.</li>
+<li><b>pa (push a)</b>: Take the first element at the top of b and put it at the top of a. Do nothing if b is empty.</li>
+<li><b>pb (push b)</b>: Take the first element at the top of a and put it at the top of b. Do nothing if a is empty.</li>
+<li><b>ra (rotate a)</b>: Shift up all elements of stack a by 1. The first element becomes the last one.</li>
+<li><b>rb (rotate b)</b>: Shift up all elements of stack b by 1. The first element becomes the last one.</li>
+<li><b>rr</b>: ra and rb at the same time.</li>
+<li><b>rra (reverse rotate a)</b>: Shift down all elements of stack a by 1. The last element becomes the first one.</li>
+<li><b>rrb (reverse rotate b)</b>: Shift down all elements of stack b by 1. The last element becomes the first one.</li>
+<li><b>rrr</b>: rra and rrb at the same time.. </li>
+</ul>
+</li>
+</ul>
 </blockquote>
 <h1><a class="anchor" id="autotoc_md2"></a>
 Directory tree</h1>
@@ -152,7 +136,31 @@ Directory tree</h1>
     └── ...  
 </pre> <h1><a class="anchor" id="autotoc_md3"></a>
 Compilation instructions</h1>
-<p >Use ‘make help’ for instructions. </p>
+<p >Use ‘make help’ for instructions.</p>
+<h1><a class="anchor" id="autotoc_md4"></a>
+Data structures</h1>
+<p >The main struct type of the program, where both stacks a and b are referenced as doubly linked circular lists. </p><div class="fragment"><div class="line">typedef struct s_ps_stacks</div>
+<div class="line">{</div>
+<div class="line">    t_dlclst    *a;</div>
+<div class="line">    t_dlclst    *b;</div>
+<div class="line">    int         left_to_pre_sort;</div>
+<div class="line">}   t_ps_stacks;</div>
+</div><!-- fragment --><p> The element struct type, where each of the numbers is storaged, along to its sorting metadata. The element type is that which is linked to the <em>content</em> member of the dlclst node. </p><div class="fragment"><div class="line">typedef struct s_element</div>
+<div class="line">{</div>
+<div class="line">    int     value;</div>
+<div class="line">    int     pos_when_sorted;</div>
+<div class="line">    int     current_pos_in_stack;</div>
+<div class="line">    int     cost_a;</div>
+<div class="line">    int     cost_b;</div>
+<div class="line">}   t_element;</div>
+</div><!-- fragment --> <h1><a class="anchor" id="autotoc_md5"></a>
+The sorting algorithm</h1>
+<h2><a class="anchor" id="autotoc_md6"></a>
+Introduction</h2>
+<p >A careful reading of the subject makes it obvious that the only optimization is regarding the number of ps_lang instructions that must be used to sort the numbers. That is, whatever it takes to achieve that is not only legitimate but neccesary.</p>
+<p >In this line, the approach taken is to "cheat" by ordering the list first with some classical-don't-care-how-efficient algorithm and, using its results, statistical analysis, etc. find out the minimum number of ps_lang instructions to get to the same results.</p>
+<p >The sorting process begins just with that: <b>classic sorting</b> the numbers only to attach to each element the position it will have in the sorted list. This pos_when_ordered is the key to the second step of the sorting process: <b>pre-sorting</b>.</p>
+<p ><b>Pre-sorting</b> is the process to smartly push to stack B every element in stack A but three. Before pushing to B, the pos_when_ordered of each element in A, as well as the mean of the pos_when_ordered of the elements still in stack A, determines if either the top A element, the next-to-top A element, the bottom A element, and the next_to_bottom A element (???????????) will be push to B. Pre-sorting ends when only three elements remain in stack A. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->

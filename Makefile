@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/15 11:23:07 by lluque            #+#    #+#              #
-#    Updated: 2024/07/28 15:40:55 by lluque           ###   ########.fr        #
+#    Updated: 2024/07/29 09:24:12 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -176,9 +176,17 @@ SOURCES = ps_main.c \
 		  dlclst_element_utils/compare.c \
 		  dlclst_element_utils/print.c \
 		  dlclst_element_utils/is_sorted.c \
+		  dlclst_element_utils/list_to_array.c \
+		  dlclst_element_utils/get_value.c \
+		  dlclst_element_utils/get_pos_when_sorted.c \
+		  dlclst_element_utils/get_current_pos_in_stack.c \
+		  dlclst_element_utils/get_cost_a.c \
+		  dlclst_element_utils/get_cost_b.c \
 		  libft_additions/ft_abs.c \
 		  libft_additions/ft_dlclst_peek_offset.c \
 		  libft_additions/ft_dlclst_peek_pos.c \
+		  sort/classic_sorting.c \
+		  sort/set_pos_when_sorted.c \
 		  sort/ps_sort.c
 
 # List of bonus version header file names
@@ -509,7 +517,7 @@ doc: $(DOXYFILE)
 	@echo
 	@echo ----------------------------------------------------------------------
 
-# Rule to delete the project's documentation and Doxygen's configuration file.            NEWWWWWW -f para rm doxyfile
+# Rule to delete the project's documentation and Doxygen's configuration file.
 docclean:
 	@echo ----------------------------------------------------------------------
 	@echo
@@ -517,9 +525,10 @@ docclean:
 	@echo
 	rm -rf $(DOC_DIR)
 	rm -f $(DOXYFILE)
-	rm -f $(DOX_README_MD)
 	@echo
 	@echo ----------------------------------------------------------------------
+
+#	rm -f $(DOX_README_MD)														#######################################################
 
 # Phonies: this list of words are never to be interpreted as files but
 # only as rule names. 
