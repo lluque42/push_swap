@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 00:14:56 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/29 12:53:43 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/29 21:09:57 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
  * @var s_element::pos_when_sorted
  * Refers to the target position, that is, the position this element will
  * have when in the full and sorted stack a.
- * @var s_element::current_pos_in_stack
+ * @var s_element::pos_in_stack
  * Refers to the current position of this element in the stack it is currently
  * in.
  * @var s_element::cost_a
@@ -43,7 +43,7 @@ typedef struct s_element
 {
 	int		value;
 	int		pos_when_sorted;
-	int		current_pos_in_stack;
+	int		pos_in_stack;
 	int		cost_a;
 	int		cost_b;
 }	t_element;
@@ -116,20 +116,6 @@ void	print(void *element);
 int		is_sorted(t_dlclst *lst, t_sortdir direction);
 
 /**
- * @brief <b>list_to_array</b> -- Returns in int array[] form, the values of
- * every element in stack A.
- *
- * @param [in] ps - The t_ps_stacks with both A and B stacks
- *
- * @param [in,out] array - The resulting array, caller is responsible to freeing
- * its memory.
- *
- * @return If successful, the array of integers length.
- * A value of -1 if error.
-*/
-int		list_to_array(t_ps_stacks *ps, int **array);
-
-/**
  * @brief <b>get_value</b> -- Returns integer value associated to the element
  * in a dlclst node.
  *
@@ -183,5 +169,21 @@ int		get_cost_a(void *element);
  * in node content member
 */
 int		get_cost_b(void *element);
+
+/**
+ * @brief <b>set_cost_a</b> -- Sets cost_a member of the element in
+ * a dlclst node.
+ *
+ * @param [in] element - Void pointer to t_element.
+*/
+void	set_cost_a(void *element, int cost_a);
+
+/**
+ * @brief <b>set_cost_b</b> -- Sets cost_b member of the element in
+ * a dlclst node.
+ *
+ * @param [in] element - Void pointer to t_element.
+*/
+void	set_cost_b(void *element, int cost_b);
 
 #endif

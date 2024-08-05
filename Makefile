@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/15 11:23:07 by lluque            #+#    #+#              #
-#    Updated: 2024/07/29 13:17:33 by lluque           ###   ########.fr        #
+#    Updated: 2024/07/31 23:37:58 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -176,19 +176,28 @@ SOURCES = ps_main.c \
 		  dlclst_element_utils/compare.c \
 		  dlclst_element_utils/print.c \
 		  dlclst_element_utils/is_sorted.c \
-		  dlclst_element_utils/list_to_array.c \
 		  dlclst_element_utils/get_value.c \
 		  dlclst_element_utils/get_pos_when_sorted.c \
 		  dlclst_element_utils/get_current_pos_in_stack.c \
 		  dlclst_element_utils/get_cost_a.c \
 		  dlclst_element_utils/get_cost_b.c \
+		  dlclst_element_utils/set_cost_a.c \
+		  dlclst_element_utils/set_cost_b.c \
 		  libft_additions/ft_abs.c \
 		  libft_additions/ft_dlclst_peek_offset.c \
 		  libft_additions/ft_dlclst_peek_pos.c \
-		  sort/ps_sort.c \
-		  sort/classic_sorting.c \
-		  sort/set_pos_when_sorted.c \
-		  sort/pre_sort.c
+		  ps_sort/ps_sort.c \
+		  ps_sort/pre_sort.c \
+		  ps_sort/sorting_preparations.c \
+		  ps_sort/sort_stack_a_last_three.c \
+		  ps_sort/sort_stack_a_two.c \
+		  ps_sort/rotate_until_sorted.c \
+		  ps_sort/costs_based_pushing/costs_based_pushing.c \
+		  ps_sort/costs_based_pushing/get_target_pos.c \
+		  ps_sort/costs_based_pushing/get_lowest_cost_element_pos.c \
+		  ps_sort/costs_based_pushing/rotate_before_pa.c \
+		  ps_sort/costs_based_pushing/set_costs_values.c \
+		  ps_sort/costs_based_pushing/set_pos_in_stack.c \
 
 # List of bonus version header file names
 # NOTE: Only to be used to force recompiling if modified

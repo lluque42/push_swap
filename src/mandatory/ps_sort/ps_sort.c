@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   classic_sorting.c                                  :+:      :+:    :+:   */
+/*   ps_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/28 20:51:35 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/28 22:23:18 by lluque           ###   ########.fr       */
+/*   Created: 2024/02/11 12:49:39 by lluque            #+#    #+#             */
+/*   Updated: 2024/07/31 23:28:14 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	classic_sorting(int *array_ptr, int array_len)
+int	ps_sort(t_ps_stacks *ps)
 {
-	int	i;
-	int	temp;
-	int	*array;
+	int	len_a;
 
-	array = array_ptr;
-	i = 0;
-	while (i < array_len - 1)
+	len_a = ft_dlclst_size(ps->a);
+	if (len_a <= 3)
 	{
-		if (array[i] > array[i + 1])
-		{
-			temp = array[i];
-			array[i] = array[i + 1];
-			array[i + 1] = temp;
-			i = 0;
-		}
+		if (len_a <= 2)
+			sort_stack_a_two(ps);
 		else
-			i++;
+			sort_stack_a_last_three(ps);
+		return (1);
 	}
-	i = -1;
-	if (MAKE_DEBUG_LVL)
-	{
-		while (++i < array_len)
-			ft_printf("[classic_sorting] %d\n", array[i]);
-	}
+	if (!sorting_preparations(ps))
+		return (0);
+	pre_sort(ps);
+	costs_based_pushing(ps);
+	rotate_until_sorted(ps);
+	return (1);
 }

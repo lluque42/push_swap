@@ -1,33 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_sort.c                                          :+:      :+:    :+:   */
+/*   set_cost_a.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/11 12:49:39 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/29 14:22:00 by lluque           ###   ########.fr       */
+/*   Created: 2024/07/28 22:03:25 by lluque            #+#    #+#             */
+/*   Updated: 2024/07/29 21:08:33 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// For now it is assumed that the elements to be sorted are a set of consecutive
-// integers.
-#include <stdlib.h>
 #include "libft.h"
 #include "push_swap.h"
 
-int	ps_sort(t_ps_stacks *ps)
+void	set_cost_a(void *element, int cost_a)
 {
-	int	*array;
-	int	len;
-
-	array = NULL;
-	len = list_to_array(ps, &array);
-	if (len == -1)
-		return (0);
-	classic_sorting(array, len);
-	set_pos_when_sorted(ps, array, len);
-	free(array);
-	pre_sort(ps);
-	return (1);
+	((t_element *)element)->cost_a = cost_a;
 }

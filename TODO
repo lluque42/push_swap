@@ -2,27 +2,6 @@
 ************************ NEXT COMMIT DESCRIPTION *******************************
 ********************************************************************************
 
-The most important development was the implementation of the
-pre-sorting stage (pre_sort()) which lefts stack A with three
-sorted elements and stack B with the pre-sorted (statistically
-speaking) remaining elements.
-
-Debugging messages improved.
-
-current_avg_pos_when_sorted member added to t_ps_stacks struct type.
-the functions of dlclst_element_utils that receiver a dlclst* as an
-argument were modified to receive a t_element as void* instead.
-
-The ps_lang/print.c file was renamed to print_stacks.c to follow my
-standards.
-
-The functions in ps_lang_peek.c where updated according the int* type
-list content to the t_type* type.
-
-Most of the dlclst_element_utils functions where modified to take as
-an argument the void* content instead of its related t_dlclst* node.
-
-Documentation was improved and updated.
 
 ********************************************************************************
 ********************************************************************************
@@ -33,6 +12,15 @@ Documentation was improved and updated.
 ********************************************************************************
 ******************************** TODO ******************************************
 ********************************************************************************
+
++ Pending functions to implement:
+	+ From ps_sort()
+		>> costs_based_pushing() DONE!
+			>> set_costs_values() DONE!
+				>> get_target_pos() TODO!!!!
+			>> get_lowest_cost_element_pos() DONE!
+			>> rotate_before_pa() TODO!!!!!
+		>> rotate_until_sorted() TODO!!!!!!
 
 +I noticed the arguments to ./push_swap from the command line could be either one
 (requiring ft_splitting them, because they come from an enviroment variable) or
@@ -63,6 +51,7 @@ program). FIX THIS!
 ******************************** DONE ******************************************
 ********************************************************************************
 
++ Implement exception when less than 3 elements.
 + Remove the redundant printing to stdout when calling ss, rr, rrr.
 
 ********************************************************************************

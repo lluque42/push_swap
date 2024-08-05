@@ -1,6 +1,6 @@
 # 42's push\_swap project
 
-Luis Luque - 2024
+Luis Luque (lluque) - 2024
 
 Message to other 42 students: DO NOT COPY, get inspired!
 
@@ -100,10 +100,190 @@ typedef struct s_element
 {
     int     value;
     int     pos_when_sorted;
-    int     current_pos_in_stack;
+    int     pos_in_stack;
     int     cost_a;
     int     cost_b;
 }   t_element;
+```
+## Layered implementation approach
+Very early in the design stage it became obvious that defining a few
+abstraction levels was the best approach to implement this project. From the
+lowest to the highest level, each level of abstraction builts on its
+immediate lower level. The main purpose of this was to keep the code legible
+while compartmentalizing: when working on (or at) a level, the details of
+the lower levels are ignore and only dealt with, indirectly, through the
+immediately lower level.
+In a nutshell, from lowest to highest:
+* A collection of functions and structs data types to implement a doubly
+linked circular list (dlclst) was added to libft for this project. The choice
+for doubly linking responds to facilitate the swaping of nodes, while the
+circularity is ideal for the rotation of the nodes. The following image
+depicts an example dlclst list showing the links and directions:
+```
+                                                                            .
+                                                                            .
+                                 _______________________________________
+   ^          prev (of my_list) |          _________________________    | 
+   ^                            v         | next (of node5)         |   | 
+   ^                               node5                            |   | 
+   ^            prev (of node5) |         ^                         |   | 
+next dir                        v         | next (of node4)         |   | 
+                                   node4                            |   | 
+                prev (of node4) |         ^                         |   | 
+                                v         | next (of node3)         |   | 
+                                   node3                            |   | 
+                prev (of node3) |         ^                         |   | 
+                                v         | next (of node2)         |   | 
+                                   node2                            |   | 
+                prev (of node2) |         ^                         |   | 
+prev dir                        v         | next (of node my_list)  |   | 
+   v        t_dlclst *my_list     my_list                           |   | 
+   v                            |         ^ next (of node5)         |   | 
+   v                            |         |_________________________|   | 
+   v                            |_______________________________________| 
+                                   prev (of my_list)
+                                                                            .
+                                                                            .
+```
+* A collection of functions and data structures was developed using dlclst
+to implement the set of two stacks and every push-swap language instruction:
+pa(), pb(), sa(), sb(), ss(), ra(), rra(), rb(), rrb(), rr(), and rrr(). Also
+several functions were added to support peeking of elements, etc. The
+following image depicts an example of a stack showing the effects of every
+push-swap language instruction:
+```
+                                                                            .
+                                                                            .
+          stack A                  stack B
+    ^        1  >>>>>>> pa() >>>>>>>                A sa() swaps the
+    ^        8    (from top to top)                    top and the
+ra(), rr()   3  (pb() does the same,                  second-to-top,
+direction    7    mutatis mutandi)                    that is, from:
+             2                                              1
+             6                                              8
+rra(), rrr() 4                                             ...
+ direction   0                                             to:
+    v        5                                              8
+    v        9                                              1
+                                                           ...
+                                                      sb() and ss()
+                                                      do the same,
+                                                     mutatis mutandi
+                                                                            .
+                                                                            .
+```
+
+For clarity sake, let's put all the former information in an example.
+
+This example will aid to clarify all the conventions in this implementation
+as well as helping while navigating (or, oh my God of course, while writing)
+the code.
+
+When invoking the program as:
+```
+                                                                            .
+bin/mandatory/push_swap 1 8 3 7 2 6 4 0 5 9
+                                                                            .
+```
+The arguments are read from left to right. Then, each argument, after
+validation, is bottom_pusha()'ed into stack A. The bottom_pusha() function
+ultimately uses ft_dlclst_insback() to place the node with the associated
+integer at the end of the dlclst that represents the stack A (the integer ends
+at the bottom of stack A). In this way, the first integer in the arguments
+lands on the top of stack A, while the last integer in the arguments lands on
+the bottom of stack A.
+
+The following image shows the initial state of stack A with an example
+invocation of the program (notice de dlclst "next" and "prev" directions):
+```
+                                                                            .
+                                                                            .
+                         Stack X
+                                       (get_value(ft_dlclst_last(ps->X))
+                  top of X    1 (0) < first node in the respective dlclst
+  dlclst          top_1 of X  8 (1)
+ next dir                     3 (2)
+   v        ^                 7 (3)
+   v        ^                 2 (4)
+   v        ^                 6 (5)
+   v        ^                 4 (6)
+         dlclst               0 (7)
+        prev dir  bot_1 of X  5 (8)
+                  bottom of X 9 (9) < last node in the respective dlclst 
+                                           (get_value(ps->X))
+                                                                            .
+NOTE: Values in parenthesis are the respective element->pos_in_stack.
+                                                                            .
+                                                                            .
+```
+
+The top of each stack is the last node in the dlclst that implements it:
+```
+                                                                            .
+                                                                            .
+$ bin/mandatory/push_swap 1 8 3 7 2 6 4 0 5 9
+                                                                            .
+         stack A                                         stack B
+                     (get_value(ft_dlclst_last(ps->a))
+top of A    1 (0) < first node in the respective dlclst >>>
+top_1 of A  8 (1)
+            3 (2)
+            7 (3)
+            2 (4)
+            6 (5)
+            4 (6)
+            0 (7)
+bot_1 of A  5 (8)
+bottom of A 9 (9) < last node in the respective dlclst >>> 
+                         (get_value(ps->a))
+                                                                            .
+NOTE: Values in parenthesis are the respective element->pos_in_stack.
+                                                                            .
+                                                                            .
+```
+A pushing instruction moves one of the stack's top element to the other stack
+landing at the top position.
+
+From the state of the stacks depicted in the image above, the following image
+shows the resulting state after performing five pushings to A (i.e. 5 x
+pa()): 
+```
+                                                                            .
+                                                                            .
+         stack A                                         stack B
+                     (get_value(ft_dlclst_last(ps->X))
+top of A    6 (0) < first node in the respective dlclst > (0) 2 top of A
+top_1 of A  4 (1)                                         (1) 7 top_1 of A
+            0 (2)                                         (2) 3
+bot_1 of A  5 (3)                                         (3) 8 bot_1 of A
+bottom of A 9 (4) <  last node in the respective dlclst > (4) 1 bottom of A
+                         (get_value(ps->X))
+                                                                            .
+NOTE: Values in parenthesis are the respective element->pos_in_stack.
+                                                                            .
+                                                                            .
+```
+Eventually, the final state after sorting is shown in the following image:
+```
+                                                                            .
+                                                                            .
+         stack A                                         stack B
+                     (get_value(ft_dlclst_last(ps->a))
+top of A    0 (0) < first node in the respective dlclst >>>
+top_1 of A  1 (1)
+            2 (2)
+            3 (3)
+            4 (4)
+            5 (5)
+            6 (6)
+            7 (7)
+bot_1 of A  8 (8)
+bottom of A 9 (9) < last node in the respective dlclst >>> 
+                         (get_value(ps->a))
+                                                                            .
+NOTE: Values in parenthesis are the respective element->pos_in_stack.
+                                                                            .
+                                                                            .
 ```
 ## The sorting algorithm
 ### Introduction
@@ -117,20 +297,126 @@ with some classical-don't-care-how-efficient algorithm and, using its
 results, statistical analysis, etc. find out the minimum number of ps_lang
 instructions to get to the same results.
 
-The sorting process begins just with that: **classic sorting** the numbers
-only to attach to each element the position it will have in the sorted list.
-This pos_when_ordered is the key to the second step of the sorting process:
-**pre-sorting**.
-
-**Pre-sorting** is the process to smartly push to stack B every element in stack
-A but three. Before pushing to B, the pos_when_ordered of each element in A,
-as well as the mean of the pos_when_ordered of the elements still in stack
-A, determines if either the top A element, the next-to-top A element, the
-bottom A element, and the next_to_bottom A element (???????????) will be
-push to B. Pre-sorting ends after sortin the only three remaining elements
-in stack A which will serve as the reference for the next stage where the
-elements in stack B are pushed to A according to the costs analysis.
+The following stages of the sorting process can be explicitly followed in
+ps_sort() function:
+* Sorting preparations
+* Pre sorting
+* Cost-based pushing
+* Rotate stack A until sorted
 
 
+####Sorting preparations
+
+Once every number passed is placed in the stack A, this stack is copied to
+an array of integer to be sorted by some classical sorting algorithm
+(bubble sorting in this case, this could be improved in the future). The
+purpose of this step is to attach (as a meta-data) to every element in stack
+A the position it will have once sorted. This pos_when_sorted is the key to
+the next stage of the sorting process.
+
+####Pre sorting
+
+**Pre sorting** is the process to smartly push to stack B every element in
+stack A but three. The elements in stack A are processed block-by-block and
+the criteria for pushing to stack B depends on the avg_pos_when_sorted of
+the elements still in stack A. Both the block size (half of the remaining
+elements in stack A to be pushed, plus one) and the avg_pos_when_sorted is
+re-calculated at the begining of every block processing.
+
+For each block of elements to be pushed from A to B, the top A element, the
+next-to-top A element, the bottom A element, and the next_to_bottom A element
+are examined and the first one which its pos_when_sorted is smaller than the
+current avg_pos_when_sorted is pushed to B. If none passes this test, a ra
+is performed to try again. This goes on until the number o elements pushed
+to B equals the target block size, then, the next block is processed and
+so on until only three elementes are left in stack A. When this is achieved,
+the three remaining elements in A are sorted. These will serve as the first
+references for the next stage, where the elements in stack B are pushed back
+to A according to movement costs analysis.
+
+####Cost-based pushing
+
+**Cost-based pushing** is the stage of the sorting process where stack B is
+emptied by using a sequence of ps_lang instructions (which may affect both
+stacks) ending, of course, with a final pa.
+
+Cost-based pushing is a loop that only breaks when stack B is empty, in this
+loop the following is performed:
+* Set positions in stack to every element in both stack A and B. This is
+the relative position each element has in the stack it is in.
+* Set costs values for EACH element in stack B.
+    * There are two components for cost value: cost_a and cost_b. The reason
+    there are two is because, for the current element in stack B being
+    evaluated, the costs in rotational movements must be calculated for
+    both stacks:
+        * From the stack B perspective, how many rotations IN THE BEST
+        DIRECTION are needed to get the current element in stack B being
+        evaluated to the top position so it can be pushable to stack A.
+        * From the stack A perspective, how many rotations IN THE BEST
+        DIRECTION are needed to put it in a state where pushing the top
+        element in stack B (the one that is currently being analyzed) makes
+        it land in the best position sorting-wise.
+    * For both cost_a and cost_b the following convention is adopted: a
+    positive value means that rotations are performed in the "next" direction
+    while a negative value means that rotations are performed in the "prev"
+    direction.
+    * The total_cost for the current element in stack B being analyzed
+    depends on the absolute values of cost_a and cost_b and their signs as
+    follows:
+        * If cost_a and cost_b have the **same sign**, this implies that
+        simultaneous rotations on both stacks **MAY** be performed. In this
+        case, the total_cost is the sum of:
+            * The absolute value of the difference of cost_a and cost_b. This
+            is the number of the common rotations in the same direction for
+            both stacks, plus
+            * The remaining number of rotations of just one of the stacks,
+            that is, the absolute value of the biggest between cost_a and
+            cost_b, minus the former value (the common rotations).
+        * If cost_a and cost_b have **different signs**, this implies that
+        simultaneous rotations on both stacks **MAY NOT** be performed. In
+        this case, the total_cost is the sum of the absolute values of cost_a
+        and cost_b, since the program must rotate in different directions
+        each stack to get the stack A in the sweet spot and the current
+        element in stack B being analyzed at the top of stack B to make it
+        pushable to A.
+
+    
+    cost problem can be seen from two perspectives:
+        * Taking the current state of stack A as fixed, how many rotations in
+        the best direction must be performed in stack B to place at top B the
+        best candidate to be pushed to stack A (at its fixed state). The
+        cost_b value represents just that, using this convention: a positive
+        value is in the "next" direction; a negative value is in the "prev"
+        direction.
+        * Taking the current state of stack B as fixed, how many rotations in
+        the best direction must be performed in stack A to leave it in a
+        state where pushing the (fixed) top B element is the correct choice.
+        The cost_a value represents just that, using this convention: a
+        positive value is in the "next" direction; a negative value is in the
+        "prev" direction.
+    * The total_cost depends on both the cost_a and cost_b values in this way:
+
+        * cost_a: The minimum number of rotation instructions on stack A to
+        put it in the optimum condition to push the current top B in the right
+        place.                                      CHECK THIS! TODO!!!!!!!!!!!!!!!!!!!
+        * cost_b: CHECK THIS! TODO!!!!!!!!!!!!!!!!!!!
+* Find the lowest cost among the elements in stack B.
+    * The total cost for each element is the sum of cost_a and cost_b. The
+    element that currently has the lowest cost is the one that will be pushed
+    to A. Of course, there's a lot to do before actually pa'ing...
+* Rotate before pa: This is the sequence of rotations needed before calling
+the pa instructions. That is, the rotations needed to:
+    * Place the desired (lowest cost) element in stack B in the top of the
+    stack.
+    * Reorder stack A so that when pa'ing the desired element in stack B
+    lands in the desired position (sorted) in stack A.
+* Finally, a pa to push the right element in stack B to the right position
+in stack A.
+
+####Rotate stack A until sorted
+
+As the result of Cost-based pushing, Stack B is empty and the elements in
+Stack A are ONLY CIRCULARLY sorted. In this final stage the stack A is
+rotated in the best direction to get it LINEARLY sorted.
 
 
