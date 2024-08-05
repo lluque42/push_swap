@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_target_pos.c                                   :+:      :+:    :+:   */
+/*   get_target_pos_in_a_for_top_b.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 23:11:04 by lluque            #+#    #+#             */
-/*   Updated: 2024/08/01 00:57:06 by lluque           ###   ########.fr       */
+/*   Updated: 2024/08/04 18:47:22 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "push_swap.h"
 
 //Current node in stack B
-int	get_target_pos(t_ps_stacks *ps, t_dlclst *current_node)
+int	get_target_pos_in_a_for_top_b(t_ps_stacks *ps, t_dlclst *current_node)
 {
 	if (MAKE_DEBUG_LVL)
 		ft_printf("[get_target_pos] TODO %p %p\n", ps, current_node);
@@ -35,6 +35,9 @@ void	find_min_and_max(int *a_min, int *a_max, t_node *temp)
 	}
 }
 
+// min_pos_diff, int *max_diff, THESE ARE [out] PARAMENTERS
+// For every element in stack A the following is evaluated:
+// * 
 void	check_min_and_max_diff(int *min_pos_diff, int *max_diff,
 									t_node **a, t_node **b)
 {
@@ -57,6 +60,7 @@ void	check_min_and_max_diff(int *min_pos_diff, int *max_diff,
 	}
 }
 
+// This is all relative to top B
 int	get_target_index(t_node **a, t_node **b)
 {
 	int		min_pos_diff;

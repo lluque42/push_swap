@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 00:14:56 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/29 21:09:57 by lluque           ###   ########.fr       */
+/*   Updated: 2024/08/04 18:05:30 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_element
 	int		pos_in_stack;
 	int		cost_a;
 	int		cost_b;
+	int		total_cost;
 }	t_element;
 /**
  * @typedef t_element
@@ -171,19 +172,44 @@ int		get_cost_a(void *element);
 int		get_cost_b(void *element);
 
 /**
+ * @brief <b>get_total_cost</b> -- Returns total_cost member of the element in
+ * a dlclst node.
+ *
+ * @param [in] element - Void pointer to t_element.
+ *
+ * @return The integer value as storaged in the required member of the t_element
+ * in node content member
+*/
+int		get_total_cost(void *element);
+
+/**
  * @brief <b>set_cost_a</b> -- Sets cost_a member of the element in
  * a dlclst node.
  *
  * @param [in] element - Void pointer to t_element.
+ *
+ * @param [in] cost - The value to be set.
 */
-void	set_cost_a(void *element, int cost_a);
+void	set_cost_a(void *element, int cost);
 
 /**
  * @brief <b>set_cost_b</b> -- Sets cost_b member of the element in
  * a dlclst node.
  *
  * @param [in] element - Void pointer to t_element.
+ *
+ * @param [in] cost - The value to be set.
 */
-void	set_cost_b(void *element, int cost_b);
+void	set_cost_b(void *element, int cost);
+
+/**
+ * @brief <b>set_total_cost</b> -- Sets total_cost member of the element in
+ * a dlclst node.
+ *
+ * @param [in] element - Void pointer to t_element.
+ *
+ * @param [in] cost - The value to be set.
+*/
+void	set_total_cost(void *element, int cost);
 
 #endif

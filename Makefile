@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/15 11:23:07 by lluque            #+#    #+#              #
-#    Updated: 2024/07/31 23:37:58 by lluque           ###   ########.fr        #
+#    Updated: 2024/08/04 18:04:30 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -181,8 +181,10 @@ SOURCES = ps_main.c \
 		  dlclst_element_utils/get_current_pos_in_stack.c \
 		  dlclst_element_utils/get_cost_a.c \
 		  dlclst_element_utils/get_cost_b.c \
+		  dlclst_element_utils/get_total_cost.c \
 		  dlclst_element_utils/set_cost_a.c \
 		  dlclst_element_utils/set_cost_b.c \
+		  dlclst_element_utils/set_total_cost.c \
 		  libft_additions/ft_abs.c \
 		  libft_additions/ft_dlclst_peek_offset.c \
 		  libft_additions/ft_dlclst_peek_pos.c \
@@ -193,7 +195,7 @@ SOURCES = ps_main.c \
 		  ps_sort/sort_stack_a_two.c \
 		  ps_sort/rotate_until_sorted.c \
 		  ps_sort/costs_based_pushing/costs_based_pushing.c \
-		  ps_sort/costs_based_pushing/get_target_pos.c \
+		  ps_sort/costs_based_pushing/get_target_pos_in_a_for_top_b.c \
 		  ps_sort/costs_based_pushing/get_lowest_cost_element_pos.c \
 		  ps_sort/costs_based_pushing/rotate_before_pa.c \
 		  ps_sort/costs_based_pushing/set_costs_values.c \

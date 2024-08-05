@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 14:46:54 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/31 23:57:40 by lluque           ###   ########.fr       */
+/*   Updated: 2024/08/04 20:07:20 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,43 @@
 # define PS_SORT_H
 
 # include "push_swap.h"
+
+/**
+ * @struct s_ps_rotations
+ * @brief Base for typedef <b>s_ps_rotations</b> to storage the number of
+ * each rotation instruction type to be performed on some stack.
+ * @details This type is used to storage the number of each rotation instruction
+ * type to be performed on either the stack B or stack A. This values are set
+ * according to cost analysis by rotate_before_pa() function. One instance of
+ * this type is used for stack A and another one for stack B.
+ * @var s_ps_rotations::rrs
+ * Number of rr instructions to perform.
+ * @var s_ps_rotations::rrrs
+ * Number of rrr instructions to perform.
+ * @var s_ps_rotations::ras
+ * Number of ra instructions to perform.
+ * @var s_ps_rotations::rras
+ * Number of rra instructions to perform.
+ * @var s_ps_rotations::rbs
+ * Number of rb instructions to perform.
+ * @var s_ps_rotations::rrbs
+ * Number of rrb instructions to perform.
+*/
+typedef struct s_ps_rotations
+{
+	int	cost_a;
+	int	cost_b;
+	int	rrs;
+	int	rrrs;
+	int	ras;
+	int	rras;
+	int	rbs;
+	int	rrbs;
+}	t_ps_rotations;
+/**
+ * @typedef t_ps_rotations
+ * Based on the @link s_ps_rotations @endlink struct.
+ */
 
 /**
  * @brief <b>ps_sort</b> -- The entry point for the sorting algorithm.
@@ -73,15 +110,52 @@ void	pre_sort(t_ps_stacks *ps);
 */
 void	set_pos_in_stack(t_ps_stacks *ps);
 
+/**
+ * @brief <b>costs_based_pushing</b> -- Stack B gets emptied by smartly
+ * pushing to stack A all of its elements.
+ *
+ * @details In a loop until stack B is empty, the following tasks are
+ * performed:
+ * 1. Recalculate every element current position in its own stack
+ * (set_pos_in_stack()).
+ * 2. Recalculate for every element in stack B its cost values
+ * (set_costs_values()).
+ * 3. Find out the position of the element in stack B with the lowest cost
+ * (get_lowest_cost_element_pos()). Let's call this element the
+ * target element.
+ * 4. Make the proper rotations in both stacks so that: The target element
+ * gets in the top of stack B; and the top of stack A represents the
+ * desired position to which, when pushing the target element in B to A,
+ * the element lands in the much wanted (circularly) sorted position 
+ * (rotate_before_pa()).
+ * 5. Finally, with all the stars and planets aligned, make the actual
+ * pushing to stack A (pa()).
+ *
+ * @param [in,out] ps - The t_ps_stacks holding both A and B stacks.
+ * 
+ */
+void	costs_based_pushing(t_ps_stacks *ps);
+
+/**
+ * @brief <b>get_target_pos_in_a_for_top_b</b> -- TODO
+ *
+ * @details TODO.
+ *
+ * @param [in,out] ps - The t_ps_stacks holding both A and B stacks.
+ *
+ * @param [in] current_node - TODO.
+*/
+int		get_target_pos_in_a_for_top_b(t_ps_stacks *ps, t_dlclst *current_node);
+
+
+
 int		sorting_preparations(t_ps_stacks *ps);
 void	sort_stack_a_last_three(t_ps_stacks *ps);
 void	sort_stack_a_two(t_ps_stacks *ps);
-void	costs_based_pushing(t_ps_stacks *ps);
 void	set_costs_values(t_ps_stacks *ps);
 int		get_lowest_cost_element_pos(t_ps_stacks *ps);
 void	rotate_before_pa(t_ps_stacks *ps, int lowest_cost_element_pos);
 void	rotate_until_sorted(t_ps_stacks *ps);
-int		get_target_pos(t_ps_stacks *ps, t_dlclst *current_node);
 #endif
 /**
  * @brief <b>list_to_array</b> -- Returns in int array[] form, the values of
