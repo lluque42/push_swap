@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 14:46:54 by lluque            #+#    #+#             */
-/*   Updated: 2024/08/04 20:07:20 by lluque           ###   ########.fr       */
+/*   Updated: 2024/08/08 21:21:20 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,20 @@
 
 /**
  * @struct s_ps_rotations
+ * 
  * @brief Base for typedef <b>s_ps_rotations</b> to storage the number of
- * each rotation instruction type to be performed on some stack.
+ * each rotation instruction type to be performed on the stacks.
+ * 
  * @details This type is used to storage the number of each rotation instruction
- * type to be performed on either the stack B or stack A. This values are set
- * according to cost analysis by rotate_before_pa() function. One instance of
- * this type is used for stack A and another one for stack B.
+ * type to be performed on either the stack B or stack A. This values are set,
+ * in respect to the lowest-cost element in B so that rotate_before_pa()
+ * execute the right instructions before the actual pushing to A of said
+ * element.
+ *
+ * @var s_ps_rotations::cost_a
+ * A copy of the value of member cost_a of the lowest-cost element
+ * @var s_ps_rotations::cost_b
+ * A copy of the value of member cost_b of the lowest-cost element
  * @var s_ps_rotations::rrs
  * Number of rr instructions to perform.
  * @var s_ps_rotations::rrrs
@@ -147,55 +155,92 @@ void	costs_based_pushing(t_ps_stacks *ps);
 */
 int		get_target_pos_in_a_for_top_b(t_ps_stacks *ps, t_dlclst *current_node);
 
-
-
-int		sorting_preparations(t_ps_stacks *ps);
-void	sort_stack_a_last_three(t_ps_stacks *ps);
-void	sort_stack_a_two(t_ps_stacks *ps);
-void	set_costs_values(t_ps_stacks *ps);
-int		get_lowest_cost_element_pos(t_ps_stacks *ps);
-void	rotate_before_pa(t_ps_stacks *ps, int lowest_cost_element_pos);
-void	rotate_until_sorted(t_ps_stacks *ps);
-#endif
 /**
- * @brief <b>list_to_array</b> -- Returns in int array[] form, the values of
- * every element in stack A.
+ * @brief <b>sorting_preparations</b> -- Determines resulting position of each
+ * element when sorted.
  *
- * @param [in] ps - The t_ps_stacks with both A and B stacks
- *
- * @param [in,out] array - The resulting array, caller is responsible to freeing
- * its memory.
- *
- * @return If successful, the array of integers length.
- * A value of -1 if error.
-*/
-//int		list_to_array(t_ps_stacks *ps, int **array);
-
-/**
- * @brief <b>classic_sorting</b> -- Sorts an integer array.
- *
- * @details For now, a simple bubble sort algorithm implementation.
- *
- * @param [in,out] array - The integers array to sort.
- *
- * @param [in,out] array_len - The number of elements in the array.
- *
-*/
-//void	classic_sorting(int *array, int array_len);
-
-/**
- * @brief <b>set_pos_when_sorted</b> -- Sets member pos_when_sorted in every
- * element in stack A.
- *
- * @details Given an integer array which is the sorted version of the values of
- * the elements in stack A, this function sets the pos_when_sorted member of 
- * every element in stack A.
+ * @details Once every number passed is placed in the stack A, this stack is
+ * copied to an array of integer to be sorted by some classical sorting
+ * algorithm bubble sorting in this case, this could be improved in the future).
+ * The purpose of this step is to attach (as a meta-data) to every element in
+ * stack A the position it will have once sorted. This pos_when_sorted is the
+ * key to the next stage of the sorting process (pre sorting).
  *
  * @param [in,out] ps - The t_ps_stacks holding both A and B stacks.
  *
- * @param [in] array - The integer array already sorted.
- *
- * @param [in] array_len - The number of elements in the array, which matches
- * the number of elements in the stack A.
+ * @return A non-zero value if OK, zero otherwise.
 */
-//void	set_pos_when_sorted(t_ps_stacks *ps, int *array, int array_len);
+int		sorting_preparations(t_ps_stacks *ps);
+
+/**
+ * @brief <b>sort_stack_a_last_three</b> -- Sorts stack A when it only has
+ * three elements.
+ *
+ * @details Sorts stack A when it only has three elements.
+ *
+ * @param [in,out] ps - The t_ps_stacks holding both A and B stacks.
+*/
+void	sort_stack_a_last_three(t_ps_stacks *ps);
+
+/**
+ * @brief <b>sort_stack_a_last_two</b> -- Sorts stack A when it only has
+ * two elements.
+ *
+ * @details Sorts stack A when it only has two elements.
+ *
+ * @param [in,out] ps - The t_ps_stacks holding both A and B stacks.
+*/
+void	sort_stack_a_two(t_ps_stacks *ps);
+
+/**
+ * @brief <b>set_costs_values</b> -- Set costs values for every element in
+ * stack B.
+ *
+ * @details Set costs values for every element in stack B.
+ *
+ * @param [in,out] ps - The t_ps_stacks holding both A and B stacks.
+*/
+void	set_costs_values(t_ps_stacks *ps);
+
+/**
+ * @brief <b>get_lowest_cost_element_pos</b> -- Gets the position in stack B of
+ * the element with the lowest movement cost.
+ *
+ * @details Gets the position in stack B of the element with the lowest
+ * movement cost (total cost).
+ *
+ * @param [in,out] ps - The t_ps_stacks holding both A and B stacks.
+ *
+ * @return The position in stack B of the element with the lowest movement cost.
+*/
+int		get_lowest_cost_element_pos(t_ps_stacks *ps);
+
+/**
+ * @brief <b>rotate_before_pa</b> -- Applies the needed rotations in both
+ * stacks, according to cost analysis, to be able to push to stack A the element
+ * with the lowest total cost.
+ *
+ * @details Applies the needed rotations in both stacks, according to cost
+ * analysis, to be able to push to stack A the element with the lowest total
+ * cost.
+ *
+ * @param [in,out] ps - The t_ps_stacks holding both A and B stacks.
+ *
+ * @param [in] lowest_cost_element_pos - The position of the element in stack B
+ * with the lowest cost.
+*/
+void	rotate_before_pa(t_ps_stacks *ps, int lowest_cost_element_pos);
+
+/**
+ * @brief <b>rotate_until_sorted</b> -- Rotates in the best direction the
+ * elements in stack A until it is sorted.
+ *
+ * @details This function is called once stack B is empty and stack A is
+ * circularly sorted after the cost-based pushing. Rotates in the best direction
+ * the elements in stack A until it is sorted.
+ *
+ * @param [in,out] ps - The t_ps_stacks holding both A and B stacks.
+*/
+void	rotate_until_sorted(t_ps_stacks *ps);
+
+#endif

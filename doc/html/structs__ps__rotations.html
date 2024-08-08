@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Push Swap<span id="projectnumber">&#160;2024-08-05</span>
+   <div id="projectname">Push Swap<span id="projectnumber">&#160;2024-08-08</span>
    </div>
    <div id="projectbrief">Push_swap project for Campus 42</div>
   </td>
@@ -69,19 +69,17 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Base for typedef <b><a class="el" href="structs__ps__rotations.html" title="Base for typedef s_ps_rotations to storage the number of each rotation instruction type to be perform...">s_ps_rotations</a></b> to storage the number of each rotation instruction type to be performed on some stack.  
+<p>Base for typedef <b><a class="el" href="structs__ps__rotations.html" title="Base for typedef s_ps_rotations to storage the number of each rotation instruction type to be perform...">s_ps_rotations</a></b> to storage the number of each rotation instruction type to be performed on the stacks.  
  <a href="structs__ps__rotations.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="ps__sort_8h_source.html">ps_sort.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:aabf84b8975df40d6a2126ecf718f0983"><td class="memItemLeft" align="right" valign="top"><a id="aabf84b8975df40d6a2126ecf718f0983" name="aabf84b8975df40d6a2126ecf718f0983"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>cost_a</b></td></tr>
-<tr class="separator:aabf84b8975df40d6a2126ecf718f0983"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c10d1d8ab69ed1d4ef7d96d619ccd3e"><td class="memItemLeft" align="right" valign="top"><a id="a9c10d1d8ab69ed1d4ef7d96d619ccd3e" name="a9c10d1d8ab69ed1d4ef7d96d619ccd3e"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>cost_b</b></td></tr>
-<tr class="separator:a9c10d1d8ab69ed1d4ef7d96d619ccd3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa54a868cbf1e1f90a4f66e0602a59475"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__ps__rotations.html#aa54a868cbf1e1f90a4f66e0602a59475">cost_a</a></td></tr>
+<tr class="separator:aa54a868cbf1e1f90a4f66e0602a59475"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a929352f8145624343b5cfe4e7c65f1f1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__ps__rotations.html#a929352f8145624343b5cfe4e7c65f1f1">cost_b</a></td></tr>
+<tr class="separator:a929352f8145624343b5cfe4e7c65f1f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa75b656fbf858ed1bb859b03a1541a26"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__ps__rotations.html#aa75b656fbf858ed1bb859b03a1541a26">rrs</a></td></tr>
 <tr class="separator:aa75b656fbf858ed1bb859b03a1541a26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4fc4b86bd1d327b044960113bf79def"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__ps__rotations.html#af4fc4b86bd1d327b044960113bf79def">rrrs</a></td></tr>
@@ -96,9 +94,39 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>cost_b</b></td></tr>
 <tr class="separator:a695f5f7c01ab2a808a59365b98a33516"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Base for typedef <b><a class="el" href="structs__ps__rotations.html" title="Base for typedef s_ps_rotations to storage the number of each rotation instruction type to be perform...">s_ps_rotations</a></b> to storage the number of each rotation instruction type to be performed on some stack. </p>
-<p >This type is used to storage the number of each rotation instruction type to be performed on either the stack B or stack A. This values are set according to cost analysis by rotate_before_pa() function. One instance of this type is used for stack A and another one for stack B. </p>
+<div class="textblock"><p >Base for typedef <b><a class="el" href="structs__ps__rotations.html" title="Base for typedef s_ps_rotations to storage the number of each rotation instruction type to be perform...">s_ps_rotations</a></b> to storage the number of each rotation instruction type to be performed on the stacks. </p>
+<p >This type is used to storage the number of each rotation instruction type to be performed on either the stack B or stack A. This values are set, in respect to the lowest-cost element in B so that <a class="el" href="ps__sort_8h.html#a1428a6c3083b48df88d6c19d95768551" title="rotate_before_pa – Applies the needed rotations in both stacks, according to cost analysis,...">rotate_before_pa()</a> execute the right instructions before the actual pushing to A of said element. </p>
 </div><h2 class="groupheader">Field Documentation</h2>
+<a id="aa54a868cbf1e1f90a4f66e0602a59475" name="aa54a868cbf1e1f90a4f66e0602a59475"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa54a868cbf1e1f90a4f66e0602a59475">&#9670;&nbsp;</a></span>cost_a</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">s_ps_rotations::cost_a</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >A copy of the value of member cost_a of the lowest-cost element </p>
+
+</div>
+</div>
+<a id="a929352f8145624343b5cfe4e7c65f1f1" name="a929352f8145624343b5cfe4e7c65f1f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a929352f8145624343b5cfe4e7c65f1f1">&#9670;&nbsp;</a></span>cost_b</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">s_ps_rotations::cost_b</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >A copy of the value of member cost_b of the lowest-cost element </p>
+
+</div>
+</div>
 <a id="a4c8927f8107f3fdaa9f6f9af4c916fef" name="a4c8927f8107f3fdaa9f6f9af4c916fef"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4c8927f8107f3fdaa9f6f9af4c916fef">&#9670;&nbsp;</a></span>ras</h2>
 

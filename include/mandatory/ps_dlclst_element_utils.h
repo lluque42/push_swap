@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 00:14:56 by lluque            #+#    #+#             */
-/*   Updated: 2024/08/04 18:05:30 by lluque           ###   ########.fr       */
+/*   Updated: 2024/08/08 20:49:11 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,16 @@
  * Refers to the current position of this element in the stack it is currently
  * in.
  * @var s_element::cost_a
- * TODO
+ * The number of movements that would be needed to apply to stack A to put it in
+ * a state in which, if pushing to A this element, it lands in such a position
+ * that maintains stack A in a (circularly) sorted state.
  * @var s_element::cost_b
- * TODO
+ * The number of movements that would be needed to apply to stack B if this
+ * element was to be at the top (so it could be pushed to A).
+ * @var s_element::total_cost
+ * The total number of ps_lang rotation instructions (affecting stack A, B or
+ * both) that would be needed if this element was to be pushed to stack A while
+ * maintaining this stack in a (circularly) sorted state.
 */
 typedef struct s_element
 {

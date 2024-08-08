@@ -6,10 +6,11 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 21:31:09 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/28 21:29:35 by lluque           ###   ########.fr       */
+/*   Updated: 2024/08/08 21:44:25 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include <unistd.h>
 #include "push_swap.h"
 
@@ -23,8 +24,6 @@ int	main(int argc, char **argv)
 		print_stacks(ps);
 	if (!ps_sort(ps))
 		ft_putendl_fd("push_swap: error while sorting", STDERR_FILENO);
-	if (MAKE_DEBUG_LVL)
-		print_stacks(ps);
 	free_ps(&ps);
-	return (0);
+	return (EXIT_SUCCESS);
 }

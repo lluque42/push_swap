@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 20:12:29 by lluque            #+#    #+#             */
-/*   Updated: 2024/08/04 18:45:25 by lluque           ###   ########.fr       */
+/*   Updated: 2024/08/07 18:57:21 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,21 @@
 int	get_lowest_cost_element_pos(t_ps_stacks *ps)
 {
 	t_dlclst	*current_node;
-	void		*element;
-	int			current_cost;
-	int			lowest_cost;
 	int			ret_val;
+	int			lowest_cost;
+	int			i;
+	int			len_b;
 
 	lowest_cost = INT_MAX;
 	current_node = ps->b;
-	while (current_node != ft_dlclst_last(ps->b))
+	len_b = ft_dlclst_size(ps->b);
+	i = -1;
+	while (++i < len_b)
 	{
-		element = current_node->content;
-		current_cost = ft_abs(get_total_cost(element));
-		if (current_cost < lowest_cost)
+		if (get_total_cost(current_node->content) < lowest_cost)
 		{
-			lowest_cost = current_cost;
-			ret_val = get_current_pos_in_stack(element);
+			lowest_cost = get_total_cost(current_node->content);
+			ret_val = i;
 		}
 		current_node = current_node->next;
 	}

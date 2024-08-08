@@ -6,10 +6,11 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 10:03:11 by lluque            #+#    #+#             */
-/*   Updated: 2024/08/01 00:47:17 by lluque           ###   ########.fr       */
+/*   Updated: 2024/08/07 18:31:44 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "push_swap.h"
 #include "libft.h"
 
@@ -74,7 +75,8 @@ static void	loop_block(t_ps_stacks *ps, int block_size)
 
 void	pre_sort(t_ps_stacks *ps)
 {
-	int			block_size;
+	int		block_size;
+	char	input;
 
 	ps->left_to_pre_sort = ft_dlclst_size(ps->a) - 3;
 	while (ps->left_to_pre_sort > 0)
@@ -91,4 +93,9 @@ void	pre_sort(t_ps_stacks *ps)
 		loop_block(ps, block_size);
 	}
 	sort_stack_a_last_three(ps);
+	if (MAKE_DEBUG_LVL)
+	{
+		ft_printf("[pre_sort] Pre sorted! Press enter to continue...\n");
+		read(0, &input, 1);
+	}
 }

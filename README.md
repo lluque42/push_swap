@@ -152,23 +152,23 @@ several functions were added to support peeking of elements, etc. The
 following image depicts an example of a stack showing the effects of every
 push-swap language instruction:
 ```
-                                                                            .
-                                                                            .
-          stack A                  stack B
-    ^        1  >>>>>>> pa() >>>>>>>                A sa() swaps the
-    ^        8    (from top to top)                    top and the
-ra(), rr()   3  (pb() does the same,                  second-to-top,
-direction    7    mutatis mutandi)                    that is, from:
-             2                                              1
-             6                                              8
-rra(), rrr() 4                                             ...
- direction   0                                             to:
-    v        5                                              8
-    v        9                                              1
-                                                           ...
-                                                      sb() and ss()
-                                                      do the same,
-                                                     mutatis mutandi
+         ^                                                                  .
+         ^                                                                  .
+         ^             stack A                  stack B
+         ^               1  >>>>>>> pa() >>>>>>>             A sa() swaps the
+    ra(), rr()           8    (from top to top)                top and the
+     direction           3  (pb() does the same,              second-to-top,
+    (cost > 0)           7    mutatis mutandi)                 that is, from:
+(dlclst "prev" dir)      2                                          1
+                         6                                          8
+   rra(), rrr()          4                                         ...
+     direction           0                                         to:
+    (cost < 0)           5                                          8
+(dlclst "next" dir) 9                                               1
+         v                                                         ...
+         v                                                   sb() and ss()
+         v                                                   do the same,
+         v                                                  mutatis mutandi
                                                                             .
                                                                             .
 ```
@@ -292,10 +292,10 @@ is regarding the number of ps_lang instructions that must be used to sort
 the numbers. That is, whatever it takes to achieve that is not only
 legitimate but neccesary.
 
-In this line, the approach taken is to "cheat" by ordering the list first
-with some classical-don't-care-how-efficient algorithm and, using its
+In this line, the approach taken is to "cheat" by first ordering the list
+using some classical-I-don't-care-how-efficient algorithm and, using its
 results, statistical analysis, etc. find out the minimum number of ps_lang
-instructions to get to the same results.
+instructions to get to the same sorted stack A.
 
 The following stages of the sorting process can be explicitly followed in
 ps_sort() function:
@@ -307,10 +307,10 @@ ps_sort() function:
 
 ####Sorting preparations
 
-Once every number passed is placed in the stack A, this stack is copied to
-an array of integer to be sorted by some classical sorting algorithm
-(bubble sorting in this case, this could be improved in the future). The
-purpose of this step is to attach (as a meta-data) to every element in stack
+Once every number passed is placed in the stack A, the values in this stack
+are copied to an array of integer to be sorted by some classical sorting
+algorithm (bubble sorting in this case, this could be improved in the future).
+The purpose of this step is to attach (as meta-data) to every element in stack
 A the position it will have once sorted. This pos_when_sorted is the key to
 the next stage of the sorting process.
 
@@ -324,27 +324,29 @@ elements in stack A to be pushed, plus one) and the avg_pos_when_sorted is
 re-calculated at the begining of every block processing.
 
 For each block of elements to be pushed from A to B, the top A element, the
-next-to-top A element, the bottom A element, and the next_to_bottom A element
-are examined and the first one which its pos_when_sorted is smaller than the
-current avg_pos_when_sorted is pushed to B. If none passes this test, a ra
-is performed to try again. This goes on until the number o elements pushed
-to B equals the target block size, then, the next block is processed and
-so on until only three elementes are left in stack A. When this is achieved,
-the three remaining elements in A are sorted. These will serve as the first
-references for the next stage, where the elements in stack B are pushed back
-to A according to movement costs analysis.
+next-to-top A element, and the bottom A element (may be in a future version
+also the next_to_bottom A element) are examined. The first of the later which
+its pos_when_sorted is smaller than the current avg_pos_when_sorted is pushed
+to B. If none passes this test, a ra() is performed to try again. This goes
+on until the number of elements pushed to B equals the target block size,
+then, the next block is processed and so on, until only three elementes are
+left in stack A. When this is achieved, the three remaining elements in A are
+sorted. These will serve as the first references for the next stage, where
+the elements in stack B are pushed back to A (after lots of smart rotations)
+according to movement costs analysis.
 
 ####Cost-based pushing
 
 **Cost-based pushing** is the stage of the sorting process where stack B is
-emptied by using a sequence of ps_lang instructions (which may affect both
-stacks) ending, of course, with a final pa.
+emptied by using a sequence of ps_lang rotation instructions (which may
+affect both stacks) ending, of course, with a final pa().
 
 Cost-based pushing is a loop that only breaks when stack B is empty, in this
 loop the following is performed:
 * Set positions in stack to every element in both stack A and B. This is
-the relative position each element has in the stack it is in.
-* Set costs values for EACH element in stack B.
+the relative position each element has in the stack it is in
+(set_pos_in_stack()).
+* Set costs values for EACH element in stack B (set_costs_values()).
     * There are two components for cost value: cost_a and cost_b. The reason
     there are two is because, for the current element in stack B being
     evaluated, the costs in rotational movements must be calculated for
@@ -355,16 +357,19 @@ the relative position each element has in the stack it is in.
         * From the stack A perspective, how many rotations IN THE BEST
         DIRECTION are needed to put it in a state where pushing the top
         element in stack B (the one that is currently being analyzed) makes
-        it land in the best position sorting-wise.
+        it land in the best position sorting-wise, that is, maintaining a
+        circularly sorted stack A.
     * For both cost_a and cost_b the following convention is adopted: a
-    positive value means that rotations are performed in the "next" direction
-    while a negative value means that rotations are performed in the "prev"
-    direction.
+    positive value means that rotations are performed in the ra() direction
+    (up: top goes to bottom). This is equivalent to the dlclst "prev"
+    direction. A negative cost_a or cost_b value means that rotations
+    are performed in the rra() direction (down: bottom goes to top). This is
+    equivalent to dlcslt "next" direction.
     * The total_cost for the current element in stack B being analyzed
     depends on the absolute values of cost_a and cost_b and their signs as
     follows:
         * If cost_a and cost_b have the **same sign**, this implies that
-        simultaneous rotations on both stacks **MAY** be performed. In this
+        **simultaneous rotations on both stacks MAY** be performed. In this
         case, the total_cost is the sum of:
             * The absolute value of the difference of cost_a and cost_b. This
             is the number of the common rotations in the same direction for
@@ -373,44 +378,23 @@ the relative position each element has in the stack it is in.
             that is, the absolute value of the biggest between cost_a and
             cost_b, minus the former value (the common rotations).
         * If cost_a and cost_b have **different signs**, this implies that
-        simultaneous rotations on both stacks **MAY NOT** be performed. In
+        **simultaneous rotations on both stacks MAY NOT** be performed. In
         this case, the total_cost is the sum of the absolute values of cost_a
         and cost_b, since the program must rotate in different directions
         each stack to get the stack A in the sweet spot and the current
         element in stack B being analyzed at the top of stack B to make it
         pushable to A.
-
-    
-    cost problem can be seen from two perspectives:
-        * Taking the current state of stack A as fixed, how many rotations in
-        the best direction must be performed in stack B to place at top B the
-        best candidate to be pushed to stack A (at its fixed state). The
-        cost_b value represents just that, using this convention: a positive
-        value is in the "next" direction; a negative value is in the "prev"
-        direction.
-        * Taking the current state of stack B as fixed, how many rotations in
-        the best direction must be performed in stack A to leave it in a
-        state where pushing the (fixed) top B element is the correct choice.
-        The cost_a value represents just that, using this convention: a
-        positive value is in the "next" direction; a negative value is in the
-        "prev" direction.
-    * The total_cost depends on both the cost_a and cost_b values in this way:
-
-        * cost_a: The minimum number of rotation instructions on stack A to
-        put it in the optimum condition to push the current top B in the right
-        place.                                      CHECK THIS! TODO!!!!!!!!!!!!!!!!!!!
-        * cost_b: CHECK THIS! TODO!!!!!!!!!!!!!!!!!!!
-* Find the lowest cost among the elements in stack B.
-    * The total cost for each element is the sum of cost_a and cost_b. The
-    element that currently has the lowest cost is the one that will be pushed
-    to A. Of course, there's a lot to do before actually pa'ing...
-* Rotate before pa: This is the sequence of rotations needed before calling
-the pa instructions. That is, the rotations needed to:
+* Find the lowest total cost element in stack B
+(get_lowest_cost_element_pos()).
+* Rotate before pa: This is the execution of the sequence of rotations needed
+before being able to perform the pa instruction to push to stack A the lowest
+cost element in B (rotate_before_pa()). This rotation instructions aim to:
     * Place the desired (lowest cost) element in stack B in the top of the
     stack.
     * Reorder stack A so that when pa'ing the desired element in stack B
-    lands in the desired position (sorted) in stack A.
-* Finally, a pa to push the right element in stack B to the right position
+    lands in the desired position in stack A (stack A stays circularly
+    sorted).
+* Finally, a pa() to push the right element in stack B to the right position
 in stack A.
 
 ####Rotate stack A until sorted
@@ -418,5 +402,3 @@ in stack A.
 As the result of Cost-based pushing, Stack B is empty and the elements in
 Stack A are ONLY CIRCULARLY sorted. In this final stage the stack A is
 rotated in the best direction to get it LINEARLY sorted.
-
-

@@ -6,18 +6,19 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 20:27:22 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/27 11:57:34 by lluque           ###   ########.fr       */
+/*   Updated: 2024/08/08 21:56:22 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include <stdlib.h>
 #include "checker_bonus.h"
 
 void	exit_on_error(t_ps_stacks *ps)
 {
 	free_ps(&ps);
-	ft_putendl_fd("Error", 2);
-	exit(1);
+	ft_putendl_fd("Error", STDOUT_FILENO);
+	exit(EXIT_FAILURE);
 }
 
 void	parse_arguments(t_ps_stacks *ps, int argc, char **argv)
@@ -29,7 +30,7 @@ void	parse_arguments(t_ps_stacks *ps, int argc, char **argv)
 	if (argc == 1)
 	{
 		free_ps(&ps);
-		exit(0);
+		exit(EXIT_FAILURE);
 	}
 	while (i < argc)
 	{

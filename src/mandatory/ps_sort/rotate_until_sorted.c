@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 20:07:06 by lluque            #+#    #+#             */
-/*   Updated: 2024/08/01 01:34:12 by lluque           ###   ########.fr       */
+/*   Updated: 2024/08/08 21:53:47 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,24 @@
 
 void	rotate_until_sorted(t_ps_stacks *ps)
 {
-	ft_printf("[rotate_until_sorted] dummy %p\n", ps);
+	int				i;
+	t_dlclst		*current_node;
+	int				a_len;
+
+	current_node = ps->a;
+	i = 0;
+	while (get_pos_when_sorted(current_node->content) != 0)
+	{
+		current_node = current_node->next;
+		i++;
+	}
+	a_len = ft_dlclst_size(ps->a);
+	if (i > a_len / 2)
+		i = i - a_len;
+	if (i > 0)
+		while (i-- != 0)
+			ra(ps);
+	else
+		while (i++ != 0)
+			rra(ps);
 }
-/*
-	Recalculate pos_in_stack with current_pos_in_stack()
-	Find element with pos_when_sorted == 0
-	With ft_dlclst_size() and the former, determine the optimal rotation
-		direction.
-	Rotate accordingly
-*/

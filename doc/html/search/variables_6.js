@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['value_0',['value',['../structs__element.html#a08d46cfe9d2d6c375a2fc72a49959ac6',1,'s_element']]]
+  ['total_5fcost_0',['total_cost',['../structs__element.html#ad12b821486dd9716c8cbfd56c3fb0c7e',1,'s_element']]]
 ];

@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 09:46:28 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/28 00:05:01 by lluque           ###   ########.fr       */
+/*   Updated: 2024/08/07 21:40:48 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	printb_firstn(t_ps_stacks *ps, unsigned int n)
 	b = ps->b;
 	while (i < n)
 	{
-		ft_printf("\t %11s   %-11d\n", "", *(int *)ft_dlclst_peek_pos(b, i));
+		ft_printf("\t %11s    %-11d\n", "", *(int *)ft_dlclst_peek_pos(b, i));
 		i++;
 	}
 }

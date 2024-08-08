@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Push Swap<span id="projectnumber">&#160;2024-08-05</span>
+   <div id="projectname">Push Swap<span id="projectnumber">&#160;2024-08-08</span>
    </div>
    <div id="projectbrief">Push_swap project for Campus 42</div>
   </td>
@@ -181,23 +181,23 @@ Layered implementation approach</h1>
 <div class="line">                                                                            .</div>
 <div class="line">                                                                            .</div>
 </div><!-- fragment --></li>
-<li>A collection of functions and data structures was developed using dlclst to implement the set of two stacks and every push-swap language instruction: <a class="el" href="ps__lang__instructions_8h.html#a90cfb0482953538059414c8b54f65045" title="pa – Pop b then push it to a.">pa()</a>, <a class="el" href="ps__lang__instructions_8h.html#ae0904d21a0d7b9954ad553bcd09a795e" title="pb – Pop a then push it to b.">pb()</a>, <a class="el" href="ps__lang__instructions_8h.html#a50b4be8011e99885e2d7803e46532986" title="sa – Swap a.">sa()</a>, <a class="el" href="ps__lang__instructions_8h.html#a86b5077e5a69e9889e2ef58981cb19e3" title="sb – Swap b.">sb()</a>, <a class="el" href="ps__lang__instructions_8h.html#a11c57edf21a78052370472d05a76471f" title="ss – Swap a and b at the same time.">ss()</a>, <a class="el" href="ps__lang__instructions_8h.html#afe65326d8932d0c80630c0f8ddb52e96" title="ra – Rotate a.">ra()</a>, <a class="el" href="ps__lang__instructions_8h.html#aa412e861fcd27fbef77966742690c908" title="rra – Reverse rotate a.">rra()</a>, <a class="el" href="ps__lang__instructions_8h.html#a5f34f231afdee32b940ce8e81f056010" title="rb – Rotate b.">rb()</a>, <a class="el" href="ps__lang__instructions_8h.html#abe160dcf9fba84d7d9a086768bd4e327" title="rrb – Reverse rotate b.">rrb()</a>, <a class="el" href="ps__lang__instructions_8h.html#adff333c60d5fd15fc029dd7f68d62ef6" title="rr – Rotate a and b at the same time.">rr()</a>, and <a class="el" href="ps__lang__instructions_8h.html#a1034f3139febeab7325d5e420ec3cccf" title="rrr – Reverse rotate a and b at the same time.">rrr()</a>. Also several functions were added to support peeking of elements, etc. The following image depicts an example of a stack showing the effects of every push-swap language instruction: <div class="fragment"><div class="line">                                                                            .</div>
-<div class="line">                                                                            .</div>
-<div class="line">          stack A                  stack B</div>
-<div class="line">    ^        1  &gt;&gt;&gt;&gt;&gt;&gt;&gt; pa() &gt;&gt;&gt;&gt;&gt;&gt;&gt;                A sa() swaps the</div>
-<div class="line">    ^        8    (from top to top)                    top and the</div>
-<div class="line">ra(), rr()   3  (pb() does the same,                  second-to-top,</div>
-<div class="line">direction    7    mutatis mutandi)                    that is, from:</div>
-<div class="line">             2                                              1</div>
-<div class="line">             6                                              8</div>
-<div class="line">rra(), rrr() 4                                             ...</div>
-<div class="line"> direction   0                                             to:</div>
-<div class="line">    v        5                                              8</div>
-<div class="line">    v        9                                              1</div>
-<div class="line">                                                           ...</div>
-<div class="line">                                                      sb() and ss()</div>
-<div class="line">                                                      do the same,</div>
-<div class="line">                                                     mutatis mutandi</div>
+<li>A collection of functions and data structures was developed using dlclst to implement the set of two stacks and every push-swap language instruction: <a class="el" href="ps__lang__instructions_8h.html#a90cfb0482953538059414c8b54f65045" title="pa – Pop b then push it to a.">pa()</a>, <a class="el" href="ps__lang__instructions_8h.html#ae0904d21a0d7b9954ad553bcd09a795e" title="pb – Pop a then push it to b.">pb()</a>, <a class="el" href="ps__lang__instructions_8h.html#a50b4be8011e99885e2d7803e46532986" title="sa – Swap a.">sa()</a>, <a class="el" href="ps__lang__instructions_8h.html#a86b5077e5a69e9889e2ef58981cb19e3" title="sb – Swap b.">sb()</a>, <a class="el" href="ps__lang__instructions_8h.html#a11c57edf21a78052370472d05a76471f" title="ss – Swap a and b at the same time.">ss()</a>, <a class="el" href="ps__lang__instructions_8h.html#afe65326d8932d0c80630c0f8ddb52e96" title="ra – Rotate a.">ra()</a>, <a class="el" href="ps__lang__instructions_8h.html#aa412e861fcd27fbef77966742690c908" title="rra – Reverse rotate a.">rra()</a>, <a class="el" href="ps__lang__instructions_8h.html#a5f34f231afdee32b940ce8e81f056010" title="rb – Rotate b.">rb()</a>, <a class="el" href="ps__lang__instructions_8h.html#abe160dcf9fba84d7d9a086768bd4e327" title="rrb – Reverse rotate b.">rrb()</a>, <a class="el" href="ps__lang__instructions_8h.html#adff333c60d5fd15fc029dd7f68d62ef6" title="rr – Rotate a and b at the same time.">rr()</a>, and <a class="el" href="ps__lang__instructions_8h.html#a1034f3139febeab7325d5e420ec3cccf" title="rrr – Reverse rotate a and b at the same time.">rrr()</a>. Also several functions were added to support peeking of elements, etc. The following image depicts an example of a stack showing the effects of every push-swap language instruction: <div class="fragment"><div class="line">         ^                                                                  .</div>
+<div class="line">         ^                                                                  .</div>
+<div class="line">         ^             stack A                  stack B</div>
+<div class="line">         ^               1  &gt;&gt;&gt;&gt;&gt;&gt;&gt; pa() &gt;&gt;&gt;&gt;&gt;&gt;&gt;             A sa() swaps the</div>
+<div class="line">    ra(), rr()           8    (from top to top)                top and the</div>
+<div class="line">     direction           3  (pb() does the same,              second-to-top,</div>
+<div class="line">    (cost &gt; 0)           7    mutatis mutandi)                 that is, from:</div>
+<div class="line">(dlclst &quot;prev&quot; dir)      2                                          1</div>
+<div class="line">                         6                                          8</div>
+<div class="line">   rra(), rrr()          4                                         ...</div>
+<div class="line">     direction           0                                         to:</div>
+<div class="line">    (cost &lt; 0)           5                                          8</div>
+<div class="line">(dlclst &quot;next&quot; dir) 9                                               1</div>
+<div class="line">         v                                                         ...</div>
+<div class="line">         v                                                   sb() and ss()</div>
+<div class="line">         v                                                   do the same,</div>
+<div class="line">         v                                                  mutatis mutandi</div>
 <div class="line">                                                                            .</div>
 <div class="line">                                                                            .</div>
 </div><!-- fragment --></li>
@@ -287,7 +287,7 @@ The sorting algorithm</h1>
 <h2><a class="anchor" id="autotoc_md7"></a>
 Introduction</h2>
 <p >A careful reading of the subject makes it obvious that the only optimization is regarding the number of ps_lang instructions that must be used to sort the numbers. That is, whatever it takes to achieve that is not only legitimate but neccesary.</p>
-<p >In this line, the approach taken is to "cheat" by ordering the list first with some classical-don't-care-how-efficient algorithm and, using its results, statistical analysis, etc. find out the minimum number of ps_lang instructions to get to the same results.</p>
+<p >In this line, the approach taken is to "cheat" by first ordering the list using some classical-I-don't-care-how-efficient algorithm and, using its results, statistical analysis, etc. find out the minimum number of ps_lang instructions to get to the same sorted stack A.</p>
 <p >The following stages of the sorting process can be explicitly followed in <a class="el" href="ps__sort_8h.html#ad22566f770c72ada8c2d2e1b01b93edb" title="ps_sort – The entry point for the sorting algorithm.">ps_sort()</a> function:</p><ul>
 <li>Sorting preparations</li>
 <li>Pre sorting</li>
@@ -296,52 +296,42 @@ Introduction</h2>
 </ul>
 <h3><a class="anchor" id="autotoc_md8"></a>
 Sorting preparations</h3>
-<p >Once every number passed is placed in the stack A, this stack is copied to an array of integer to be sorted by some classical sorting algorithm (bubble sorting in this case, this could be improved in the future). The purpose of this step is to attach (as a meta-data) to every element in stack A the position it will have once sorted. This pos_when_sorted is the key to the next stage of the sorting process.</p>
+<p >Once every number passed is placed in the stack A, the values in this stack are copied to an array of integer to be sorted by some classical sorting algorithm (bubble sorting in this case, this could be improved in the future). The purpose of this step is to attach (as meta-data) to every element in stack A the position it will have once sorted. This pos_when_sorted is the key to the next stage of the sorting process.</p>
 <h3><a class="anchor" id="autotoc_md9"></a>
 Pre sorting</h3>
 <p ><b>Pre sorting</b> is the process to smartly push to stack B every element in stack A but three. The elements in stack A are processed block-by-block and the criteria for pushing to stack B depends on the avg_pos_when_sorted of the elements still in stack A. Both the block size (half of the remaining elements in stack A to be pushed, plus one) and the avg_pos_when_sorted is re-calculated at the begining of every block processing.</p>
-<p >For each block of elements to be pushed from A to B, the top A element, the next-to-top A element, the bottom A element, and the next_to_bottom A element are examined and the first one which its pos_when_sorted is smaller than the current avg_pos_when_sorted is pushed to B. If none passes this test, a ra is performed to try again. This goes on until the number o elements pushed to B equals the target block size, then, the next block is processed and so on until only three elementes are left in stack A. When this is achieved, the three remaining elements in A are sorted. These will serve as the first references for the next stage, where the elements in stack B are pushed back to A according to movement costs analysis.</p>
+<p >For each block of elements to be pushed from A to B, the top A element, the next-to-top A element, and the bottom A element (may be in a future version also the next_to_bottom A element) are examined. The first of the later which its pos_when_sorted is smaller than the current avg_pos_when_sorted is pushed to B. If none passes this test, a <a class="el" href="ps__lang__instructions_8h.html#afe65326d8932d0c80630c0f8ddb52e96" title="ra – Rotate a.">ra()</a> is performed to try again. This goes on until the number of elements pushed to B equals the target block size, then, the next block is processed and so on, until only three elementes are left in stack A. When this is achieved, the three remaining elements in A are sorted. These will serve as the first references for the next stage, where the elements in stack B are pushed back to A (after lots of smart rotations) according to movement costs analysis.</p>
 <h3><a class="anchor" id="autotoc_md10"></a>
 Cost-based pushing</h3>
-<p ><b>Cost-based pushing</b> is the stage of the sorting process where stack B is emptied by using a sequence of ps_lang instructions (which may affect both stacks) ending, of course, with a final pa.</p>
+<p ><b>Cost-based pushing</b> is the stage of the sorting process where stack B is emptied by using a sequence of ps_lang rotation instructions (which may affect both stacks) ending, of course, with a final <a class="el" href="ps__lang__instructions_8h.html#a90cfb0482953538059414c8b54f65045" title="pa – Pop b then push it to a.">pa()</a>.</p>
 <p >Cost-based pushing is a loop that only breaks when stack B is empty, in this loop the following is performed:</p><ul>
-<li>Set positions in stack to every element in both stack A and B. This is the relative position each element has in the stack it is in.</li>
-<li><p class="startli">Set costs values for EACH element in stack B.</p><ul>
+<li>Set positions in stack to every element in both stack A and B. This is the relative position each element has in the stack it is in (<a class="el" href="ps__sort_8h.html#a85f1f369e63e0e6fda690dd3803a8cea" title="set_pos_in_stack – Sets member pos_in_stack in every element in stack A an stack B.">set_pos_in_stack()</a>).</li>
+<li>Set costs values for EACH element in stack B (<a class="el" href="ps__sort_8h.html#a79b5730bfe51c7982a495a0074befa87" title="set_costs_values – Set costs values for every element in stack B.">set_costs_values()</a>).<ul>
 <li>There are two components for cost value: cost_a and cost_b. The reason there are two is because, for the current element in stack B being evaluated, the costs in rotational movements must be calculated for both stacks:<ul>
 <li>From the stack B perspective, how many rotations IN THE BEST DIRECTION are needed to get the current element in stack B being evaluated to the top position so it can be pushable to stack A.</li>
-<li>From the stack A perspective, how many rotations IN THE BEST DIRECTION are needed to put it in a state where pushing the top element in stack B (the one that is currently being analyzed) makes it land in the best position sorting-wise.</li>
+<li>From the stack A perspective, how many rotations IN THE BEST DIRECTION are needed to put it in a state where pushing the top element in stack B (the one that is currently being analyzed) makes it land in the best position sorting-wise, that is, maintaining a circularly sorted stack A.</li>
 </ul>
 </li>
-<li>For both cost_a and cost_b the following convention is adopted: a positive value means that rotations are performed in the "next" direction while a negative value means that rotations are performed in the "prev" direction.</li>
+<li>For both cost_a and cost_b the following convention is adopted: a positive value means that rotations are performed in the <a class="el" href="ps__lang__instructions_8h.html#afe65326d8932d0c80630c0f8ddb52e96" title="ra – Rotate a.">ra()</a> direction (up: top goes to bottom). This is equivalent to the dlclst "prev" direction. A negative cost_a or cost_b value means that rotations are performed in the <a class="el" href="ps__lang__instructions_8h.html#aa412e861fcd27fbef77966742690c908" title="rra – Reverse rotate a.">rra()</a> direction (down: bottom goes to top). This is equivalent to dlcslt "next" direction.</li>
 <li>The total_cost for the current element in stack B being analyzed depends on the absolute values of cost_a and cost_b and their signs as follows:<ul>
-<li>If cost_a and cost_b have the <b>same sign</b>, this implies that simultaneous rotations on both stacks <b>MAY</b> be performed. In this case, the total_cost is the sum of:<ul>
+<li>If cost_a and cost_b have the <b>same sign</b>, this implies that <b>simultaneous rotations on both stacks MAY</b> be performed. In this case, the total_cost is the sum of:<ul>
 <li>The absolute value of the difference of cost_a and cost_b. This is the number of the common rotations in the same direction for both stacks, plus</li>
 <li>The remaining number of rotations of just one of the stacks, that is, the absolute value of the biggest between cost_a and cost_b, minus the former value (the common rotations).</li>
 </ul>
 </li>
-<li>If cost_a and cost_b have <b>different signs</b>, this implies that simultaneous rotations on both stacks <b>MAY NOT</b> be performed. In this case, the total_cost is the sum of the absolute values of cost_a and cost_b, since the program must rotate in different directions each stack to get the stack A in the sweet spot and the current element in stack B being analyzed at the top of stack B to make it pushable to A.</li>
+<li>If cost_a and cost_b have <b>different signs</b>, this implies that <b>simultaneous rotations on both stacks MAY NOT</b> be performed. In this case, the total_cost is the sum of the absolute values of cost_a and cost_b, since the program must rotate in different directions each stack to get the stack A in the sweet spot and the current element in stack B being analyzed at the top of stack B to make it pushable to A.</li>
 </ul>
 </li>
 </ul>
-<p class="startli">cost problem can be seen from two perspectives:</p><ul>
-<li>Taking the current state of stack A as fixed, how many rotations in the best direction must be performed in stack B to place at top B the best candidate to be pushed to stack A (at its fixed state). The cost_b value represents just that, using this convention: a positive value is in the "next" direction; a negative value is in the "prev" direction.</li>
-<li>Taking the current state of stack B as fixed, how many rotations in the best direction must be performed in stack A to leave it in a state where pushing the (fixed) top B element is the correct choice. The cost_a value represents just that, using this convention: a positive value is in the "next" direction; a negative value is in the "prev" direction.</li>
-</ul>
 </li>
-</ul>
-<p >The total_cost depends on both the cost_a and cost_b values in this way:</p>
-<ul>
-<li>cost_a: The minimum number of rotation instructions on stack A to put it in the optimum condition to push the current top B in the right place. CHECK THIS! TODO!!!!!!!!!!!!!!!!!!!</li>
-<li>cost_b: CHECK THIS! TODO!!!!!!!!!!!!!!!!!!!</li>
-</ul>
-<p >Find the lowest cost among the elements in stack B.</p><ul>
-<li>The total cost for each element is the sum of cost_a and cost_b. The element that currently has the lowest cost is the one that will be pushed to A. Of course, there's a lot to do before actually pa'ing...</li>
-</ul>
-<p >Rotate before pa: This is the sequence of rotations needed before calling the pa instructions. That is, the rotations needed to:</p><ul>
+<li>Find the lowest total cost element in stack B (<a class="el" href="ps__sort_8h.html#afb1949bda2dc4b2821a0335a71fa28d3" title="get_lowest_cost_element_pos – Gets the position in stack B of the element with the lowest movement co...">get_lowest_cost_element_pos()</a>).</li>
+<li>Rotate before pa: This is the execution of the sequence of rotations needed before being able to perform the pa instruction to push to stack A the lowest cost element in B (<a class="el" href="ps__sort_8h.html#a1428a6c3083b48df88d6c19d95768551" title="rotate_before_pa – Applies the needed rotations in both stacks, according to cost analysis,...">rotate_before_pa()</a>). This rotation instructions aim to:<ul>
 <li>Place the desired (lowest cost) element in stack B in the top of the stack.</li>
-<li>Reorder stack A so that when pa'ing the desired element in stack B lands in the desired position (sorted) in stack A.</li>
+<li>Reorder stack A so that when pa'ing the desired element in stack B lands in the desired position in stack A (stack A stays circularly sorted).</li>
 </ul>
-<p >Finally, a pa to push the right element in stack B to the right position in stack A.</p>
+</li>
+<li>Finally, a <a class="el" href="ps__lang__instructions_8h.html#a90cfb0482953538059414c8b54f65045" title="pa – Pop b then push it to a.">pa()</a> to push the right element in stack B to the right position in stack A.</li>
+</ul>
 <h3><a class="anchor" id="autotoc_md11"></a>
 Rotate stack A until sorted</h3>
 <p >As the result of Cost-based pushing, Stack B is empty and the elements in Stack A are ONLY CIRCULARLY sorted. In this final stage the stack A is rotated in the best direction to get it LINEARLY sorted. </p>

@@ -6,10 +6,12 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 21:31:09 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/27 23:54:32 by lluque           ###   ########.fr       */
+/*   Updated: 2024/08/08 21:58:43 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+#include <unistd.h>
 #include "checker_bonus.h"
 
 int	main(int argc, char **argv)
@@ -18,12 +20,12 @@ int	main(int argc, char **argv)
 
 	ps = init_ps();
 	parse_arguments(ps, argc, argv);
-	if (!ps_lang_interpreter(ps, 0, MAKE_DEBUG_LVL))
+	if (!ps_lang_interpreter(ps, STDIN_FILENO, MAKE_DEBUG_LVL))
 		exit_on_error(ps);
 	if (is_sorted(ps->a, ASCENDING) && ps->b == NULL)
-		ft_putendl_fd("OK", 1);
+		ft_putendl_fd("OK", STDOUT_FILENO);
 	else
-		ft_putendl_fd("KO", 1);
+		ft_putendl_fd("KO", STDOUT_FILENO);
 	free_ps(&ps);
-	return (0);
+	return (EXIT_SUCCESS);
 }

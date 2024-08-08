@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 08:44:46 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/27 11:59:30 by lluque           ###   ########.fr       */
+/*   Updated: 2024/08/08 19:35:12 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	bottom_pusha(t_ps_stacks *ps, int element)
 	t_dlclst	*node;
 	void		*content;
 
-	content = malloc(sizeof (int));
+	content = ft_calloc(1, sizeof (int));
 	if (content == NULL)
 	{
 		free_ps(&ps);
