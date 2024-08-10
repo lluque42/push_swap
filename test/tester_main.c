@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 21:31:09 by lluque            #+#    #+#             */
-/*   Updated: 2024/08/11 01:09:31 by lluque           ###   ########.fr       */
+/*   Updated: 2024/08/11 01:16:12 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,11 @@ int	main(int argc, char **argv, char **envp)
 	ft_printf("%s\n", t->tests_summary_file);
 	ft_printf("%s\n", t->current_instructions_file);
 	ft_printf("%s\n", t->current_ran_set_file);
+	if (!create_file_ran_set(t))
+	{
+		ft_putendl_fd("Error! Creating numbers set file", STDERR_FILENO);
+		free_test_type(t);
+		return (EXIT_FAILURE);
+	}
 	return (EXIT_SUCCESS);
 }
