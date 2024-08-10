@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 23:10:49 by lluque            #+#    #+#             */
-/*   Updated: 2024/08/10 21:54:50 by lluque           ###   ########.fr       */
+/*   Updated: 2024/08/11 01:07:14 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,9 @@ typedef struct s_test
 	int		off_target;
 	double	avg_inst_num;
 	int		ran_seed;
+	char	*tests_summary_file;
 	char	*current_instructions_file;
+	char	*current_ran_set_file;
 	int		*ran_set;
 	char	**ran_set_strarr;
 	char	*ps_filename;
@@ -65,5 +67,10 @@ t_test	*allocate_test_type(void);
 char*	create_test_report_dir(char *test_reports_dir);
 int		set_ran_seed();
 int		rng(int min, int max);
+int		already_in_array(int* set, int set_size, int new);
+int		create_ran_set(t_test *t);
+int		create_ran_set_strarr(t_test *t);
+int		create_file_ran_set(t_test *t);
+int		set_current_filenames(t_test *t, int test_number);
 
 #endif

@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_test_type.c                                   :+:      :+:    :+:   */
+/*   create_ran_set.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/09 23:09:52 by lluque            #+#    #+#             */
-/*   Updated: 2024/08/11 00:31:50 by lluque           ###   ########.fr       */
+/*   Created: 2024/08/10 23:55:00 by lluque            #+#    #+#             */
+/*   Updated: 2024/08/11 00:04:13 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <limits.h>
 #include <stdlib.h>
-#include "libft.h"
 #include "tester.h"
+#include "libft.h"
 
-void	free_test_type(t_test *t)
+int	create_ran_set(t_test *t)
 {
-	free(t->ps_filename);
-	free(t->ch_filename);
-	free(t->tests_summary_file);
-	free(t->current_instructions_file);
-	free(t->current_ran_set_file);
-	free(t->ran_set);
-	if (t->ran_set_strarr != NULL)
-		ft_free_strarr(t->ran_set_strarr);
-	free(t->test_reports_dir);
+	int	*ran_set;
+	int	i;
+	int	num;
+
+	ran_set = malloc(sizeof (int) * t->ran_num);
+	if (ran_set == NULL)
+		return (0);
+	i = -1;
+	while (++i < t->ran_num)
+	{
+		num = rng(INT_MIN, INT_MAX);
+		while (!already_in_array(ran_set, i + 1, num))
+			num = rng(INT_MIN, INT_MAX);
+		ran_set[i] = num;
+		ft_printf("[create_ran_set] %d\n", num);
+	}
+	t->ran_set = ran_set;
+	return (1);
 }

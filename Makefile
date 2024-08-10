@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/15 11:23:07 by lluque            #+#    #+#              #
-#    Updated: 2024/08/10 23:37:40 by lluque           ###   ########.fr        #
+#    Updated: 2024/08/11 00:29:28 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -248,6 +248,11 @@ TESTER_SOURCES = tester_main.c \
 				 create_test_report_dir.c \
 				 set_ran_seed.c \
 				 rng.c \
+				 already_in_array.c \
+				 create_ran_set.c \
+				 create_ran_set_strarr.c \
+				 create_file_ran_set.c \
+				 set_current_filenames.c \
 
 ################################################################################
 #
