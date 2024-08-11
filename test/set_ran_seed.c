@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 21:34:13 by lluque            #+#    #+#             */
-/*   Updated: 2024/08/10 21:49:27 by lluque           ###   ########.fr       */
+/*   Updated: 2024/08/11 18:28:24 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ For a good seed, that survives multiple running instances of a program that uses
 this function (the same second problem), the process PID affects the choosing
 of the seed.
  */
-int	set_ran_seed()
+int	set_ran_seed(void)
 {
 	time_t	time_now_sec;
 	pid_t	pid;
-	
+
 	pid = getpid();
 	time_now_sec = time(NULL);
 	if (time_now_sec == (time_t) -1)

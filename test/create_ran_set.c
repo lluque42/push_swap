@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 23:55:00 by lluque            #+#    #+#             */
-/*   Updated: 2024/08/11 00:04:13 by lluque           ###   ########.fr       */
+/*   Updated: 2024/08/11 17:59:41 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	create_ran_set(t_test *t)
 		while (!already_in_array(ran_set, i + 1, num))
 			num = rng(INT_MIN, INT_MAX);
 		ran_set[i] = num;
-		ft_printf("[create_ran_set] %d\n", num);
 	}
 	t->ran_set = ran_set;
 	return (1);

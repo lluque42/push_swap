@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 23:10:49 by lluque            #+#    #+#             */
-/*   Updated: 2024/08/11 01:07:14 by lluque           ###   ########.fr       */
+/*   Updated: 2024/08/11 18:32:24 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,27 @@
 
 #ifndef TESTER_H
 # define TESTER_H
+
+/**
+ * @def READ_END
+ * To be used in the context of pipe() function to better identify the
+ * read and write end of a pipe, that is, the index of the int pipefd[] array.
+ */
+# define READ_END 0
+
+/**
+ * @def WRITE_END
+ * To be used in the context of pipe() function to better identify the
+ * read and write end of a pipe, that is, the index of the int pipefd[] array.
+ */
+# define WRITE_END 1
+
+/**
+ * @def IS_CHILD
+ * To be used in the context of fork() function to improve legibility when
+ * comparing pid's to determine if proccess is child or parent.
+ */
+# define IS_CHILD 0
 
 /**
  * @struct s_test
@@ -48,6 +69,7 @@ typedef struct s_test
 	char	**ran_set_strarr;
 	char	*ps_filename;
 	char	*ch_filename;
+	char	**envp;
 	int		ran_num;
 	int		test_num;
 	int		target_inst_num;
@@ -60,17 +82,23 @@ typedef struct s_test
  * Based on the @link s_test @endlink struct.
  */
 
-
 void	free_test_type(t_test *t);
-int		args_validation(int argc, char **argv, t_test *t);
+int		args_validation(int argc, char **argv, char **envp, t_test *t);
 t_test	*allocate_test_type(void);
-char*	create_test_report_dir(char *test_reports_dir);
-int		set_ran_seed();
+char	*create_test_report_dir(char *test_reports_dir);
+int		set_ran_seed(void);
 int		rng(int min, int max);
-int		already_in_array(int* set, int set_size, int new);
+int		already_in_array(int *set, int set_size, int new);
 int		create_ran_set(t_test *t);
 int		create_ran_set_strarr(t_test *t);
 int		create_file_ran_set(t_test *t);
 int		set_current_filenames(t_test *t, int test_number);
+int		get_lines_nbr_in_file(char *current_instructions_file);
+void	update_tests_stats(t_test *t);
+void	set_avg_inst_num(t_test *t);
+int		create_test_summary(t_test *t);
+int		tests_loop(t_test *t);
+int		execute_ps(t_test *t);
+int		execute_ch(t_test *t);
 
 #endif

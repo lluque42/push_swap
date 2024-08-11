@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 00:05:45 by lluque            #+#    #+#             */
-/*   Updated: 2024/08/11 00:12:26 by lluque           ###   ########.fr       */
+/*   Updated: 2024/08/11 17:59:56 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,19 @@ int	create_ran_set_strarr(t_test *t)
 {
 	int	i;
 
-	t->ran_set_strarr = ft_calloc(t->ran_num + 1, sizeof (char *));
+	t->ran_set_strarr = ft_calloc(t->ran_num + 2, sizeof (char *));
 	if (t->ran_set_strarr == NULL)
 		return (0);
+	if (ft_strrchr(t->ps_filename, '/') != NULL)
+		t->ran_set_strarr[0] = ft_strrchr(t->ps_filename, '/') + 1;
+	else
+		t->ran_set_strarr[0] = t->ps_filename;
 	i = -1;
 	while (++i < t->ran_num)
 	{
-		t->ran_set_strarr[i] = ft_itoa(t->ran_set[i]);
-		if (t->ran_set_strarr[i] == NULL)
+		t->ran_set_strarr[i + 1] = ft_itoa(t->ran_set[i]);
+		if (t->ran_set_strarr[i + 1] == NULL)
 			return (0);
-		ft_printf("[create_ran_set_strarr] %s\n", t->ran_set_strarr[i]);
 	}
 	return (1);
 }

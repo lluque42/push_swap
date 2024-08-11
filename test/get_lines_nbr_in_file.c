@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_test_report_dir.c                           :+:      :+:    :+:   */
+/*   get_lines_nbr_in_file.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/09 23:34:50 by lluque            #+#    #+#             */
-/*   Updated: 2024/08/11 18:26:16 by lluque           ###   ########.fr       */
+/*   Created: 2024/08/11 08:46:20 by lluque            #+#    #+#             */
+/*   Updated: 2024/08/11 18:26:42 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sys/types.h>
-#include <sys/stat.h>
 #include <unistd.h>
+#include <fcntl.h>
 #include "libft.h"
 #include "tester.h"
 
-char	*create_test_report_dir(char *test_reports_dir)
+int	get_lines_nbr_in_file(char *current_instructions_file)
 {
-	struct stat	st;
+	int	fd;
+	int	number_of_lines;
 
-	ft_bzero(&st, sizeof (st));
-	if (stat(test_reports_dir, &st) == -1)
-		mkdir(test_reports_dir, 0700);
-	else
-		return (NULL);
-	return (test_reports_dir);
+	fd = open(current_instructions_file, O_RDONLY);
+	number_of_lines = 0;
+	while (ft_gnl(fd) != NULL)
+		number_of_lines++;
+	return (number_of_lines);
 }

@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 00:14:53 by lluque            #+#    #+#             */
-/*   Updated: 2024/08/11 01:21:52 by lluque           ###   ########.fr       */
+/*   Updated: 2024/08/11 17:31:23 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "libft.h"
 #include "tester.h"
 
+// Plus 1 to avoid writing binary name needed for execve.
 int	create_file_ran_set(t_test *t)
 {
 	int		fd;
@@ -23,7 +24,7 @@ int	create_file_ran_set(t_test *t)
 	fd = open(t->current_ran_set_file, O_WRONLY | O_CREAT, 0600);
 	if (fd == -1)
 		return (0);
-	temp_strarr = t->ran_set_strarr;
+	temp_strarr = t->ran_set_strarr + 1;
 	while (*temp_strarr != NULL)
 	{
 		write(fd, *temp_strarr, ft_strlen(*temp_strarr));

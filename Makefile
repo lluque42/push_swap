@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/15 11:23:07 by lluque            #+#    #+#              #
-#    Updated: 2024/08/11 00:29:28 by lluque           ###   ########.fr        #
+#    Updated: 2024/08/11 10:42:54 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -253,6 +253,13 @@ TESTER_SOURCES = tester_main.c \
 				 create_ran_set_strarr.c \
 				 create_file_ran_set.c \
 				 set_current_filenames.c \
+				 get_lines_nbr_in_file.c \
+				 update_tests_stats.c \
+				 set_avg_inst_num.c \
+				 create_test_summary.c \
+				 tests_loop.c \
+				 execute_ps.c \
+				 execute_ch.c \
 
 ################################################################################
 #

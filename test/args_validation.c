@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 23:01:31 by lluque            #+#    #+#             */
-/*   Updated: 2024/08/11 00:51:51 by lluque           ###   ########.fr       */
+/*   Updated: 2024/08/11 18:27:10 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	exit_on_error(t_test *t)
 	return (0);
 }
 
-int	args_validation(int argc, char **argv, t_test *t)
+int	args_validation(int argc, char **argv, char **envp, t_test *t)
 {
 	if (argc != 7)
 		return (exit_on_error(t));
@@ -34,12 +34,13 @@ int	args_validation(int argc, char **argv, t_test *t)
 	t->test_num = ft_atoi(argv[4]);
 	t->target_inst_num = ft_atoi(argv[5]);
 	t->test_reports_dir = ft_strdup(argv[6]);
+	t->envp = envp;
 	if (t->ps_filename == NULL
-			|| t->ch_filename == NULL
-			|| t->test_reports_dir == NULL
-			|| t->ran_num <= 0
-			|| t->test_num <= 0
-			|| t->target_inst_num <= 0)
+		|| t->ch_filename == NULL
+		|| t->test_reports_dir == NULL
+		|| t->ran_num <= 0
+		|| t->test_num <= 0
+		|| t->target_inst_num <= 0)
 		return (exit_on_error(t));
 	return (1);
 }

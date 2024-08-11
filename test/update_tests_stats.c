@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_test_report_dir.c                           :+:      :+:    :+:   */
+/*   update_tests_stats.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/09 23:34:50 by lluque            #+#    #+#             */
-/*   Updated: 2024/08/11 18:26:16 by lluque           ###   ########.fr       */
+/*   Created: 2024/08/11 09:47:21 by lluque            #+#    #+#             */
+/*   Updated: 2024/08/11 18:30:05 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <unistd.h>
 #include "libft.h"
 #include "tester.h"
 
-char	*create_test_report_dir(char *test_reports_dir)
+void	update_tests_stats(t_test *t)
 {
-	struct stat	st;
-
-	ft_bzero(&st, sizeof (st));
-	if (stat(test_reports_dir, &st) == -1)
-		mkdir(test_reports_dir, 0700);
-	else
-		return (NULL);
-	return (test_reports_dir);
+	if (t->inst_num < t->min_inst_num)
+	{
+		t->min_inst_num = t->inst_num;
+		t->test_num_with_min = t->i;
+	}
+	if (t->inst_num > t->max_inst_num)
+	{
+		t->max_inst_num = t->inst_num;
+		t->test_num_with_max = t->i;
+	}
+	if (t->inst_num > t->target_inst_num)
+		t->off_target++;
+	t->inst_num_acc += t->inst_num;
 }

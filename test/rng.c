@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 21:31:48 by lluque            #+#    #+#             */
-/*   Updated: 2024/08/10 23:40:16 by lluque           ###   ########.fr       */
+/*   Updated: 2024/08/11 18:31:20 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 #include "libft.h"
 
 // rand() returns an integer between 0 and RAND_MAX, inclusive
-int rng(int min, int max)
+int	rng(int min, int max)
 {
-    int		random_num;
+	int		random_num;
 	long	delta_in;
 	long	delta_out;
 	long	result;
@@ -28,8 +28,8 @@ int rng(int min, int max)
 	delta_out = (long)max - (long)min;
 	delta_in = (long)RAND_MAX;
 	m = (double)delta_out / (double)delta_in;
-	result = round((m * (double)random_num) + (double)min); // + 1L;
-    return (result);
+	result = round((m * (double)random_num) + (double)min);
+	return (result);
 }
 //printf("[rng] LONG_MIN = %ld\n", LONG_MIN);
 //printf("[rng] LONG_MAX = %ld\n", LONG_MAX);
