@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 00:05:45 by lluque            #+#    #+#             */
-/*   Updated: 2024/08/11 17:59:56 by lluque           ###   ########.fr       */
+/*   Updated: 2024/08/11 21:55:52 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,11 @@ int	create_ran_set_strarr(t_test *t)
 	if (t->ran_set_strarr == NULL)
 		return (0);
 	if (ft_strrchr(t->ps_filename, '/') != NULL)
-		t->ran_set_strarr[0] = ft_strrchr(t->ps_filename, '/') + 1;
+		t->ran_set_strarr[0] = ft_strdup(ft_strrchr(t->ps_filename, '/') + 1);
 	else
-		t->ran_set_strarr[0] = t->ps_filename;
+		t->ran_set_strarr[0] = ft_strdup(t->ps_filename);
+	if (t->ran_set_strarr[0] == NULL)
+		return (0);
 	i = -1;
 	while (++i < t->ran_num)
 	{
