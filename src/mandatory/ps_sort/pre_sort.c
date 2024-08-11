@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 10:03:11 by lluque            #+#    #+#             */
-/*   Updated: 2024/08/07 18:31:44 by lluque           ###   ########.fr       */
+/*   Updated: 2024/08/11 21:28:37 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 static void	set_current_avg_pos_when_sorted(t_ps_stacks *ps)
 {
 	int			ret_val;
+	int			temp;
 	int			stack_a_size;
 	int			i;
 	t_dlclst	*current_node;
@@ -30,9 +31,11 @@ static void	set_current_avg_pos_when_sorted(t_ps_stacks *ps)
 		ret_val += get_pos_when_sorted(current_node->content);
 		current_node = current_node->next;
 	}
-	ret_val /= stack_a_size;
+	temp = ret_val / stack_a_size;
 	if (ret_val % stack_a_size != 0)
-		ret_val++;
+		ret_val = temp + 1;
+	else
+		ret_val = temp;
 	ps->avg_pos_when_sorted = ret_val;
 	if (MAKE_DEBUG_LVL)
 		ft_printf("[pre_sort: set_current_avg_pos_when_sorted] %d\n", ret_val);

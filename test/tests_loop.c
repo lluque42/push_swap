@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 10:20:12 by lluque            #+#    #+#             */
-/*   Updated: 2024/08/11 19:04:44 by lluque           ###   ########.fr       */
+/*   Updated: 2024/08/11 19:29:25 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static int	execute_test(t_test *t)
 	t->ok_acc++;
 	t->inst_num = get_lines_nbr_in_file(t->current_instructions_file);
 	update_tests_stats(t);
+	return (1);
 }
 
 int	tests_loop(t_test *t)

@@ -13,6 +13,34 @@
 ******************************** TODO ******************************************
 ********************************************************************************
 
++ Some random number sets were detected to crash push_swap, see the files
+WEIRD_SET_*.
+	+ I'm trying to figure out what's going on by running the program with 
+	MAKE_DEBUG_LVL=1 over the weird sets:
+		+ With WEIRD_SET_1, in the pre-sort stage, it falls in an infinite loop
+		rotating with ra() the last 4 elements in stack A after pb()ing 88:
+
+1638571125           88
+2081881857           98
+2002111723           96
+2146916767           99
+2043838189           97
+
+At this point the criteria to push to b is < 95:
+[pre_sort: set_current_avg_pos_when_sorted] 95
+[pre_sort] avg_pos_when_sorted = 95; block_size = 2; ps->left_to_pre_sort = 2
+This is the problem, there is not a single element < 95 !!!!!!!!!!!!!
+The floating point value of the average is actually 95,6
+Fixed, I was calculating the modulo on the already divided ret_val.
+This fixed:
+WEIRD_SET_1
+WEIRD_SET_3
+WEIRD_SET_5
+But not 
+WEIRD_SET_2
+WEIRD_SET_4 (this was false positive, it was actually a tester error)
+
+
 + Pending functions to implement:
 	+ From ps_sort()
 		>> costs_based_pushing() DONE!
