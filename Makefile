@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/15 11:23:07 by lluque            #+#    #+#              #
-#    Updated: 2024/08/04 18:04:30 by lluque           ###   ########.fr        #
+#    Updated: 2024/08/11 10:42:54 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,9 +31,9 @@ BONUS_INC_DIR = ./include/bonus/
 BONUS_BIN_DIR = $(BASE_BIN_DIR)bonus/
 
 # Project's optional tester directories
-TEST_DIR = ./test/
-TEST_INC_DIR = ./test/
-TEST_BIN_DIR = $(BASE_BIN_DIR)tester/
+TESTER_DIR = ./test/
+TESTER_INC_DIR = ./test/
+TESTER_BIN_DIR = $(BASE_BIN_DIR)tester/
 
 # Directories for external libraries to be built using their own building tools
 LIBFT_DIR = ./lib/libft/
@@ -65,6 +65,8 @@ LIBFT_BIN = $(LIBFT_BIN_DIR)libft.a
 # pthread: POSIX thread library needed by MLX42
 # libm: math library
 EXT_LIBS =
+BONUS_EXT_LIBS =
+TESTER_EXT_LIBS =-lm
 
 ################################################################################
 #
@@ -238,8 +240,26 @@ BONUS_SOURCES = ch_main_bonus.c \
 # NOTE: Only to be used to force recompiling if modified
 TESTER_INCLUDES = $(TESTER_INC_DIR)tester.h
 
-# List of tester source code file names with path relative to TEST_DIR
-TESTER_SOURCES = tester.c
+# List of tester source code file names with path relative to TESTER_DIR
+TESTER_SOURCES = tester_main.c \
+				 allocate_test_type.c \
+				 args_validation.c \
+				 free_test_type.c \
+				 create_test_report_dir.c \
+				 set_ran_seed.c \
+				 rng.c \
+				 already_in_array.c \
+				 create_ran_set.c \
+				 create_ran_set_strarr.c \
+				 create_file_ran_set.c \
+				 set_current_filenames.c \
+				 get_lines_nbr_in_file.c \
+				 update_tests_stats.c \
+				 set_avg_inst_num.c \
+				 create_test_summary.c \
+				 tests_loop.c \
+				 execute_ps.c \
+				 execute_ch.c \
 
 ################################################################################
 #
@@ -375,7 +395,7 @@ $(BONUS_OBJECTS): $(OBJ_DIR)%.o: $(BONUS_SRC_DIR)%.c $(BONUS_INCLUDES)
 $(BONUS_BIN_DIR)$(BONUS_NAME): $(BONUS_OBJECTS) $(LIBFT_BIN)
 	@echo "          --- ${PURPLE}Linking the bonus program to ${BPURPLE}$(BIN_DIR)$(BONUS_NAME)${NC} ---"
 	mkdir -p $(@D)
-	$(CC) $(CC_FLAGS) $(DEB_FLAGS) $(BONUS_OBJECTS) $(LIBFT_BIN) $(EXT_LIBS) -o $(BONUS_BIN_DIR)$(BONUS_NAME) -I$(BONUS_INC_DIR) -I$(LIBFT_INC)
+	$(CC) $(CC_FLAGS) $(DEB_FLAGS) $(BONUS_OBJECTS) $(LIBFT_BIN) $(BONUS_EXT_LIBS) -o $(BONUS_BIN_DIR)$(BONUS_NAME) -I$(BONUS_INC_DIR) -I$(LIBFT_INC)
 	@echo
 	@echo ----------------------------------------------------------------------
 
@@ -384,12 +404,12 @@ $(BONUS_BIN_DIR)$(BONUS_NAME): $(BONUS_OBJECTS) $(LIBFT_BIN)
 tester: $(BASE_BIN_DIR)$(TESTER_NAME)
 
 # Rule (pattern rule) to individually (no relink) compile TESTER objects
-$(TESTER_OBJECTS): $(OBJ_DIR)%.o: $(TEST_DIR)%.c $(INCLUDES)
+$(TESTER_OBJECTS): $(OBJ_DIR)%.o: $(TESTER_DIR)%.c $(TESTER_INCLUDES)
 	@echo ----------------------------------------------------------------------
 	@echo
 	@echo "              --- ${PURPLE}Compiling tester objects to ${BPURPLE}$(OBJ_DIR)*.o${NC} ---"
 	mkdir -p $(@D)
-	$(CC) $(CC_FLAGS) $(DEB_FLAGS) -c $< -o $@ -I$(TESTER_INCLUDES_DIR) -I$(LIBFT_INC)
+	$(CC) $(CC_FLAGS) $(DEB_FLAGS) -c $< -o $@ -I$(TESTER_INC_DIR) -I$(LIBFT_INC)
 	@echo
 	@echo ----------------------------------------------------------------------
 
@@ -399,7 +419,7 @@ $(BASE_BIN_DIR)$(TESTER_NAME): $(TESTER_OBJECTS) $(LIBFT_BIN)
 	@echo
 	@echo "          --- ${PURPLE}Linking the tester program to ${BPURPLE}$(BIN_DIR)$(TESTER_NAME)${NC} ---"
 	mkdir -p $(@D)
-	$(CC) $(CC_FLAGS) $(DEB_FLAGS) $(TESTER_OBJECTS) $(LIBFT_BIN) $(EXT_LIBS) -o $(BASE_BIN_DIR)$(TESTER_NAME) -I$(INC_DIR) -I$(LIBFT_INC)
+	$(CC) $(CC_FLAGS) $(DEB_FLAGS) $(TESTER_OBJECTS) $(LIBFT_BIN) $(TESTER_EXT_LIBS) -o $(BASE_BIN_DIR)$(TESTER_NAME) -I$(TESTER_INC_DIR) -I$(LIBFT_INC)
 	@echo
 	@echo ----------------------------------------------------------------------
 
