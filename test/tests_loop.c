@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 10:20:12 by lluque            #+#    #+#             */
-/*   Updated: 2024/08/11 19:29:25 by lluque           ###   ########.fr       */
+/*   Updated: 2024/08/13 18:06:45 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ static int	execute_test(t_test *t)
 	if (!execute_ch(t))
 		return (ft_putendl_fd("Error! checker says ERROR or KO",
 				STDERR_FILENO), 0);
-	// CHECK HERE FOR OK 
 	t->ok_acc++;
 	t->inst_num = get_lines_nbr_in_file(t->current_instructions_file);
 	update_tests_stats(t);

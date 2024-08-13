@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 10:03:11 by lluque            #+#    #+#             */
-/*   Updated: 2024/08/13 17:09:04 by lluque           ###   ########.fr       */
+/*   Updated: 2024/08/13 18:11:21 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,6 @@ static void	set_current_avg_pos_when_sorted(t_ps_stacks *ps)
 	else
 		ret_val = temp;
 	ps->avg_pos_when_sorted = ret_val;
-	if (MAKE_DEBUG_LVL)
-	{
-		ft_printf("[pre_sort: set_current_avg_pos_when_sorted] avg = %d",
-				ret_val);
-		ft_printf(" Press enter to continue...\n");
-		read(0, (char *)&temp, 1);
-	}
 }
 
 static void	account_for_pushed(t_ps_stacks *ps, int *i)
@@ -52,13 +45,12 @@ static void	account_for_pushed(t_ps_stacks *ps, int *i)
 	*i = *i + 1;
 }
 
-static void loop_block_watchdog(t_ps_stacks *ps, int must_go)
+static void	loop_block_watchdog(t_ps_stacks *ps, int must_go)
 {
 	int			pushable_elements;
 	int			stack_a_size;
 	int			i;
 	t_dlclst	*current_node;
-	char		temp;
 
 	pushable_elements = 0;
 	stack_a_size = ft_dlclst_size(ps->a);
@@ -71,31 +63,20 @@ static void loop_block_watchdog(t_ps_stacks *ps, int must_go)
 			pushable_elements++;
 		current_node = current_node->next;
 	}
-	if (MAKE_DEBUG_LVL)
-		ft_printf("[pre_sort: loop_block_watchdog] ps->left_to_pre_sort  pushable_elements = %d  %d\n", ps->left_to_pre_sort, pushable_elements);
 	if (must_go > pushable_elements)
 	{
 		ps->avg_pos_when_sorted++;
 		if (MAKE_DEBUG_LVL)
-		{
-			ft_printf("[pre_sort: loop_block_watchdog] avg decreased to = %d\n",
-					ps->avg_pos_when_sorted);
-			ft_printf(" Press enter to continue...\n");
-			read(0, (char *)&temp, 1);
-		}
+			ft_printf("[pre_sort: loop_block_watchdog] avg increased\n");
 	}
 }
 
-// Added a watchdog:
-// If ps->left_to_pre_sort is greater than the number of elements that matches
-// the < ps->avg_pos_when_sorted criteria, then lower the criteria.
-static void	loop_block(t_ps_stacks *ps, int block_size)
+// Sorry for the sloppy counter declaration, 42 norm limitations and
+// too little patience at this point...
+static void	loop_block(t_ps_stacks *ps, int block_size, int i)
 {
-	int			i;
-
-	i = 0;
 	while (i < block_size)
-	{	
+	{
 		loop_block_watchdog(ps, block_size - i);
 		if (get_pos_when_sorted(top(A, ps)) < ps->avg_pos_when_sorted)
 		{
@@ -136,7 +117,7 @@ void	pre_sort(t_ps_stacks *ps)
 			ft_printf("block_size = %d; ", block_size);
 			ft_printf("ps->left_to_pre_sort = %d\n", ps->left_to_pre_sort);
 		}
-		loop_block(ps, block_size);
+		loop_block(ps, block_size, 0);
 	}
 	sort_stack_a_last_three(ps);
 	if (MAKE_DEBUG_LVL)
