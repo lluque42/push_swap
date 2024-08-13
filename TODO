@@ -1,0 +1,122 @@
+********************************************************************************
+************************ NEXT COMMIT DESCRIPTION *******************************
+********************************************************************************
+
+
+********************************************************************************
+********************************************************************************
+********************************************************************************
+
+
+
+********************************************************************************
+******************************** TODO ******************************************
+********************************************************************************
+
++ In tester, check for ERROR or KO in both binary outputs.
++ WARNING: Turn in files Makefile, *.h, *.c
+	NO DIRECTORY TREE??? Only in ft_printf project:
+		Turn in files Makefile, *.h, */*.h, *.c, */*.c
+		NOT EVEN IN MINISHELL SAYS THAT!
+
+
+********************************************************************************
+********************************************************************************
+********************************************************************************
+
+
+
+
+
+
+********************************************************************************
+******************************** DONE ******************************************
+********************************************************************************
+
++ The argument dilemma:
+"Arguments stack a: A list of integers"
+"You have to write a program named push_swap that takes as an argument the stack
+a formatted as a list of integers. The first argument should be at the top of the
+stack (be careful about the order)."
+
++I noticed the arguments to ./push_swap from the command line could be either one
+(requiring ft_splitting them, because they come from an enviroment variable) or
+several (because they come from a direct user keyboard input when running the
+program). FIX THIS!	
+	+ Confirm, now I can't replicate what I (think I) saw at Campus with Serena?
+	and Matías.
+	+ WELL... AT LEAST THE PROVIDED ../checker_linux DOES ACCEPT A UNIQUE
+	ARGUMENT SO... MAY BE LET'S IMPLEMENT THAT SHIT
+	+ Confirmed it does not uses isspace but seems to only use a space as
+	separator
+
++ OBSOLETE Pending functions to implement:
+	+ From ps_sort()
+		>> costs_based_pushing() DONE!
+			>> set_costs_values() DONE!
+				>> get_target_pos() TODO!!!!
+			>> get_lowest_cost_element_pos() DONE!
+			>> rotate_before_pa() TODO!!!!!
+		>> rotate_until_sorted() TODO!!!!!!
+
+********************************************************************************
+"In case of error, you must display "Error" followed by a ’\n’ on the standard error. Errors include for example: some arguments are not integers, some arguments
+are bigger than an integer, there are duplicates, an instruction doesn’t exist and/or
+is incorrectly formatted."
+
+********************************************************************************
+
++ OBSOLETE Pending functions to implement:
+	+ From ps_sort()
+		>> costs_based_pushing() DONE!
+			>> set_costs_values() DONE!
+				>> get_target_pos() TODO!!!!
+			>> get_lowest_cost_element_pos() DONE!
+			>> rotate_before_pa() TODO!!!!!
+		>> rotate_until_sorted() TODO!!!!!!
+
+********************************************************************************
++ Some random number sets were detected to crash push_swap, see the files
+WEIRD_SET_*.
+	+ I'm trying to figure out what's going on by running the program with 
+	MAKE_DEBUG_LVL=1 over the weird sets:
+		+ With WEIRD_SET_1, in the pre-sort stage, it falls in an infinite loop
+		rotating with ra() the last 4 elements in stack A after pb()ing 88:
+
+1638571125           88
+2081881857           98
+2002111723           96
+2146916767           99
+2043838189           97
+
+At this point the criteria to push to b is < 95:
+[pre_sort: set_current_avg_pos_when_sorted] 95
+[pre_sort] avg_pos_when_sorted = 95; block_size = 2; ps->left_to_pre_sort = 2
+This is the problem, there is not a single element < 95 !!!!!!!!!!!!!
+The floating point value of the average is actually 95,6
+Fixed, I was calculating the modulo on the already divided ret_val.
+This fixed:
+WEIRD_SET_1
+WEIRD_SET_3
+WEIRD_SET_5
+But not 
+WEIRD_SET_2
+WEIRD_SET_4 (this was false positive, it was actually a tester error)
+Eventually, a watchdog function was added to check for the condition in which
+none of the elements left in stack A matches the < avg_pos_when_sorted criteria
+(thus provoking an infinite loop) and just decrements by one avg_pos_when_sorted
+
+********************************************************************************
++ Every error message to stderr.
++ Test if any argv is ""
++ Test for 0 value (atoi returns 0 in other cases additionally to "0").
++ Test for out of range integers
+********************************************************************************
+
+
++ Implement exception when less than 3 elements.
++ Remove the redundant printing to stdout when calling ss, rr, rrr.
+
+********************************************************************************
+********************************************************************************
+********************************************************************************
