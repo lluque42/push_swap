@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 20:27:22 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/27 12:22:47 by lluque           ###   ########.fr       */
+/*   Updated: 2024/08/13 13:44:52 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ void	exit_on_error(t_ps_stacks *ps);
  *
  * @details Parses and validates command line arguments and pushes valid
  * integers into stack a. If one argument is invalid the function
- * exit_on_error() is called.
+ * exit_on_error() is called.  
+ * It parses argv as either a single argument with space separated integers or
+ * several independent integer argument.
  * 
  * @param [in] ps - The pointer to t_ps_stacks data structure.
  *
