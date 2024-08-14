@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 21:31:09 by lluque            #+#    #+#             */
-/*   Updated: 2024/08/08 21:44:25 by lluque           ###   ########.fr       */
+/*   Updated: 2024/08/15 00:29:09 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	main(int argc, char **argv)
 	parse_arguments(ps, argc, argv);
 	if (MAKE_DEBUG_LVL)
 		print_stacks(ps);
+	if (is_sorted(ps->a, ASCENDING))
+		return (free_ps(&ps), EXIT_SUCCESS);
 	if (!ps_sort(ps))
 		ft_putendl_fd("push_swap: error while sorting", STDERR_FILENO);
 	free_ps(&ps);
